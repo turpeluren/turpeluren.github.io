@@ -1,0 +1,29 @@
+.frame {
+    margin: 0 auto;
+    padding: 2em;
+    width: 800px;
+    background-color: darkgray;
+}
+
+.factorRow {
+    display: block;
+    padding-bottom: 2em;
+}
+
+.factorMiddle {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.factorMiddle hr {
+    border: 2px solid black;
+    transform: translateY(0.6em);
+}
+
+.factorLeft {
+    float: left;
+}
+
+.factorRight {
+    float: right;
+}
