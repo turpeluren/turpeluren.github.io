@@ -13,6 +13,12 @@
 /*#ded6cc;*/            /*beige*/
 /*rgb(48, 43, 39)*/     /*brown*/
 
+p {
+    user-select: text;
+}
+img {
+    user-select: all;
+}
 
 body.home {
     background-image: url('../img/xp_bg.jpg');
@@ -112,7 +118,7 @@ h1:hover {
     border-radius: 30px;
 }
 
-/*HOME*/
+/*HOME      HOME        HOME        HOME        HOME        HOME        HOME        HOME*/
 .logoContainer {
     margin: 200px auto 20px;
     width: 200px;
@@ -121,6 +127,12 @@ h1:hover {
 .logoContainer img {
     max-width: 100%;
     max-height: 100%;
+    transition-duration: 6s;
+}
+.logoContainer img:hover {
+    /*mix-blend-mode: color-dodge;*/
+    transform: rotate(1360deg);
+    filter: brightness(90%);
 }
 
 .turpelurpeluren{
@@ -185,6 +197,21 @@ h1:hover {
     to {background-position-y: top; }/*-25vh;}*/
 }
 /*HOME END*/
+
+/*NAVBAR    NAVBAR      NAVBAR      NAVBAR      NAVBAR      NAVBAR      NAVBAR      NAVBAR*/
+.logoTopLeft img {
+    height: 2em; 
+    position: absolute;
+    transition-duration: 0.6s;
+}
+.logoTopLeft img:hover {
+    /*mix-blend-mode:overlay;*/
+    opacity: 0.5;
+    transform: rotate(360deg);
+}
+.logoTopLeft::after {  /*space after logo*/
+    content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0";
+}
 
 .navbar,
 .navbar2 {
@@ -261,8 +288,8 @@ h1:hover {
     /*text-shadow: 0 1px 3px black;*/
 }
 .hometop {
-    padding-top: 5em;
-    padding-bottom: 1em;
+    /*padding-top: 5em;*/
+    /*padding-bottom: 1em;*/
 }
 
 .sidemargin {
