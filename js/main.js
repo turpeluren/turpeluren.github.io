@@ -34,9 +34,38 @@
 
     var sPath = window.location.pathname;
     var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
-    if (sPage = 'factors.html') {
+    /*if (sPage = 'factors.html') {
         showFactors();
+    }*/
+
+
+    //Home Scroll (menu scrolls up at beginning)
+    console.log(sPage);
+    if (sPage === 'home.html') {
+        console.log(document.getElementsByClassName('homeScroll')[0]);
+        //document.getElementsByClassName('homeScroll')[0].style.height = '0px'; //set homescroll height to 0, it animates automaticly
     }
+
+
+    window.onscroll = function() {scrollBackground()};
+
+    function scrollBackground() {
+        console.log(document.documentElement.scrollTop);
+        const bg = document.getElementsByClassName('background')[0];
+        bg.style.top = '-'+String(document.documentElement.scrollTop/4)+'px';
+
+        if (document.documentElement.scrollTop > window.innerHeight*1.9) {
+            //get up the footer
+            const footer = document.getElementsByClassName('footer')[0]
+            document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight-footer.clientHeight)+'px';
+            document.getElementsByClassName('homeFooterScroll')[0].style.display = block;
+        } else {
+            document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight)+'px';
+            document.getElementsByClassName('homeFooterScroll')[0].style.display = none;
+        }
+    }
+
+
 
     (function () {
         /*window.resizeTo(300, 300);*/
@@ -56,7 +85,7 @@
 })();
 
 
-function showFactors() {
+/*function showFactors() {
     'use strict';
 
     console.log('factors');
@@ -69,7 +98,7 @@ function showFactors() {
         [.2, .6, .3],
         [.9, .75, .5],
         [.6, .5, .2]
-    ];*/
+    ];
 
     const frame = document.getElementsByClassName('frame')[0];
     console.log(frame);
@@ -93,4 +122,4 @@ function showFactors() {
     const slider = document.createElement('hr');
     factorMiddle.appendChild(slider);
 
-}
+}*/

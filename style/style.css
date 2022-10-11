@@ -11,6 +11,7 @@
 
 /*rgb(144, 169, 207)*/  /*blue*/
 /*#ded6cc;*/            /*beige*/
+/*rgb(48, 43, 39)*/     /*brown*/
 
 
 body.home {
@@ -39,10 +40,11 @@ body.blog {
     z-index: -2;
 
     position: fixed;
-    top: -1%;
-    left: -1%;
-    height: 102%;
-    min-width: 102%;
+    top: 0;
+    left: 0;
+    min-height: 200%;
+    min-width: 100%;
+
 }
 
 .works {
@@ -53,8 +55,14 @@ body.blog {
 }
 .home {
     background-image: url('../img/belupien_upscaled.jpg');
-    background-position: center center;
+    background-position: center top;
     /*background-position: center top;*/
+    /*animation-name: scrollAnimBg;
+    animation-duration: 0.8s;
+    animation-delay: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    margin-bottom: 100px;*/
 }
 .blog {
     background-image: url('../img/portfolio/sculpture/body_blur.jpg');
@@ -158,17 +166,23 @@ h1:hover {
 .homeScroll { /*making the menu scroll up*/
     height: 100vh;
     display: block;
-    transition-duration: 1s;
-    transition-delay: 1s;
     animation-name: scrollAnim;
     animation-duration: 0.8s;
     animation-delay: 1.5s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
 }
+.homeFooterScroll {
+    height: 200vh; /*calc(200vh - 730px);*/
+    transition-duration: 0.5s;
+}
 @keyframes scrollAnim {
     from {height: 100vh;}
     to {height: 0vh;}
+}
+@keyframes scrollAnimBg {
+    from {background-position-y: top;}
+    to {background-position-y: top; }/*-25vh;}*/
 }
 /*HOME END*/
 
