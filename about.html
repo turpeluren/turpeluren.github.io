@@ -6,13 +6,17 @@
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
-    <div class="topnav nav hometop">
+    <div class="topnav nav">
+        
+        <button class="portfoliocollapse"><p>&#9776</p></button>
         <!-- "logo" -->
         <a class="logoTopLeft" href="home.html"><img src="img/logoCreamSmall.png"></a>
 
-        <a href="blog.html">blog</a>
-        <a href="works.html">works.</a>
-        <a style="text-decoration: underline;" href="about.html">about</a>
+        <div class="topnavLinks">
+            <a href="blog.html">blog</a>
+            <a href="works.html">works.</a>
+            <a style="text-decoration: underline;" href="about.html">about</a>
+        </div>
 
         <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='img/icons/bigcartel-icon.png'></a></div>
         <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='img/icons/youtube-logo.png'></a></div>
@@ -21,12 +25,18 @@
         <br>
         <br>
     </div>
+    
+    
+    <div class="sidebar"></div>
 
+    
+    <div class="spacer"><p style="transform: translateY(-2em); text-indent: -2em; white-space: nowrap; overflow-x: hidden;">
+    </p></div> <!--extra space because no margin on mobile-->
 
-    <!--div class="background home"></div-->
    
     <div class="logoContainer" 
-    style="margin: 100px auto 20px;" ><img src="img/logoCream.png"></div>
+    style="margin: 50px auto 20px;" ><img src="img/logoCream.png"></div>
+
 
     <div style="margin: 0 auto; text-align: center;">    <div class="turpelurpeluren">turpelurpeluren</div></div>
     
@@ -82,5 +92,6 @@
         <p>2022</p>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

@@ -8,27 +8,32 @@
 <body class="article">
     <!-- TOP NAV -->
     <div class="background"></div>
-    <div class="" style="background: 55% 35% / 130% no-repeat url('../img/portfolio/project_table/table_skull.JPG');">
+    <!--div class="" style="background: 55% 35% / 130% no-repeat url('../img/portfolio/project_table/table_skull.JPG');"-->
+    <!-- Websitewide navbar -->
+    <div class="topnav nav" style="background: 55% 35% / 130% no-repeat url('../img/portfolio/project_table/table_skull.JPG');">
+            
+        <button class="portfoliocollapse" style="background: none;"><p>&#9776</p></button>
+        <!-- "logo" -->
+        <a class="logoTopLeft" href="../home.html"><img src="../img/logoCreamSmall.png"></a>
 
-        <h1><a style="background: none;" href="../home.html">Ture <sup>://turpelurpeluren://</sup> Goldkuhl</a></h1>
-        <br>
-        <br>
-        <div class="topnav nav" style="background: none;">
-            <a style="font-size: larger; margin-right: 2em; color: rgb(201, 236, 228);" href="../home.html">T.<sup><sup><sub>://trplrplrn://</sub></sup></sup>G.</a>
-
-            <a href="../home.html">home</a>
+        <div class="topnavLinks">
             <a href="../blog.html">blog</a>
-            <a style="text-decoration: underline;" href="../works.html">works.</a>
-
-            <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='../img/icons/bigcartel-icon.png'></a></div>
-            <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='../img/icons/youtube-logo.png'></a></div>
-            <div class="icon right horizontal"><a href="https://www.instagram.com/turpelurpeluren/"><img src='../img/icons/instagram-icon.png'></a></div>
-            <br>
-            <br>
-            <!--hr color="black"-->
+            <a href="../works.html">works.</a>
+            <a href="../about.html">about</a>
         </div>
+
+        <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='../img/icons/bigcartel-icon.png'></a></div>
+        <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='../img/icons/youtube-logo.png'></a></div>
+        <div class="icon right horizontal"><a href="https://www.instagram.com/turpelurpeluren/"><img src='../img/icons/instagram-icon.png'></a></div>
+        <br>
+        <br>
+        <br>
     </div>
-    <!-- TOP NAV -->
+    
+    <div class="sidebar"></div>
+
+    <div class="spacer"><p style="transform: translateY(-2em); text-indent: -2em; white-space: nowrap; overflow-x: hidden;">
+    </p></div> <!--extra space because no margin on mobile-->
 
     <div class="lightboxBackground hidden"></div>
     <div class="lightbox hidden" id="lightbox"></div>
@@ -194,5 +199,6 @@
     </div>
     <script src="../js/main.js"></script>
     <script src="../js/works.js"></script>
+    <script src="../js/sidebar.js"></script>
 </body>
 </html>

@@ -448,6 +448,7 @@ h1:hover {
 
         position: fixed;
         width: 100%;
+        top: 0;
         /*padding: 2em calc(4% + 24px) 0 0;*/
     }
     .logoTopLeft img {
