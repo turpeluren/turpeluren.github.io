@@ -8,12 +8,16 @@
 <body>
     <!-- Websitewide navbar -->
     <div class="topnav nav">
+        
+        <button class="portfoliocollapse"><p>&#9776</p></button>
         <!-- "logo" -->
         <a class="logoTopLeft" href="home.html"><img src="img/logoCreamSmall.png"></a>
 
-        <a href="blog.html">blog</a>
-        <a style="text-decoration: underline;" href="works.html">works.</a>
-        <a href="about.html">about</a>
+        <div class="topnavLinks">
+            <a href="blog.html">blog</a>
+            <a style="text-decoration: underline;" href="works.html">works.</a>
+            <a href="about.html">about</a>
+        </div>
 
         <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='img/icons/bigcartel-icon.png'></a></div>
         <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='img/icons/youtube-logo.png'></a></div>
@@ -21,6 +25,15 @@
         <br>
         <br>
         <br>
+    </div>
+
+    <div class="sidebar">
+        <a href="paintings.html">paintings</a>
+        <a href="sculpture.html">sculpture.</a> 
+        <a href="drawings.html">drawings</a>
+        <a style="text-decoration: underline;" href="digital.html">digital</a>
+        <a href="miscellaneous.html">misc</a>
+        <a href="videos.html">videos</a>
     </div>
 
     <!-- br></br-->
@@ -43,38 +56,32 @@
     <br>
     </div>
 
-    <div class="grid" id="keramik">
-        <div class="row">
+    <div class="spacer"><p style="transform: translateY(-2em); text-indent: -2em; white-space: nowrap; overflow-x: hidden;">Digital Digital Digital Digital Digital Digital Digital Digital Digital Digital Digital Digital 
+    </p></div> <!--extra space because no margin on mobile-->
 
-            <div class="column">
-                <img src="img/portfolio/digital/godess_bg.jpg" alt="The Godess of Lofi & Chill">
-                <img src="img/portfolio/digital/akvareller.png" alt="Affisch för min mormor (Sonia Goldkuhl) med vänners akvarellutställning">
-                <img src="img/portfolio/digital/bifurkation.png" alt="En cool graf">
-                <img src="img/portfolio/digital/Enemy poster.png" alt="Utklippta och inskannade kartongbitar">
-                <img src="empty2" alt="">
-            </div>
-            <div class="column">
-                <img src="img/portfolio/digital/buddha_gif.gif" alt="Bara står och tittar på min lille buddha-ljusstake.">
-                <img src="img/portfolio/digital/shaman.jpg" alt="Ritual">
-                <img src="img/portfolio/digital/isometric island 1.png" alt="Gammalt isometriskt blender-projekt">
-                <img src="img/portfolio/digital/drifting gif.gif" alt="Nåt fraktalt">
-                <img src="empty1" alt="">
-            </div>
-            <div class="column">
-                <img src="img/portfolio/digital/source and dance.png" alt='"source and dance"'>
-                <img src="img/portfolio/digital/pattern2.png" alt="Tesselering">
-                <img src="img/portfolio/digital/fisheye_both.jpg" alt="Enskilda bilder photoshoppade till fisheye.">
-                <img src="img/portfolio/digital/2001 stargate v4.png" alt="2001-inspirerad T-shirt design (tröjans färg ger färg åt astronauten)">
-                <img src="empty" alt="">
-            </div>
-            <div class="column">
-                <img src="img/portfolio/digital/I am the product.JPG" alt='"I am the product"'>
-                <img src="img/portfolio/digital/CoinHunt thumb.png" alt="Banner till CoinHunt, ett spel jag gjort">
-                <img src="img/portfolio/digital/svärdsfight.gif" alt="Gammal Flash-animation">
-                <img src="img/portfolio/digital/fraktalcirkel gif.gif" alt="fraktalcirklar">
-                <img src="img/portfolio/digital/red-apple-logo-2.png" alt="Ritat om Red Apple Cigarettes för den fanns inte online i high-res">
-            </div>
-        </div>
+    <div class="grid" id="keramik">
+
+            <img src="img/portfolio/digital/godess_bg.jpg" alt="The Godess of Lofi & Chill">
+            <img src="img/portfolio/digital/akvareller.png" alt="Affisch för min mormor (Sonia Goldkuhl) med vänners akvarellutställning">
+            <img src="img/portfolio/digital/bifurkation.png" alt="En cool graf">
+            <img src="img/portfolio/digital/Enemy poster.png" alt="Utklippta och inskannade kartongbitar">
+            
+            <img src="img/portfolio/digital/buddha_gif.gif" alt="Bara står och tittar på min lille buddha-ljusstake.">
+            <img src="img/portfolio/digital/shaman.jpg" alt="Ritual">
+            <img src="img/portfolio/digital/isometric island 1.png" alt="Gammalt isometriskt blender-projekt">
+            <img src="img/portfolio/digital/drifting gif.gif" alt="Nåt fraktalt">
+            
+            <img src="img/portfolio/digital/source and dance.png" alt='"source and dance"'>
+            <img src="img/portfolio/digital/pattern2.png" alt="Tesselering">
+            <img src="img/portfolio/digital/fisheye_both.jpg" alt="Enskilda bilder photoshoppade till fisheye.">
+            <img src="img/portfolio/digital/2001 stargate v4.png" alt="2001-inspirerad T-shirt design (tröjans färg ger färg åt astronauten)">
+            
+            <img src="img/portfolio/digital/I am the product.JPG" alt='"I am the product"'>
+            <img src="img/portfolio/digital/CoinHunt thumb.png" alt="Banner till CoinHunt, ett spel jag gjort">
+            <img src="img/portfolio/digital/svärdsfight.gif" alt="Gammal Flash-animation">
+            <img src="img/portfolio/digital/fraktalcirkel gif.gif" alt="fraktalcirklar">
+            <img src="img/portfolio/digital/red-apple-logo-2.png" alt="Ritat om Red Apple Cigarettes för den fanns inte online i high-res">
+        
     </div>
 
 
@@ -91,5 +98,6 @@
     </div>
     <script src="js/main.js"></script>
     <script src="js/works.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

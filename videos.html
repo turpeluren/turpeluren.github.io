@@ -8,12 +8,16 @@
 <body>
     <!-- Websitewide navbar -->
     <div class="topnav nav">
+        
+        <button class="portfoliocollapse"><p>&#9776</p></button>
         <!-- "logo" -->
         <a class="logoTopLeft" href="home.html"><img src="img/logoCreamSmall.png"></a>
 
-        <a href="blog.html">blog</a>
-        <a style="text-decoration: underline;" href="works.html">works.</a>
-        <a href="about.html">about</a>
+        <div class="topnavLinks">
+            <a href="blog.html">blog</a>
+            <a style="text-decoration: underline;" href="works.html">works.</a>
+            <a href="about.html">about</a>
+        </div>
 
         <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='img/icons/bigcartel-icon.png'></a></div>
         <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='img/icons/youtube-logo.png'></a></div>
@@ -23,6 +27,15 @@
         <br>
     </div>
     <!-- br></br-->
+
+    <div class="sidebar">
+        <a href="paintings.html">paintings</a>
+        <a href="sculpture.html">sculpture.</a> 
+        <a href="drawings.html">drawings</a>
+        <a href="digital.html">digital</a>
+        <a href="miscellaneous.html">misc</a>
+        <a style="text-decoration: underline;" href="videos.html">videos</a>
+    </div>
 
     <!-- Works categories navigation -->
     <div class="block nav portfolionavbar">
@@ -37,14 +50,16 @@
     <br>
     </div>
 
-    <p style="text-align: center;">A selection of my finest video work</p>
+    <div class="spacer"><p style="transform: translateY(-2em); text-indent: -2em; white-space: nowrap; overflow-x: hidden;">Videos Videos Videos Videos Videos Videos Videos Videos Videos Videos Videos Videos 
+    </p></div> <!--extra space because no margin on mobile-->
+
+    <p style="text-align: center; margin-bottom: 1.5em;">A selection of my finest video work.<br>For best effect, play everything at once. (not mobile)</p>
+
 
     <div style="text-align: center;" class='grid'>
         <div class="row">
             <div class="column">
-                <h4>STOP-MOTION</h4>
-                <hr>
-                <br>
+                <p>Stop-motion</p>
 
                 <iframe src="https://www.youtube.com/embed/ohFETCgFfSI" allowfullscreen="true">
                 </iframe>
@@ -52,25 +67,23 @@
                 <iframe src="https://www.youtube.com/embed/oaFn9slthwU" allowfullscreen="true">
                 </iframe>
                 
-                <br>
-                <br>
-                <br>
+            <hr>
+            </div>
+            <div class="column">
 
-                <h4>COINHUNT TRAILER</h4>
+                <p>Coinhunt game trailer</p>
                 <a href="https://gamejolt.com/games/coinhunt/120428">DOWNLOAD THE GAME ON GAMEJOLT</a>
-                <hr>
-                <br>
+              
 
                 <iframe src="https://www.youtube.com/embed/kf-2TEzUZJA" allowfullscreen="true">
                 </iframe>
 
+            <hr>
             </div>
             
-            <hr>
             <div class="column">
 
-                <h4>COOKING/CHILLING</h4>
-                <hr>
+                <p>Cooking/Chilling</p>
                 <br>
 
                 <iframe src="https://www.youtube.com/embed/XAu-4Edx5J0" allowfullscreen="true">
@@ -99,5 +112,6 @@
         <p>2022</p>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

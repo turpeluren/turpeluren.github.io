@@ -8,12 +8,16 @@
 <body>
     <!-- Websitewide navbar -->
     <div class="topnav nav">
+        
+        <button class="portfoliocollapse"><p>&#9776</p></button>
         <!-- "logo" -->
         <a class="logoTopLeft" href="home.html"><img src="img/logoCreamSmall.png"></a>
 
-        <a href="blog.html">blog</a>
-        <a style="text-decoration: underline;" href="works.html">works.</a>
-        <a href="about.html">about</a>
+        <div class="topnavLinks">
+            <a href="blog.html">blog</a>
+            <a style="text-decoration: underline;" href="works.html">works.</a>
+            <a href="about.html">about</a>
+        </div>
 
         <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='img/icons/bigcartel-icon.png'></a></div>
         <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='img/icons/youtube-logo.png'></a></div>
@@ -21,6 +25,15 @@
         <br>
         <br>
         <br>
+    </div>
+
+    <div class="sidebar">
+        <a style="text-decoration: underline;" href="paintings.html">paintings</a>
+        <a href="sculpture.html">sculpture.</a> 
+        <a href="drawings.html">drawings</a>
+        <a href="digital.html">digital</a>
+        <a href="miscellaneous.html">misc</a>
+        <a href="videos.html">videos</a>
     </div>
 
     <!-- br></br-->
@@ -42,7 +55,9 @@
     <br>
     <br>
     </div>
+
     
+    <div class="spacer"><img></div> <!--extra space because no margin on mobile-->
 
     <p class="sidemargin" style="text-decoration: underline;"></p>
 
@@ -76,5 +91,6 @@
     </div>
     <script src="js/main.js"></script>
     <script src="js/works.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

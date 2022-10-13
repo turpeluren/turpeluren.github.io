@@ -50,18 +50,20 @@
     window.onscroll = function() {scrollBackground()};
 
     function scrollBackground() {
-        console.log(document.documentElement.scrollTop);
-        const bg = document.getElementsByClassName('background')[0];
-        bg.style.top = '-'+String(document.documentElement.scrollTop/4)+'px';
+            if (sPage === 'home.html') {
+            console.log(document.documentElement.scrollTop);
+            const bg = document.getElementsByClassName('background')[0];
+            bg.style.top = '-'+String(document.documentElement.scrollTop/8)+'px';
 
-        if (document.documentElement.scrollTop > window.innerHeight*1.9) {
-            //get up the footer
-            const footer = document.getElementsByClassName('footer')[0]
-            document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight-footer.clientHeight)+'px';
-            document.getElementsByClassName('homeFooterScroll')[0].style.display = block;
-        } else {
-            document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight)+'px';
-            document.getElementsByClassName('homeFooterScroll')[0].style.display = none;
+            if (document.documentElement.scrollTop > window.innerHeight*1.9) {
+                //get up the footer
+                const footer = document.getElementsByClassName('footer')[0]
+                document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight-footer.clientHeight)+'px';
+                document.getElementsByClassName('homeFooterScroll')[0].style.display = block;
+            } else {
+                document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight)+'px';
+                document.getElementsByClassName('homeFooterScroll')[0].style.display = none;
+            }
         }
     }
 

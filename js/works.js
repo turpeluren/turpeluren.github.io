@@ -11,8 +11,7 @@
     const cross = document.getElementsByClassName('lightboxCross')[0];
     const columns = document.getElementsByClassName('column');
     const grid = document.getElementsByClassName('grid')[0];
-    const portfoliocollapse = document.getElementsByClassName('portfoliocollapse')[0];
-    const portfolionav = document.getElementsByClassName('portfolionavbar')[0];
+    
 
     const spook = document.getElementsByClassName('spook')[0];
     
@@ -31,31 +30,7 @@
     }
     squareImages();
 
-    //Portfolio navbar collapsable button (mobile) 
-    portfoliocollapse.addEventListener('click', function() {expandPortfolioNav()});
-
-    function expandPortfolioNav() {
-        portfoliocollapse.classList.toggle('active');
-        if (portfoliocollapse.classList.contains('active')) {
-            portfoliocollapse.innerHTML = '&#9932';
-        } else {
-            portfoliocollapse.innerHTML = '&#9776';
-        }
-        /*portfoliocollapse.innerHTML = 'x';*/
-        var links = portfolionav.children[1]; //links
-        /*if (links.style.maxHeight === '100px') {
-            links.style.maxHeight = '0px';
-        } else {
-            links.style.maxHeight = '100px';
-        } */
-        if (links.style.height){
-            links.style.height = null;
-            links.style.padding = null;
-        } else {
-            links.style.height = links.scrollHeight*2 + "px";
-            links.style.padding = '20px 0';
-        }
-    }
+    
 
     //Image hover
     for (var i = 0; i < images.length; i++) {

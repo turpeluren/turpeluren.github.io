@@ -9,20 +9,16 @@
     <div class="background blog"></div>
     <!-- Websitewide navbar -->
     <div class="topnav nav hometop">
+
+        <button class="portfoliocollapse"><p>&#9776</p></button>
         <!-- "logo" -->
-        <!--a style="font-size: larger; margin-right: 2em; color: rgb(201, 236, 228);" href="home.html">
-            <img style="height: 2em; position: absolute" src="img/logoCreamSmall.png">
-            &nbsp; &nbsp; &nbsp;
-        </a-->
+        <a class="logoTopLeft" href="home.html"><img src="img/logoCreamSmall.png"></a>
 
-        <a class="logoTopLeft" href = "home.html">
-            <img src="img/logoCreamSmall.png">
-        </a>
-
-
-        <a style="text-decoration: underline;" href="blog.html">blog</a>
-        <a href="works.html">works.</a>
-        <a href="about.html">about</a>
+        <div class="topnavLinks">
+            <a style="text-decoration: underline;" href="blog.html">blog</a>
+            <a href="works.html">works.</a>
+            <a href="about.html">about</a>
+        </div>
 
         <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='img/icons/bigcartel-icon.png'></a></div>
         <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='img/icons/youtube-logo.png'></a></div>
@@ -32,8 +28,29 @@
         <br>
     </div>
 
+    <div class="sidebar">
+        <div class="about">
+            <!--p>About me</p>
+            <p>This is a gif of me during 2 years.</p-->
+            <img src="img/Hnet-image.gif">
+        </div>
+        
+        <div class="blogNav">
+            <p>Content:</p>
+            <br>
+            <nav>
+                <a href="blog.html#pheasant">Pheasant doc</a>
+                <a href="blog.html#table">Table doc</a>
+                <a href="blog.html#boundless">Boundless doc</a>
+                <a href="blog.html#post1">First post</a>
+            </nav>
+        </div>
+    </div>
+
+    
+
     <div class="blogContent">
-        <div class="blogNavBackground">
+        <!--div class="blogNavBackground">
 
             <div class="about">
                 <p style="font-size: large;">About me</p>
@@ -51,9 +68,10 @@
                     <a href="blog.html#post1">First post</a>
                 </nav>
             </div>
+        </div-->
 
-            
-        </div>
+        <div class="spacer"><p style="transform: translateY(-2em); text-indent: -2em; white-space: nowrap; overflow-x: hidden;">
+        </p></div> <!--extra space because no margin on mobile-->
 
         <a href='projects/project_pheasant.html'>
             <div class="blogPost" id="pheasant" style="background: 50% 15% / cover no-repeat url('img/portfolio/project_pheasant/hangd_sida.JPG'); color: white;">
@@ -135,5 +153,6 @@
         <p>2022</p>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

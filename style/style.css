@@ -7,6 +7,7 @@
     cursor: url('../img/cursors/pointer4.png'), auto;
     /*text-shadow: 2px 2px violet;*/
     user-select: none;
+    scroll-behavior: smooth
 }
 
 /*rgb(144, 169, 207)*/  /*blue*/
@@ -26,6 +27,9 @@ body.home {
 body.blog {
     /*background-image: url('../img/body_blur.jpg');*/
     background: center / 100% no-repeat url('../img/body_blur.jpg');
+}
+.body::after {
+    background-color: rgb(144, 169, 207);
 }
 /*body.works {
     /*background-image: url('../img/kanna.jpg');
@@ -213,7 +217,7 @@ h1:hover {
     content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0";
 }
 
-.navbar,
+/*.navbar,
 .navbar2 {
     text-align: center;
     display: block;
@@ -226,16 +230,16 @@ h1:hover {
     transition: padding 1s;
     background-image: url('../img/xp_bg.jpg');
     font-size: 1.3em;
-}
-
+}*/
+/*
 .works a{
-    /*background-image: url('../img/kanna.jpg');*/
+    /*background-image: url('../img/kanna.jpg');
     background: right / 500px no-repeat url('../img/portfolio/sculpture/PLAY.jpg');
 }
 .blog a{
-    /*background-image: url('../img/body_blur.jpg');*/
+    /*background-image: url('../img/body_blur.jpg');
     background: top / 400px no-repeat url('../img/body_blur.jpg');
-}
+}*/
 .topnav {
     text-align: left;
     display: block;
@@ -243,6 +247,8 @@ h1:hover {
     padding: 2em calc(4% + 24px) 0 calc(4% + 24px);
 
     background-color: rgb(48, 43, 39);
+
+    z-index: 2;
 }
 .nav a {
     /*Common for topnav and portfolionav*/
@@ -255,7 +261,7 @@ h1:hover {
 
     transition-duration: 0.1s;
 }
-.nav a:hover, .portfoliocollapse:hover {
+.nav a:hover, .portfoliocollapse:hover, .sidebar a:hover {
     /*Common for topnav and portfolionav*/
     /*text-decoration: none;*/
     text-shadow: 0 1px, 0 2px, 0 3px, 0 4px, 0 5px, 0 6px, 
@@ -283,14 +289,10 @@ h1:hover {
 .portfolionavbar a {
     color: black;
 }
-.portfolionavbar a:hover {
-    /*color: rgb(255, 255, 255);*/
-    /*text-shadow: 0 1px 3px black;*/
+.topnavLinks {
+    display: inline;
 }
-.hometop {
-    /*padding-top: 5em;*/
-    /*padding-bottom: 1em;*/
-}
+
 
 .sidemargin {
     padding: 0 calc(4% + 24px) 0 calc(4% + 24px);
@@ -300,21 +302,30 @@ h1:hover {
     display: none;
     margin: 0 0 0 0;
     /*position: absolute;*/
-    right: 0;
+    left: 0;
     cursor: pointer;
-    /*padding: .7em .9em;*/
-    width: 3em;
-    height: 3em;
-    font-size: xx-large;
+    width: 2.5em;
+    height: 2.5em;
+    font-size: 64px;
     color: white;
     border: none;
     transition-duration: 0.1s;
+    z-index: 5;
 
 
     background-color: rgb(32, 26, 22);
 }
-.portfoliocollapse::after{
-    /*content: '&#9776';*/
+.portfoliocollapse:hover{
+    /*outline: 3px solid white;
+    width: calc(5em - 6px);
+    height: calc(5em - 6px);
+    margin: 3px;*/
+    text-indent: -12px;
+
+    box-shadow: inset 0 0 0 3px white;
+}
+.portfoliocollapse:hover p{
+    transform: translateY(-12px);
 }
 .active::after {
     /*content: 'x-------------------------';*/
@@ -334,50 +345,11 @@ h1:hover {
     transition: height 0.2s ease-out;
     transition: padding 0.2s ease-out;
     background-color: rgb(250, 249, 248);
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .portfnavlinks a {
     margin-bottom: 20em;
 }
-
-@media only screen and (max-width: 1200px) {
-    .nav a {
-        font-weight: 600;
-        font-size: xx-large;
-    }
-    .portfoliocollapse {
-        display: inline;
-    }
-    .portfolionavbar {
-        /*transform: translateY(-4.5em);*/
-        padding: 0;
-        margin: 0 0 0 auto;
-        background-color: rgb(104, 93, 88);
-    }
-    .portfolionavbar .portfnavlinks {
-        /*display: none;*/
-        height: 0px;
-        padding: 0;
-        text-align: center;
-    }
-}
-@media only screen and (min-width: 1200px) {
-    .portfoliocollapse {
-        display: none;
-    }
-    .portfolionavbar .portfnavlinks {
-        /*display: block;*/
-        height: auto;
-    }
-}
-
-.engraved {
-    text-shadow: 0px -1px 0px #222, 0px 1px 0px #aaa, -1px 0px 0px #222, 1px 0px 0px #aaa;
-}
-.engraved:hover {
-    text-shadow: 0px -1px 0px #aaa, 0px 1px 0px #222, -1px 0px 0px #aaa, 1px 0px 0px #222;
-}
-
 
 .icon {
     opacity: 0.99;
@@ -401,6 +373,7 @@ h1:hover {
 .icon img {
     width: 100%;
     height: auto;
+    transition-duration: 0.5s;
 }
 
 .icon:hover {
@@ -410,6 +383,127 @@ h1:hover {
     mix-blend-mode: multiply;
     transform: scaleY(1.1) translateY(1px) rotate(360deg);
 }
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 200px;
+}
+.sidebar a {
+    padding: 12px 12px 12px 48px;
+    text-decoration: none;
+    font-size: xx-large;
+    color: white;
+    display: block;
+    transition-duration: 0.1s;
+}
+.sidebar p {
+    font-size: xx-large;
+    color: white;
+}
+.spacer {
+    font-size: xx-large;
+    margin-top: 0;
+    height: 0;
+}
+
+@media only screen and (max-width: 1200px) {  /* NAV MOBILE         NAV MOBILE      NAV MOBILE */
+    .nav a {
+        font-weight: 600;
+        font-size: xx-large;
+    }
+    .portfoliocollapse {
+        display: inline;
+        z-index: 3;
+    }
+    .portfolionavbar {
+        /*transform: translateY(-4.5em);*/
+        /*padding: 0;
+        margin: 0 0 0 auto;
+        background-color: rgb(104, 93, 88);*/
+        /*display: none;*/
+        height: 0;
+        overflow: hidden;
+    }
+    .portfolionavbar .portfnavlinks {
+        /*display: none;*/
+        height: 0px;
+        overflow: hidden;
+        /*padding: 0;
+        text-align: center;*/
+    }
+    .topnav {
+        padding: 0 calc(4% + 24px) 0 0;
+        font-size: xx-large;
+        height: 5em;
+        
+        box-shadow: 0 -5px 30px rgb(0, 0, 0);
+
+        position: fixed;
+        width: 100%;
+        /*padding: 2em calc(4% + 24px) 0 0;*/
+    }
+    .logoTopLeft img {
+        top:1.5em;
+        left: calc(50% - 1em);
+    }
+    .logoTopLeft::after {
+        content: '';
+    }
+    .topnavLinks {
+        height: auto;
+        width: 0;
+        position: fixed;
+        overflow-x: hidden;
+        white-space: nowrap;
+        transition: 0.5s;
+        padding-top: 1.7em;
+        z-index: 2;
+        transition-duration: 0.5s;
+    }
+    .horizontal {  /*icon*/ 
+        margin: 1.75em 0.6em;
+        width: 0;
+    }
+    /*.icon img {
+    }*/
+    .spacer {
+        margin-top: 7em;
+        display: block;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .portfoliocollapse {
+        display: none;
+    }
+    .portfolionavbar .portfnavlinks {
+        /*display: block;*/
+        height: auto;
+    }
+    .spacer {
+        display: none;
+    }
+}
+
+.engraved {
+    text-shadow: 0px -1px 0px #222, 0px 1px 0px #aaa, -1px 0px 0px #222, 1px 0px 0px #aaa;
+}
+.engraved:hover {
+    text-shadow: 0px -1px 0px #aaa, 0px 1px 0px #222, -1px 0px 0px #aaa, 1px 0px 0px #222;
+}
+
+
+
+
+/* NAV END      NAV END         NAV END         NAV END         NAV END         NAV END*/
+
 
 /* THE SIMPLE STUFF  */
 .block {
@@ -445,23 +539,23 @@ h1:hover {
 }
 
 .links {
-    text-align: center;
+    /*text-align: center;
     align-content: center;
     display: grid;
     align-content: center;
     justify-content: center;
     gap: 4px;
-    height: 800px;
+    height: 800px;*/
 }
 
 .links a {   
-    text-align: center;
+    /*text-align: center;
     align-content: center;
     flex-direction: column;
-    /*border: 3px dotted black;*/
+    /*border: 3px dotted black;
     width: 200px;
     max-width: 100%;
-    padding: 120px 60px;
+    padding: 120px 60px;*/
 
     
 }
@@ -520,6 +614,24 @@ h1:hover {
     height: 24.999%;
     transition-duration: 0.6s;
     object-fit: cover;
+}
+.grid p {
+    display: block;
+    margin: 1em 0;
+    border: 3px solid rgb(48, 43, 39);
+    width: 100%;
+    height: 24.999%;
+    transition-duration: 0.6s;
+    object-fit: cover;
+    color:white;
+    font-size: xx-large;
+}
+.grid iframe {
+    /*margin: 0;
+    border: 3px solid rgb(48, 43, 39);*/
+    width: 49.999%;
+    /*transition-duration: 0.6s;
+    object-fit: cover;*/
 }
 
 .grid .worksLink {
@@ -1017,7 +1129,7 @@ h1:hover {
 
     top: 1em;
     left: 0;
-    background-color: black;
+    /*background-color: black;*/
 }
 .blogNav a {
     color: rgb(224, 224, 224);
@@ -1035,7 +1147,7 @@ h1:hover {
 
     /*top: 2em;
     left: 0;*/
-    background-color: black;
+    /*background-color: black;*/
     color: white;
 }
 .about img {
