@@ -6,19 +6,31 @@
     <link rel="stylesheet" type="text/css" href="../style/style.css">
 </head>
 <body>
-    <h1>Ture <sup>://turpelurpeluren://</sup> Goldkuhl</h1>
-    <br>
-    <br>
-    <br>
-    <div class="portfolio">
-        <a href="../index.html">HOME</a>
-        <a href="../blog.html">BLOG</a>
-        <a style="text-decoration: underline;" href="../works.html">WORKS</a>
+    <!-- Websitewide navbar -->
+    <div class="topnav nav">
+            
+        <button class="portfoliocollapse"><p>&#9776</p></button>
+        <!-- "logo" -->
+        <a class="logoTopLeft" href="../home.html"><img src="../img/logoCreamSmall.png"></a>
+
+        <div class="topnavLinks">
+            <a href="../blog.html">blog</a>
+            <a href="../works.html">works</a>
+            <a href="../about.html">about</a>
+        </div>
+
+        <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='../img/icons/bigcartel-icon.png'></a></div>
+        <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='../img/icons/youtube-logo.png'></a></div>
+        <div class="icon right horizontal"><a href="https://www.instagram.com/turpelurpeluren/"><img src='../img/icons/instagram-icon.png'></a></div>
         <br>
         <br>
-        <hr color="black">
         <br>
     </div>
+    
+    <div class="sidebar"></div>
+
+    <div class="spacer"><p style="transform: translateY(-2em); text-indent: -2em; white-space: nowrap; overflow-x: hidden;">Boundless Print Boundless Print Boundless Print Boundless Print Boundless Print 
+    </p></div> <!--extra space because no margin on mobile-->
 
     <div class="lightboxBackground hidden"></div>
     <div class="lightbox hidden" id="lightbox"></div>
@@ -26,34 +38,30 @@
     <div class="lightboxPrev hidden">&#10094</div>
     <div class="lightboxCross hidden">&#10005</div>
 
+
+    <h2 style="text-align: center; text-indent: 0;">
+        <a style="text-align: center;" href="https://feraldreamssanctuary.bigcartel.com/"> Buy at my big cartel shop</a>
+    </h2>
+    <br>
+    <p style="text-align: center; margin-bottom: 1em;">Picture documentation:</p>
+
     <div class="grid">
-        <h2 style="text-align: center; text-indent: 0;"> Boundless T-shirt print
-            <br>
-            <a style="text-align: center;" href="https://feraldreamssanctuary.bigcartel.com/">Big cartel Shop</a>
-        </h2>
-        <br>
-        <p style="text-align: center;">Picture documentation</p>
-        <div class="row">
-            <div class="column">
+        
 
-            <img src="../img/portfolio/misc/boundlessPRINT.png" alt='Print on T-shirt'>
-            <img src="../img/portfolio/misc/IMG_1375.JPG" alt='Jag i tröjan'>
-            <img src="../img/portfolio/drawings/boundless.jpg" alt='Originalet på transparant papper'>
-            <img src="../img/portfolio/project_boundless/closeup.PNG" alt='Originalet under konstruktion'>
-            <img src="../img/portfolio/project_boundless/stacks.jpg" alt='Första riktiga upplagan tröjor'>
-            <img src="empty" alt=''>
+        <img src="../img/portfolio/misc/boundlessPRINT.png" alt='Print on T-shirt'>
+        <img src="../img/portfolio/misc/IMG_1375.JPG" alt='Jag i tröjan'>
+        <img src="../img/portfolio/drawings/boundless.jpg" alt='Originalet på transparant papper'>
+        <img src="../img/portfolio/project_boundless/closeup.PNG" alt='Originalet under konstruktion'>
+        <img src="../img/portfolio/project_boundless/stacks.jpg" alt='Första riktiga upplagan tröjor'>
 
-        </div>
-        <div class="column">
+        <img src="../img/portfolio/project_boundless/boundlessBlackXL.png" alt='Malte och Nea poserar'>
+        <img src="../img/portfolio/project_boundless/redblue.jpg" alt='Tryckprocessen med en specialfärgad tröja'>
+        <img src="../img/portfolio/project_boundless/trade.jpg" alt='Trade med Douglass @gift.ofguilt'>
+        <img src="../img/portfolio/project_boundless/ture_ludde.JPG" alt='Jag och Ludde i några av de första'>
+        <img src="../img/portfolio/project_boundless/boundlessWhiteM.png" alt='Nea'>
+        <img src="../img/portfolio/project_boundless/test_prints.JPG" alt='Första test-trycken'>
 
-            <img src="../img/portfolio/project_boundless/boundlessBlackXL.png" alt='Malte och Nea poserar'>
-            <img src="../img/portfolio/project_boundless/redblue.jpg" alt='Tryckprocessen med en specialfärgad tröja'>
-            <img src="../img/portfolio/project_boundless/trade.jpg" alt='Trade med Douglass @gift.ofguilt'>
-            <img src="../img/portfolio/project_boundless/ture_ludde.JPG" alt='Jag och Ludde i några av de första'>
-            <img src="../img/portfolio/project_boundless/boundlessWhiteM.png" alt='Nea'>
-            <img src="../img/portfolio/project_boundless/test_prints.JPG" alt='Första test-trycken'>
 
-        </div>
     </div>
 
     
@@ -69,5 +77,6 @@
     </div>
     <script src="../js/main.js"></script>
     <script src="../js/works.js"></script>
+    <script src="../js/sidebar.js"></script>
 </body>
 </html>

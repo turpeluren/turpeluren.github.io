@@ -358,6 +358,7 @@ h1:hover {
     width: 1.5em;
     mix-blend-mode: normal;
     transition-duration: 0.1s;
+    z-index: 5;
 }
 .left {
     left: 2%;
@@ -642,6 +643,9 @@ h1:hover {
     /*width: 24%;*/
     transition-duration: 0.2s;
     /*object-fit: cover;*/
+    border: 3px solid #ded6cc;
+    /*rgb(144, 169, 207)*/  /*blue*/
+    /*#ded6cc;*/            /*beige*/
 }
 .grid .worksLink img {
     width: 100%;
@@ -992,6 +996,9 @@ h1:hover {
     font-size: xx-large;
     transition-duration: 0.1s ease-in-out;
 }
+.worksMenuText::after {
+    content: '\2BB3';
+}
 
 .imageBlur {
     position: relative;
@@ -1296,21 +1303,23 @@ html .article { /* prevent images overflowing x */
 
 
 /* mobile */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1200px) {
     .worksMenu {
         margin: 0 12%;
     }
     .worksMenuOverlay {
         /*opacity: 1;*/
+        opacity: 1;
     }
     .worksMenu a {
         background: none;
     }
     .worksMenuText {
+        text-shadow: 1px 1px 3px black;
+        transform: translateY(0%);
         /*color: rgb(41, 34, 25);*/
         /*text-shadow: 0 1px 4px rgb(255, 255, 255);*/
         /*background-color: white;*/
-        font-size: x-large;
         /*display: block;
         transform: translate(50%, -50%);*/
     }
