@@ -1200,8 +1200,8 @@ html .article { /* prevent images overflowing x */
     max-width: 100%;
     padding-bottom: 2em;
   
-    transform: translateX(-50%);
-    margin-left: 50%;
+    /*transform: translateX(-50%);*/
+    /*margin-left: 10%;*/
 
 }
 .blogArticle .imgp {
@@ -1210,8 +1210,8 @@ html .article { /* prevent images overflowing x */
     font-size: 14px;
     user-select: text;
 
-    margin-left: 50%;
-    transform: translate(calc(-50% + 1em), -4.5em);
+    /*margin-left: 50%;*/
+    transform: translate(1em, -4.5em); /*translate(calc(-50% + 1em), -4.5em);*/
 }
 .blogArticle p {
     font-size: 18px;
