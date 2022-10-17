@@ -8,7 +8,7 @@
     const sidebar = document.getElementsByClassName('sidebar')[0];
     const topnavLinks = document.getElementsByClassName('topnavLinks')[0];
     const topLogo = document.getElementsByClassName('logoTopLeft')[0];
-    const icons = document.getElementsByClassName('icon');
+    const icons = document.getElementsByClassName('horizontal');
 
 
 
@@ -39,9 +39,14 @@
             }
             //grid.style.marginLeft = null;
         } else {
-            sidebar.style.width = '350px';
-            topnavLinks.style.width = '100%';
-            topLogo.children[0].style.top = '-100px';// 'calc(50% + 1em)';
+            if (sidebar.children.length > 0) {
+                //Only pull out the sidebar if it has content
+                sidebar.style.width = '350px';
+            } else {
+                sidebar.style.width = '0px';
+            }
+            topnavLinks.style.width = '40%'; //Kan behöva göra längre var vaksam
+            topLogo.children[0].style.top = '-100px';
             for (var i=0; i<icons.length; i++) {
                 icons[i].style.width = '1.5em';
             }

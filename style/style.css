@@ -65,6 +65,7 @@ body.blog {
 }
 .home {
     background-image: url('../img/belupien_upscaled.jpg');
+    background-image: url('../img/Hnet-image.gif');
     background-position: center top;
     /*background-position: center top;*/
     /*animation-name: scrollAnimBg;
@@ -83,10 +84,9 @@ body.portfolio {
 }
 
 h1 {
-    text-align: center;
-    padding: 20px;
-    color: blue;
-    text-shadow: 2px 2px violet;
+    color: rgb(252, 250, 249);
+    font-size: 48px;
+    font-weight: 600;
 }
 h1 a {
     color: blue;
@@ -98,10 +98,10 @@ h1 a {
     /*text-align: left;*/
     /*padding: 5px;*/
 /*}*/
-h4 {
+/*h4 {
     color: black;
     text-shadow: none;
-}
+}*/
 
 .normaltext {
     color: white;
@@ -369,7 +369,7 @@ h1:hover {
 }
 .horizontal {
     /*transform: translateY(-2em);*/
-    margin: 0.75em 0.5%;
+    margin: 0 0.5em;
 }
 .icon img {
     width: 100%;
@@ -566,14 +566,29 @@ h1:hover {
     padding: 0;
 }
 
+.footerCurve {
+    height:200px;
+    border-radius: 0 0 30% 30%;
+    background: #fff;
+    margin-bottom: 3em;
+}
 .footer {
     /*background: rgba(155, 155, 155, 0.247);*/
     /*rgb(144, 169, 207)*/  /*blue*/
     /*#ded6cc;*/            /*beige*/
+    border-radius: -50% -50% 0 0;
     background: rgb(144, 169, 207);
     text-align: center;
-    padding-top: 2em;
+    padding-top: 4em;
     padding-bottom: 4em;
+}
+.footer .icon {
+    display: inline-block;
+    margin: 1.5em 0.5em;
+    mix-blend-mode: multiply;
+}
+.footer .icon:hover {
+    mix-blend-mode: normal;
 }
 
 .grid {
@@ -1084,9 +1099,11 @@ h1:hover {
 
 /* BLOG */
 .blogContent {
-    /*display: table;*/
-    padding: 2em;
-    padding-left: 4em;
+    padding-top: 2em;
+}
+.blogContent h1 {
+    margin-left: calc(50vw - 510px);
+    padding-bottom: 1em;
 }
 
 .blogContent::after {
@@ -1095,54 +1112,81 @@ h1:hover {
     clear: both;
 }
 
+.blogLink {
+    text-decoration: none;
+    margin: 0 calc(50vw - 310px) 0 calc(50vw - 510px);
+}
+.blogPost:first {
+    margin-top: 10em;
+}
 .blogPost {
-    /*margin-left: 1em;*/
+    margin: 0 auto;
     padding: 1em;
     padding-bottom: 2em;
     background: white;
-    margin-bottom: 2em;
-    float: left;
+    color: #111;
+    margin-bottom: 1em;
 
-    width: 85%;
-    transition: padding-bottom 0.4s;
+    width: 100%;
+    max-width: 800px;
+    height: 210px;
+    overflow: hidden;
+    transition: height 0.4s;
+    display: inline-block;
+
 }
+
 .blogPost:hover {
     background-color: rgb(241, 233, 240);
     box-shadow: 2px 2px 8px -2px black;
     color: rgb(30, 0, 44);
-    padding-bottom: 3em;
+    height: 212px;
+}
+.blogPost img {
+    width: 225px;
+    height: 200px;
+    transform: translate(calc(-1em + 5px), calc(-1em + 5px));
+    float: left;
+    padding-right: 1em;
+    
+    object-fit: cover;
+}
+.blogPost p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
-/*.blogPost p, */
 .blogPost h2, 
 .blogPost h5,
 .homePost h2,
 .homePost h5 {
-    padding-bottom: 0.5em;
+    padding-bottom: 0.75em;
 }
 
 .blogNavBackground {
     position: sticky;
-    float: right;
-    top: 1em;
-    left: 0;
-    width: 15%;
-    height: 100vh;
+    
+    top: 2em;
+    left: calc(50vw + 300px);
+    width: 200px;
+    height: 0;
     opacity: 0.8;
     padding-left: 2em;
+
+    /*background-color: #111;*/
 }
 .blogNav {
-    padding: 1em;
-    position: sticky;
-
-    top: 1em;
-    left: 0;
-    /*background-color: black;*/
+    width: 200px;
+    padding: 1em 2em;
+    position: relative;
 }
 .blogNav a {
     color: rgb(224, 224, 224);
-    display: block;
     margin-bottom: 1em;
+    display: block;
+    padding-left: 0.5em;
 }
 .blogNav a:hover {
     color: darkgray;
@@ -1161,6 +1205,52 @@ h1:hover {
 .about img {
     width: 100%;
     height: auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .blogNavBackground {
+        display: none;
+    }
+    .blogPost {
+        max-width: 1200px;
+        height: 350px;
+        margin-bottom: 5px;
+
+        padding: 2em 3em 1em 3em;
+    }
+    .blogPost:hover {
+        height: 350px;
+    }
+    .blogPost img {
+        height: 340px;
+        width: 370px;
+        transform: translate(calc(-3em + 5px), calc(-2em + 5px));
+        padding-right: 0;
+    }
+    .blogPost h2 {
+        font-size: 36px;
+    }
+    .blogPost h5 {
+        font-size: 16px;
+    }
+    .blogPost h4 {
+        font-size: 20px;
+    }
+    .blogPost p {
+        font-size: 20px;
+    }
+    .blogLink {
+        margin: 0;
+    }
+    .blogContent h1 {
+        margin-left: 1em;
+        margin-top: -0.5em;
+        padding-bottom: 1em;
+        font-size: 64px;
+    }
+    .blogContent {
+        margin-top: 0;
+    }
 }
 
 html .article { /* prevent images overflowing x */

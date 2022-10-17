@@ -39,14 +39,8 @@
     }*/
 
 
-    //Home Scroll (menu scrolls up at beginning)
-    console.log(sPage);
-    if (sPage === 'home.html') {
-        console.log(document.getElementsByClassName('homeScroll')[0]);
-        //document.getElementsByClassName('homeScroll')[0].style.height = '0px'; //set homescroll height to 0, it animates automaticly
-    }
 
-
+    //parallax background home
     window.onscroll = function() {scrollBackground()};
 
     function scrollBackground() {

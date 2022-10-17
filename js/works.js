@@ -14,26 +14,30 @@
     
 
     const spook = document.getElementsByClassName('spook')[0];
-    
-    //On resize window
-    document.getElementsByTagName("BODY")[0].onresize = function() {squareImages()};
-    //Make images square
-    function squareImages() {
 
-        for (let i = 0; i < grid.children.length; i++) {  //loop though the columns children
-            grid.children[i].style.height = String(grid.children[i].clientWidth) + "px";
-            for (let j = 0; j < grid.children[i].children.length; j++) {  
-                //loop though the columns children children... for worksLink
-                grid.children[i].children[j].style.height = String(grid.children[i].children[j].clientWidth) + "px";
+    if (grid) {
+    
+        //On resize window
+        document.getElementsByTagName("BODY")[0].onresize = function() {squareImages()};
+        //Make images square
+        function squareImages() {
+
+            for (let i = 0; i < grid.children.length; i++) {  //loop though the columns children
+                grid.children[i].style.height = String(grid.children[i].clientWidth) + "px";
+                for (let j = 0; j < grid.children[i].children.length; j++) {  
+                    //loop though the columns children children... for worksLink
+                    grid.children[i].children[j].style.height = String(grid.children[i].children[j].clientWidth) + "px";
+                }
             }
         }
+        squareImages();
+
     }
-    squareImages();
 
     
 
-    //Image hover
-    for (var i = 0; i < images.length; i++) {
+    //Image hover (gammalt försök med spook aka en helbild som ritas över kvadraten)
+    /*for (var i = 0; i < images.length; i++) {
         //images[i].onmouseover = function() {imageMouseOver(images[i])};
         images[i].addEventListener('mouseover', function() {imageMouseOver()});
         images[i].onmouseout = function() {imageMouseOut(images[i])};
@@ -54,7 +58,7 @@
     };
     function imageMouseOut(e) {
         //
-    };
+    };*/
 
     //Make images clickable
     for (let i = 0; i < images.length; i++) {
@@ -180,15 +184,40 @@
     }
 
     function changeImage(step) {
-        const columns = document.getElementsByClassName('column');
-        const currentImage = lightbox.children[0].src;
-        let col, img; //goto column nr and image nr
+        //const columns = document.getElementsByClassName('column');
+        let currentImage = lightbox.children[0].src;
+        let img; //goto img nr
+        const first = 4; //first lightboxable image index
+
+        //loop through all images
+        /*WARING*/ //this depends on there being 4 images before the first lightboxable image
+                    //namely: logo and three icons
+        
+        for (let i = first+1; i < images.length; i++) {
+            if (currentImage === images[i].src) {
+
+                img = i+step*2-2;
+                if (img === images.length-1) {
+                    img = first; //första bild efter icons, logo & lightbox
+                }
+                if (img < first) {
+                    img = images.length-2;
+                }
+                if (images[img].parentElement.classList.contains('grid') ||
+                images[img].parentElement.classList.contains('display') ||
+                images[img].parentElement.classList.contains('blogArticle')) {
+                    //lägg ngt här så bara rätt bilder visas
+                }
+                break;
+            }
+        }
+        hideLightbox();
+        showLightbox(images[img]);
+    }
 
         //find the image in the columns
         //find which column and which children index and goto next column
-        for (let i = 0; i < images.length; i++) {
-            if (currentImage === images[i].src) {
-                for (let j = 0; j < columns.length; j++) {
+                /*for (let j = 0; j < columns.length; j++) {
                     if (images[i].parentElement === columns[j] || images[i].parentElement.parentElement === columns[j]) { //or statement for worksLinks
                         for (let k = 0; k < columns[j].children.length; k++) {
                             if (columns[j].children[k] === images[i] || columns[j].children[k].children[0] === images[i]) { //or statement for worksLinks
@@ -226,14 +255,30 @@
                             }
                         }
                     }
-                }
-            }
-        }
+                }*/
 
-        hideLightbox();
-        //console.log("col: "+ String(col) + " img:" + String(img));
-        let srcArray;
-        if (columns[col].children[img].nodeName === 'IMG') {
+
+        
+        /*let srcArray;
+        if (images[img].nodeName === 'IMG') {
+            //regular image
+            srcArray = images[img].src.split('/');
+        }*/
+
+
+        /*} else {
+            //worksLink with image as child 0
+            srcArray = columns[col].children[img].children[0].src.split('/');
+        }*/
+        /*if (srcArray[srcArray.length-1] !== "empty" && srcArray[srcArray.length-1] !== "empty1" && srcArray[srcArray.length-1] !== "empty2" && srcArray[srcArray.length-1] !== "empty3") {
+            showLightbox(columns[col].children[img]);
+        } else {
+            showLightbox(columns[col].children[img]);
+            changeImage(step);
+        }*/
+
+
+        /*if (columns[col].children[img].nodeName === 'IMG') {
             //regular image
             srcArray = columns[col].children[img].src.split('/');
         } else {
@@ -245,7 +290,8 @@
         } else {
             showLightbox(columns[col].children[img]);
             changeImage(step);
-        }
-    }
+        }*/
+
+
 
 })();
