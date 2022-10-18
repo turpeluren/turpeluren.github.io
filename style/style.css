@@ -207,6 +207,7 @@ h1:hover {
     height: 2em; 
     position: absolute;
     transition-duration: 0.6s;
+    top: 1.75em;
 }
 .logoTopLeft img:hover {
     /*mix-blend-mode:overlay;*/
@@ -666,6 +667,13 @@ h1:hover {
     width: 100%;
 }
 
+.works h1 {
+    padding-bottom: 1em;
+    padding-top: 32px;
+    
+    margin: 0 calc(50vw - 520px) 0 calc(50vw - 520px);
+}
+
 /*resize the grid*/
 @media only screen and (max-width: 1200px) {
     .grid img {
@@ -855,33 +863,32 @@ h1:hover {
     grid-template-rows: 220% 220%;*/
     height: auto;
     width: auto;
-    margin: 0 20%;
+    /*margin: 0 20%;*/
+    margin: 0 calc(50vw - 520px) 0 calc(50vw - 520px);
     display: flex;
     flex-wrap: wrap;
 
-    /*flex: 30%;*/
+    /*flex: 33.33333%;*/
     
     align-items: top;
     justify-content: center;
     text-align: center;
-    
 }
-
 
 .worksMenu a {
     background-image: none;
     background-color: blueviolet;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 .worksColumn {
     flex: 30%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
     .worksColumn {
-        max-width: 50%;
-        flex: 40%;
+        max-width: 33.33333%;
+        flex: 33.33333%;
     }
   }
 
@@ -911,7 +918,7 @@ h1:hover {
     width: 100%;
     height: 100%;
     transition-duration: 0.2s;
-    border-radius: 10px;
+    border-radius: 2px;
     /*position: absolute;
     top: 50%;
     left: 50%;
@@ -1102,7 +1109,7 @@ h1:hover {
     padding-top: 2em;
 }
 .blogContent h1 {
-    margin-left: calc(50vw - 510px);
+    margin-left: calc(50vw - 520px);
     padding-bottom: 1em;
 }
 
@@ -1114,7 +1121,7 @@ h1:hover {
 
 .blogLink {
     text-decoration: none;
-    margin: 0 calc(50vw - 310px) 0 calc(50vw - 510px);
+    margin: 0 calc(50vw - 310px) 0 calc(50vw - 520px);
 }
 .blogPost:first {
     margin-top: 10em;
@@ -1134,6 +1141,7 @@ h1:hover {
     transition: height 0.4s;
     display: inline-block;
 
+    border-radius: 2px;
 }
 
 .blogPost:hover {
@@ -1169,16 +1177,20 @@ h1:hover {
     position: sticky;
     
     top: 2em;
-    left: calc(50vw + 300px);
-    width: 200px;
+    /*left: calc(50vw + 270px);*/
+    float: right;
+    
+    margin: 0 calc(50vw - 520px) 0 calc(50vw - 520px);
+    width: 220px;
     height: 0;
     opacity: 0.8;
-    padding-left: 2em;
+    padding-left: 1em;
+
 
     /*background-color: #111;*/
 }
 .blogNav {
-    width: 200px;
+    width: 220px;
     padding: 1em 2em;
     position: relative;
 }
@@ -1214,6 +1226,7 @@ h1:hover {
     .blogPost {
         max-width: 1200px;
         height: 350px;
+        margin: 0;
         margin-bottom: 5px;
 
         padding: 2em 3em 1em 3em;
@@ -1242,7 +1255,7 @@ h1:hover {
     .blogLink {
         margin: 0;
     }
-    .blogContent h1 {
+    .blogContent h1, .works h1 {
         margin-left: 1em;
         margin-top: -0.5em;
         padding-bottom: 1em;
@@ -1395,7 +1408,11 @@ html .article { /* prevent images overflowing x */
 /* mobile */
 @media only screen and (max-width: 1200px) {
     .worksMenu {
-        margin: 0 12%;
+        margin: 0;
+        overflow-x: hidden;
+    }
+    .worksMenuContainer {
+        overflow: hidden;
     }
     .worksMenuOverlay {
         /*opacity: 1;*/

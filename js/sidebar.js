@@ -34,6 +34,7 @@
             sidebar.style.width = null;
             topnavLinks.style.width = null;
             topLogo.children[0].style.top = '1.5em'; //'calc(50% - 1em)';
+            //topLogo.style.top = '1.75em'; //'calc(50% - 1em)';
             for (var i=0; i<icons.length; i++) {
                 icons[i].style.width = '0';
             }
@@ -67,7 +68,7 @@
             //remove sidebar
             sidebar.style.width = null;
             //put logo in place
-            topLogo.children[0].style.top = '1.5em';
+            topLogo.children[0].style.top = '1.75em';
             topLogo.children[0].style.left = 'initial';
         } else {
             //when mobile width
