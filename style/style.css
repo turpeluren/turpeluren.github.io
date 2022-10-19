@@ -51,9 +51,9 @@ body.blog {
 
     position: fixed;
     top: 0;
-    left: 0;
+    left: -10%;
     min-height: 150%;
-    min-width: 100%;
+    min-width: 120%;
 
 }
 
@@ -67,6 +67,9 @@ body.blog {
     background-image: url('../img/belupien_upscaled.jpg');
     background-image: url('../img/Hnet-image.gif');
     background-image: url('../img/portfolio/drawings/the\ conversation.jpeg');
+    background-image: url('../img/B181DC64-16C2-4A5D-823E-2726A385456E.JPEG');
+    background-image: url('../img/pattern\ bg.png');
+    background-image: url('../img/lager2.png');
     background-position: center center;
     /*background-position: center top;*/
     /*animation-name: scrollAnimBg;
@@ -75,6 +78,11 @@ body.blog {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     margin-bottom: 100px;*/
+}
+@media only screen and (max-width: 1200px) {
+    .home {
+        background-image: url('../img/lager2d.png');
+    }
 }
 .blog {
     background-image: url('../img/portfolio/sculpture/body_blur.jpg');
@@ -199,13 +207,17 @@ h1:hover {
     text-align: center;
     color: darkblue;
     /*background-color: #b7cbf3a8;*/
+    background-color: rgba(255, 255, 255, 0.7);
+    mix-blend-mode:exclusion;
     /*box-shadow: inset 0 0 100px 0px black;*/
     transition: box-shadow 0.5s;
+    transition: background-color 0.05s;
 }
 .homeLinks a:hover {
     /*box-shadow: inset 0 0 150px -50px black;*/
     outline: 5px dashed darkblue;
-    background-color: #0039ac1c;
+    background-color: #809dff9f;
+    background-color: #3975ec9c;
     color:rgb(0, 0, 56)
 }
 .blogHomeLink {

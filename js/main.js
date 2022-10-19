@@ -51,10 +51,10 @@
             bg.style.top = '-'+String(document.documentElement.scrollTop/8)+'px';
 
             
-            if (document.documentElement.scrollTop < 300) {
+            if (document.documentElement.scrollTop < 600) {
                 menu.style.top = '0px';
             } else {
-                menu.style.top = String(300-document.documentElement.scrollTop)+'px';
+                menu.style.top = String(600-document.documentElement.scrollTop)+'px';
             }
 
             /*
