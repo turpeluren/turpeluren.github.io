@@ -197,7 +197,7 @@
             if (currentImage === images[i].src) {
 
                 img = i+step*2-2;
-                if (img === images.length-1) {
+                if (img === images.length-4) { //-4 är inklusive tre icons i footern!
                     img = first; //första bild efter icons, logo & lightbox
                 }
                 if (img < first) {

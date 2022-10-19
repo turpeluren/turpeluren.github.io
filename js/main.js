@@ -44,11 +44,20 @@
     window.onscroll = function() {scrollBackground()};
 
     function scrollBackground() {
-            if (sPage === 'home.html') {
-            console.log(document.documentElement.scrollTop);
+        if (sPage === 'home.html') {
             const bg = document.getElementsByClassName('background')[0];
+            const menu = document.getElementsByClassName('scrollHomeLinks')[0];
+            const homeContent = document.getElementsByClassName('homeContent')[0];
             bg.style.top = '-'+String(document.documentElement.scrollTop/8)+'px';
 
+            
+            if (document.documentElement.scrollTop < 300) {
+                menu.style.top = '0px';
+            } else {
+                menu.style.top = String(300-document.documentElement.scrollTop)+'px';
+            }
+
+            /*
             if (document.documentElement.scrollTop > window.innerHeight*1.9) {
                 //get up the footer
                 const footer = document.getElementsByClassName('footer')[0]
@@ -57,7 +66,7 @@
             } else {
                 document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight)+'px';
                 document.getElementsByClassName('homeFooterScroll')[0].style.display = none;
-            }
+            }*/
         }
     }
 

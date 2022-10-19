@@ -52,13 +52,13 @@ body.blog {
     position: fixed;
     top: 0;
     left: 0;
-    min-height: 200%;
+    min-height: 150%;
     min-width: 100%;
 
 }
 
 .works {
-    background-image: url('../img/portfolio/sculpture/PLAY.jpg');
+    /*background-image: url('../img/portfolio/sculpture/PLAY.jpg');*/
 }
 .table {
     background: center / cover no-repeat url('../img/portfolio/project_table/table_skull.JPG');
@@ -66,7 +66,8 @@ body.blog {
 .home {
     background-image: url('../img/belupien_upscaled.jpg');
     background-image: url('../img/Hnet-image.gif');
-    background-position: center top;
+    background-image: url('../img/portfolio/drawings/the\ conversation.jpeg');
+    background-position: center center;
     /*background-position: center top;*/
     /*animation-name: scrollAnimBg;
     animation-duration: 0.8s;
@@ -155,7 +156,7 @@ h1:hover {
     color: #d1c4b479;
     text-shadow: 0 -1px 20px rgb(29, 13, 4), 0 16px 0 rgb(144, 169, 207), 0 1px 5px rgb(17, 7, 2), 0 -5px rgb(0, 0, 0), 0 30px 0 rgb(100, 167, 79);
 }
-
+/*
 .homeLinks {
     margin: 50px auto 200px;
     text-align: center;
@@ -177,6 +178,95 @@ h1:hover {
 }
 .homeLinks a:hover::after {
     content: "."
+}*/
+
+.scrollHomeLinks {
+    position: sticky;
+}
+.homeLinks {
+    position: relative;
+    width: 1024px;
+    margin: 0 auto;
+    height: 100vh;
+    
+    font-size: 32px;
+    padding: 10px;
+}
+.homeLinks a {
+    display: block;
+    outline: 4px dashed #222;
+    margin: 10px;
+    text-align: center;
+    color: darkblue;
+    /*background-color: #b7cbf3a8;*/
+    /*box-shadow: inset 0 0 100px 0px black;*/
+    transition: box-shadow 0.5s;
+}
+.homeLinks a:hover {
+    /*box-shadow: inset 0 0 150px -50px black;*/
+    outline: 5px dashed darkblue;
+    background-color: #0039ac1c;
+    color:rgb(0, 0, 56)
+}
+.blogHomeLink {
+    padding-top: 11.5vh;
+    width: calc(100% - 20px);
+    height: calc(30vh - 20px);
+}
+.worksHomeLink {
+    padding-right: calc(25% - 20px);
+    width: calc(55% - 20px);
+    height: calc(70vh - 40px);
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    float: left;
+}
+.introHomeLink {
+    margin: 0 10px 10px 10px;
+    display: block;
+    width: calc(45% - 20px);
+    height: calc(20vh - 20px);
+    float: right;
+    word-break: break-all;
+}
+.introHomeLink a {
+    margin: 0 0 10px 0;
+}
+.introHomeLink h1 {
+    color: darkblue;
+    text-indent: -7px;
+}
+.aboutHomeLink {
+    position: absolute;
+    padding-left: calc(22.55% - 10px);
+    width: calc(45% - 30px);
+    height: calc(70vh - 9em + 8px - 20px);
+    left: 55%;
+    bottom: 10px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+.homeLinks::after {
+    display:block;
+    content: "\00a0";
+    margin-bottom: 1px;
+}
+
+
+@media only screen and (max-width: 909px) { /*The h1 line breaks!*/
+    .aboutHomeLink {
+        height: calc(70vh - 11em + 6px - 20px);
+    }
+}
+@media only screen and (max-width: 696px) { /*The p line breaks!*/
+    .aboutHomeLink {
+        height: calc(70vh - 11em - 16px - 20px);
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .homeLinks {
+        width: calc(100vw - 20px);
+    }
 }
 
 .homeScroll { /*making the menu scroll up*/
@@ -246,6 +336,7 @@ h1:hover {
     display: block;
     position: relative;
     padding: 2em calc(4% + 24px) 0 calc(4% + 24px);
+    padding: 2em calc(50vw - 520px) 0 calc(50vw - 520px);
 
     background-color: rgb(48, 43, 39);
 
@@ -285,7 +376,7 @@ h1:hover {
 .portfolionavbar {
     display: block;
     text-align: right;
-    padding: 1em calc(4% + 24px) 0 10%;
+    padding: 1em calc(50vw - 525px) 0 10%;
 }
 .portfolionavbar a {
     color: black;
@@ -591,6 +682,15 @@ h1:hover {
 .footer .icon:hover {
     mix-blend-mode: normal;
 }
+@media only screen and (max-width: 1200px) {
+    .footer {
+        font-size: 24px;
+    }
+    .footer .icon {
+        width: 3em;
+        margin: 1.5em 3em;
+    }
+}
 
 .grid {
     margin: 4% 4% 12%;
@@ -667,7 +767,7 @@ h1:hover {
     width: 100%;
 }
 
-.works h1 {
+.works h1, .about h1 {
     padding-bottom: 1em;
     padding-top: 32px;
     
@@ -1074,7 +1174,7 @@ h1:hover {
 .homeContent {
     margin: 0 auto;
     padding: 2em;
-    max-width: 1000px;
+    max-width: 1024px;
 }
 
 .homeContent .top {
@@ -1088,21 +1188,21 @@ h1:hover {
     border-top-right-radius: 5px;
 }
 
-.homePost {
+/*.homePost {
     margin: 0 auto;
     background-color: white;
     padding: 1em;
     max-width: 1000px;
     transition: padding-bottom 0.4s;
-}
-.homePost:hover {
+}*/
+/*.homePost:hover {
     background-color: rgb(241, 233, 240);
     box-shadow: 2px 2px 8px -2px black;
     color: rgb(30, 0, 44);
     border: 0.2em solid white;
     padding: 0.8em;
     padding-bottom: 2em;
-}
+}*/
 
 /* BLOG */
 .blogContent {
@@ -1126,7 +1226,7 @@ h1:hover {
 .blogPost:first {
     margin-top: 10em;
 }
-.blogPost {
+.blogPost, .homePost {
     margin: 0 auto;
     padding: 1em;
     padding-bottom: 2em;
@@ -1143,14 +1243,23 @@ h1:hover {
 
     border-radius: 2px;
 }
+.homePost {
+    max-width: 100%;
+}
+.article .homePost {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+}
 
-.blogPost:hover {
+.blogPost:hover, .homePost:hover {
     background-color: rgb(241, 233, 240);
     box-shadow: 2px 2px 8px -2px black;
     color: rgb(30, 0, 44);
-    height: 212px;
+    
+    border: 0.2em solid white;
+    padding: 0.8em;
 }
-.blogPost img {
+.blogPost img, .homePost img {
     width: 225px;
     height: 200px;
     transform: translate(calc(-1em + 5px), calc(-1em + 5px));
@@ -1159,7 +1268,7 @@ h1:hover {
     
     object-fit: cover;
 }
-.blogPost p {
+.blogPost p, .homePost p {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1204,26 +1313,12 @@ h1:hover {
     color: darkgray;
 }
 
-.about {
-    margin-bottom: 1em;
-    padding: 1em;
-    /*position: sticky;*/
-
-    /*top: 2em;
-    left: 0;*/
-    /*background-color: black;*/
-    color: white;
-}
-.about img {
-    width: 100%;
-    height: auto;
-}
 
 @media only screen and (max-width: 1200px) {
     .blogNavBackground {
         display: none;
     }
-    .blogPost {
+    .blogPost, .homePost {
         max-width: 1200px;
         height: 350px;
         margin: 0;
@@ -1231,38 +1326,51 @@ h1:hover {
 
         padding: 2em 3em 1em 3em;
     }
-    .blogPost:hover {
+    .blogPost:hover, .homePost:hover {
         height: 350px;
+
+        /*border: 0.2em solid white;*/
+        border: 0.2em solid white;
+        padding: 1.8em 2.8em 0.8em 2.8em;
     }
-    .blogPost img {
+    .blogPost img, .homePost img {
         height: 340px;
         width: 370px;
         transform: translate(calc(-3em + 5px), calc(-2em + 5px));
         padding-right: 0;
     }
-    .blogPost h2 {
+    .blogPost h2, .homePost h2 {
         font-size: 36px;
     }
-    .blogPost h5 {
+    .blogPost h5, .homePost h5 {
         font-size: 16px;
     }
-    .blogPost h4 {
+    .blogPost h4, .homePost h4 {
         font-size: 20px;
     }
-    .blogPost p {
+    .blogPost p, .homePost p {
         font-size: 20px;
     }
     .blogLink {
         margin: 0;
     }
-    .blogContent h1, .works h1 {
+    .blogContent h1, .works h1, .about h1 {
         margin-left: 1em;
+        margin-right: 0;
         margin-top: -0.5em;
         padding-bottom: 1em;
         font-size: 64px;
+
+        white-space: wrap;
+        overflow-wrap: break-word;
     }
     .blogContent {
         margin-top: 0;
+    }
+    .homeContent {
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
     }
 }
 
@@ -1271,7 +1379,7 @@ html .article { /* prevent images overflowing x */
 }
 
 .blogArticle {
-    width: calc(800px + 4em);
+    width: calc(1024px + 4em);
     margin: 0 auto;
     padding-left: 2em;
     padding-right: 2em;
@@ -1411,9 +1519,6 @@ html .article { /* prevent images overflowing x */
         margin: 0;
         overflow-x: hidden;
     }
-    .worksMenuContainer {
-        overflow: hidden;
-    }
     .worksMenuOverlay {
         /*opacity: 1;*/
         opacity: 1;
@@ -1433,5 +1538,8 @@ html .article { /* prevent images overflowing x */
 
     .blogArticle {
         width: 100%;
+    }
+    .blogArticle h1 {
+        padding-top: 0;
     }
   }
