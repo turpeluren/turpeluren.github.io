@@ -32,12 +32,29 @@
         /*window.scrollX = 0;*/
     //}
 
+    const aboutLink = document.getElementsByClassName('aboutHomeLink')[0];
+    const introLink = document.getElementsByClassName('introHomeLink')[0];
+    const homeLinks = document.getElementsByClassName('homeLinks')[0];
+    let introHeight = document.defaultView.getComputedStyle(introLink).height;
+    let menuHeight = document.defaultView.getComputedStyle(homeLinks).height;
+
+    //get what page we are on
     var sPath = window.location.pathname;
     var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
-    /*if (sPage = 'factors.html') {
-        showFactors();
-    }*/
 
+    //set the height of 'about' button on home screen
+    if (sPage === 'home.html') {
+        setAboutLinkHeight();
+    }
+    
+    window.onresize = function() {setAboutLinkHeight()};
+
+    function setAboutLinkHeight() {  
+        let introHeight = document.defaultView.getComputedStyle(introLink).height;
+        let menuHeight = document.defaultView.getComputedStyle(homeLinks).height;
+        aboutLink.style.height = String(Math.max(parseInt(menuHeight) - (0.3 * window.innerHeight + 40 + parseInt(introHeight)),0))+'px';
+        // 0.3*window.innerHeight + 20 är blog-knappen, 20 är margin, introHeight är höjden av logga och länkar
+    }
 
 
     //parallax background home

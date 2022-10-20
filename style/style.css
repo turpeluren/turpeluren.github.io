@@ -235,9 +235,9 @@ h1:hover {
 }
 .introHomeLink {
     margin: 0 10px 10px 10px;
-    display: block;
+    /*display: block;*/
     width: calc(45% - 20px);
-    height: calc(20vh - 20px);
+    /*height: calc(20vh - 20px);*/
     float: right;
     word-break: break-all;
 }
@@ -266,18 +266,41 @@ h1:hover {
 
 
 @media only screen and (max-width: 909px) { /*The h1 line breaks!*/
-    .aboutHomeLink {
+    /*.aboutHomeLink {
         height: calc(70vh - 11em + 6px - 20px);
-    }
+    }*/
 }
 @media only screen and (max-width: 696px) { /*The p line breaks!*/
-    .aboutHomeLink {
+    /*.aboutHomeLink {
         height: calc(70vh - 11em - 16px - 20px);
-    }
+    }*/
 }
 @media only screen and (max-width: 1200px) {
     .homeLinks {
         width: calc(100vw - 20px);
+        height: 80vh;
+        font-size: 48px;
+    }
+    .homeLinks a {  
+        outline-width: 7px;
+    }
+    .homeLinks a:hover {
+        outline-width: 8px;
+    }
+    .worksHomeLink {
+        height: calc(50vh - 40px); 
+        width: calc(45% - 20px);
+    }
+    .introHomeLink {
+        width: calc(55% - 20px);
+    }
+    .aboutHomeLink {
+        width: calc(55% - 30px);
+        left: calc(45% + 1px);
+    }
+    .introHomeLink h1 {
+        font-size: 64px;
+        letter-spacing: -3px;
     }
 }
 
