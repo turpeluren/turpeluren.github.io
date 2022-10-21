@@ -110,7 +110,13 @@
         //regular image
         if (imageElement.nodeName === 'IMG') {
             //console.log(imageElement.src.split('.')[0]+'_full');
-            img.src = imageElement.src.split('.')[0]+'_full.'+imageElement.src.split('.')[1];
+            const splitUrl = imageElement.src.split('.');
+            const fileType = splitUrl[splitUrl.length-1];
+            let correctUrl = '';
+            for (let i=0; i < splitUrl.length-1; i++){
+                correctUrl = correctUrl + splitUrl[i];
+            } //Get the url minus the file type (ex .jpg)
+            img.src = correctUrl+'_full.'+fileType;
             //console.log(imageElement.src)
             text.innerHTML = imageElement.alt;
         } else {
