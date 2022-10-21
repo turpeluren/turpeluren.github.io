@@ -818,7 +818,7 @@ h1:hover {
     /*width: 24%;*/
     transition-duration: 0.2s;
     /*object-fit: cover;*/
-    border: 3px solid #ded6cc;
+    border: 3px solid rgb(0, 55, 206);
     /*rgb(144, 169, 207)*/  /*blue*/
     /*#ded6cc;*/            /*beige*/
 }
@@ -1600,7 +1600,7 @@ html .article { /* prevent images overflowing x */
 @media only screen and (max-width: 1200px) {
     .worksMenu {
         margin: 0;
-        overflow-x: hidden;
+        
     }
     .worksMenuOverlay {
         /*opacity: 1;*/
