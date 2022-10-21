@@ -208,7 +208,6 @@ h1:hover {
     color: darkblue;
     /*background-color: #b7cbf3a8;*/
     background-color: rgba(255, 255, 255, 0.7);
-    mix-blend-mode:exclusion;
     /*box-shadow: inset 0 0 100px 0px black;*/
     transition: box-shadow 0.5s;
     transition: background-color 0.05s;
@@ -224,39 +223,57 @@ h1:hover {
     padding-top: 11.5vh;
     width: calc(100% - 20px);
     height: calc(30vh - 20px);
+
+    background-image: linear-gradient(to top, rgba(255, 0, 0, 0), rgba(138, 93, 138, 0.158));
 }
 .worksHomeLink {
-    padding-right: calc(25% - 20px);
-    width: calc(55% - 20px);
+    padding-right: calc(22.5% - 30px);
+    width: calc(45% - 20px);
     height: calc(70vh - 40px);
     writing-mode: vertical-rl;
     text-orientation: upright;
     float: left;
+    background-image: linear-gradient(to top, rgba(46, 59, 43, 0.1), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0));
 }
 .introHomeLink {
-    margin: 0 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
     /*display: block;*/
-    width: calc(45% - 20px);
-    /*height: calc(20vh - 20px);*/
+    width: calc(55% - 20px);
+    height: calc(30vh - 40px);
     float: right;
     word-break: break-all;
 }
 .introHomeLink a {
-    margin: 0 0 10px 0;
+    margin: 0;
+    width: calc(33.2% - 10px);
+    height: calc(10vh - 20px);
+    display: inline-block;
 }
 .introHomeLink h1 {
-    color: darkblue;
+    color: rgb(56, 97, 56);
     text-indent: -7px;
+    line-height: 32px;
+    animation-name: breakTitle;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+@keyframes breakTitle {
+    0% {width: 100%;}
+    5% {width: 30%;}
+    10% {width: 100%;}
 }
 .aboutHomeLink {
     position: absolute;
-    padding-left: calc(22.55% - 10px);
-    width: calc(45% - 30px);
+    padding-left: calc(0.275 * 1024px - 30px);
+    width: calc(55% - 30px);
     height: calc(70vh - 9em + 8px - 20px);
-    left: 55%;
+    height: calc(40vh - 20px);
+    left: calc(45% + 1px);
     bottom: 10px;
     writing-mode: vertical-lr;
     text-orientation: upright;
+
+    background-image: linear-gradient(to top, rgba(46, 59, 43, 0.1), rgba(255, 0, 0, 0));
 }
 .homeLinks::after {
     display:block;
@@ -287,16 +304,22 @@ h1:hover {
     .homeLinks a:hover {
         outline-width: 8px;
     }
+    .blogHomeLink {
+        height: calc(25vh - 20px); 
+        padding-top: 6.5vh;
+    }
     .worksHomeLink {
-        height: calc(50vh - 40px); 
+        height: calc(55vh - 40px); 
         width: calc(45% - 20px);
     }
     .introHomeLink {
         width: calc(55% - 20px);
+        height: calc(30vh - 20px);
     }
     .aboutHomeLink {
         width: calc(55% - 30px);
         left: calc(45% + 1px);
+        height: calc(25vh - 20px);
     }
     .introHomeLink h1 {
         font-size: 64px;
@@ -331,7 +354,7 @@ h1:hover {
 .logoTopLeft img {
     height: 2em; 
     position: absolute;
-    transition-duration: 0.6s;
+    transition-duration: 0.3s;
     top: 1.75em;
 }
 .logoTopLeft img:hover {
@@ -421,6 +444,7 @@ h1:hover {
 }
 
 
+
 .sidemargin {
     padding: 0 calc(4% + 24px) 0 calc(4% + 24px);
 }
@@ -484,7 +508,7 @@ h1:hover {
     /*position: absolute;*/
     width: 1.5em;
     mix-blend-mode: normal;
-    transition-duration: 0.1s;
+    transition-duration: 0.2s;
     z-index: 5;
 }
 .left {
@@ -501,7 +525,7 @@ h1:hover {
 .icon img {
     width: 100%;
     height: auto;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
 }
 
 .icon:hover {
@@ -521,7 +545,7 @@ h1:hover {
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.2s;
     padding-top: 200px;
 }
 .sidebar a {
@@ -530,7 +554,7 @@ h1:hover {
     font-size: xx-large;
     color: white;
     display: block;
-    transition-duration: 0.1s;
+    transition-duration: 0.2s;
 }
 .sidebar p {
     font-size: xx-large;
@@ -595,7 +619,7 @@ h1:hover {
         transition: 0.5s;
         padding-top: 1.7em;
         z-index: 2;
-        transition-duration: 0.5s;
+        transition-duration: 0.2s;
     }
     .horizontal {  /*icon*/ 
         margin: 1.75em 0.6em;
@@ -881,7 +905,7 @@ h1:hover {
     /*max-height: 85%;*/
     width: 100vw;
     height: 100vh;
-    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.85);
     text-align: center;
     padding: 1% 0 5%;
     z-index: 2;
@@ -913,7 +937,7 @@ h1:hover {
     height: 100%;
     top: 0;
     background-color: rgb(0, 0, 0);
-    opacity: 0.85;
+    opacity: 0;
     z-index: 1;
 }
 
@@ -933,43 +957,57 @@ h1:hover {
 }
 
 .lightboxNext {
-    font-size: 50px;
+    font-size: 48px;
     position: fixed;
-    right: 10%;
+    right: 7%;
     top: 50%;
     transform: translateY(-50%);
     color: white;
     transition-duration: 0.2s;
-    text-shadow: -2px 2px violet;
+    /*text-shadow: -2px 2px violet;*/
+    mix-blend-mode: difference;
     z-index: 2;
+    border-radius: 2em;
+    width: 1.75em;
+    height: 1.75em;
+    text-align: center;
+    padding-top: .15em;
 }
 
 .lightboxNext:hover {
-    top: 50.5%;
+    top: 50%;
     text-shadow: -4px 0 blueviolet;
+    background-color: #777;
 }
 
 .lightboxPrev {
-    font-size: 50px;
+    font-size: 48px;
     position: fixed;
-    left: 10%;
+    left: 7%;
     top: 50%;
     transform: translateY(-50%);
     color: white;
     transition-duration: 0.2s;
-    text-shadow: 2px 2px violet;
+    /*text-shadow: 2px 2px violet;*/
+    mix-blend-mode: difference;
     z-index: 2;
+    border-radius: 2em;
+    width: 1.75em;
+    height: 1.75em;
+    text-align: center;
+    padding-top: .15em;
 }
 
 .lightboxPrev:hover {
-    top: 50.5%;
+    top: 50;
     text-shadow: 4px 0 blueviolet;
+    background-color: #777;
 }
 
 .lightboxCross {
     position: fixed;
-    top: 2em;
-    right: 2em;
+    top: 50px;
+    right: 50px;
     /*background-color: black;*/
     color: white;
     font-size: xx-large;
@@ -985,7 +1023,7 @@ h1:hover {
 
 .lightboxCross:hover {
     color: white;
-    background-color: rgba(155, 155, 155, 0.247);
+    background-color: rgba(155, 155, 155, 0.37);
 }
 
 .hidden {
@@ -1024,6 +1062,16 @@ h1:hover {
     .worksColumn {
         max-width: 33.33333%;
         flex: 33.33333%;
+    }
+    .lightboxNext, .lightboxPrev, .lightboxCross {
+        font-size: 64px;
+        right: 30px;
+    }
+    .lightBoxPrev {
+        left: 30px;
+    }
+    .lightBoxCross {
+        top: 30px;
     }
   }
 

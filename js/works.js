@@ -70,7 +70,7 @@
     prev.addEventListener('click', function() { changeImage(false) });
     next.addEventListener('click', function() { changeImage(true) });
 
-    lightboxBG.addEventListener('click', hideLightbox);
+    lightbox.addEventListener('click', hideLightbox);
     cross.addEventListener('click', hideLightbox);
 
 
@@ -109,7 +109,9 @@
 
         //regular image
         if (imageElement.nodeName === 'IMG') {
-            img.src = imageElement.src;
+            //console.log(imageElement.src.split('.')[0]+'_full');
+            img.src = imageElement.src.split('.')[0]+'_full.'+imageElement.src.split('.')[1];
+            //console.log(imageElement.src)
             text.innerHTML = imageElement.alt;
         } else {
             //its a worksLink
@@ -131,19 +133,19 @@
 
         //lightbox.style.width = String(window.innerWidth-100) + 'px';
         //lightbox.style.height = String(window.innerHeight-100) + 'px';
-        img.style.maxWidth = '90%';
-        img.style.maxHeight = '90%';
-        lightbox.style.width = String(img.clientWidth) + 'px';
-        lightbox.style.height = String(img.clientHeight) + 'px';
         img.style.maxWidth = '100%';
         img.style.maxHeight = '100%';
+        //lightbox.style.width = String(img.clientWidth) + 'px';
+        //lightbox.style.height = String(img.clientHeight) + 'px';
+        //img.style.maxWidth = '100%';
+        //img.style.maxHeight = '100%';
         img.style.paddingBottom = '5em';
         img.style.paddingLeft = '10px';
         img.style.paddingRight = '10px';
         img.style.paddingTop = '10px';
-        lightbox.style.width = String(img.clientWidth+20) + 'px';
-        lightbox.style.height = String(img.clientHeight+20) + 'px';
-        text.style.top = String(img.clientHeight-40) + 'px';
+        //lightbox.style.width = String(img.clientWidth+20) + 'px';
+        //lightbox.style.height = String(img.clientHeight+20) + 'px';
+        text.style.top = String(window.innerHeight-40) + 'px';
         /*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             text.innerHTML = "MOBILLLL";
         } else {
@@ -156,9 +158,9 @@
         if (mediaQuery.matches) {
             // Then trigger an alert
             console.log("mobil")
-            lightbox.style.width = '90%';
-            lightbox.style.height = '90%';
-            text.style.top = '88%';
+            //lightbox.style.width = '90%';
+            //lightbox.style.height = '90%';
+            //text.style.top = '88%';
         }
     }
     
@@ -185,7 +187,7 @@
 
     function changeImage(step) {
         //const columns = document.getElementsByClassName('column');
-        let currentImage = lightbox.children[0].src;
+        let currentImage = lightbox.children[0].src.split('_full')[0]+lightbox.children[0].src.split('_full')[1];
         let img; //goto img nr
         const first = 4; //first lightboxable image index
 

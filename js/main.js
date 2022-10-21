@@ -52,7 +52,7 @@
     function setAboutLinkHeight() {  
         let introHeight = document.defaultView.getComputedStyle(introLink).height;
         let menuHeight = document.defaultView.getComputedStyle(homeLinks).height;
-        aboutLink.style.height = String(Math.max(parseInt(menuHeight) - (0.3 * window.innerHeight + 40 + parseInt(introHeight)),0))+'px';
+        //aboutLink.style.height = String(Math.max(parseInt(menuHeight) - (0.3 * window.innerHeight + 40 + parseInt(introHeight)),0))+'px';
         // 0.3*window.innerHeight + 20 är blog-knappen, 20 är margin, introHeight är höjden av logga och länkar
     }
 

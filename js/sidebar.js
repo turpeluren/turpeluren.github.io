@@ -46,7 +46,7 @@
             } else {
                 sidebar.style.width = '0px';
             }
-            topnavLinks.style.width = '40%'; //Kan behöva göra längre var vaksam
+            topnavLinks.style.width = '46%'; //Kan behöva göra längre var vaksam
             topLogo.children[0].style.top = '-100px';
             for (var i=0; i<icons.length; i++) {
                 icons[i].style.width = '1.5em';
