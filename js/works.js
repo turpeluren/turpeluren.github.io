@@ -113,8 +113,13 @@
             const splitUrl = imageElement.src.split('.');
             const fileType = splitUrl[splitUrl.length-1];
             let correctUrl = '';
+            //turpeluren.github.io/d/d/d.jpg
+            //[0],       [1],   [2],     [3]    length = 4
             for (let i=0; i < splitUrl.length-1; i++){
                 correctUrl = correctUrl + splitUrl[i];
+                if (i < splitUrl.length-3) {
+                    correctUrl = correctUrl + '.';
+                }
             } //Get the url minus the file type (ex .jpg)
             img.src = correctUrl+'_full.'+fileType;
             //console.log(imageElement.src)
