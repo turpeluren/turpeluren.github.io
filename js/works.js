@@ -121,7 +121,12 @@
                     correctUrl = correctUrl + '.';
                 }
             } //Get the url minus the file type (ex .jpg)
-            img.src = correctUrl+'_full.'+fileType;
+            console.log(correctUrl.includes('_full'))
+            if (correctUrl.includes('_full')) {
+                img.src = correctUrl+'.'+fileType;
+            } else {
+                img.src = correctUrl+'_full.'+fileType;
+            }
             //console.log(imageElement.src)
             text.innerHTML = imageElement.alt;
         } else {
