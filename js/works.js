@@ -117,7 +117,7 @@
             //[0],       [1],   [2],     [3]    length = 4
             for (let i=0; i < splitUrl.length-1; i++){
                 correctUrl = correctUrl + splitUrl[i];
-                if (i < splitUrl.length-3) {
+                if (i < splitUrl.length-2) {
                     correctUrl = correctUrl + '.';
                 }
             } //Get the url minus the file type (ex .jpg)
