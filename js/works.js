@@ -5,15 +5,12 @@
 
     const images = document.getElementsByTagName('img');
     const lightbox = document.getElementById('lightbox');
-    const lightboxBG = document.getElementsByClassName('lightboxBackground')[0];
     const prev = document.getElementsByClassName('lightboxPrev')[0];
     const next = document.getElementsByClassName('lightboxNext')[0];
     const cross = document.getElementsByClassName('lightboxCross')[0];
     const columns = document.getElementsByClassName('column');
     const grid = document.getElementsByClassName('grid')[0];
     
-
-    const spook = document.getElementsByClassName('spook')[0];
 
     if (grid) {
     
@@ -22,11 +19,15 @@
         //Make images square
         function squareImages() {
 
+            const scale = 1.4;
             for (let i = 0; i < grid.children.length; i++) {  //loop though the columns children
-                grid.children[i].style.height = String(grid.children[i].clientWidth) + "px";
+                grid.children[i].style.height = String(grid.children[i].clientWidth*scale) + "px";
+                if (grid.children[i].classList.contains('worksLink')) {
+                    grid.children[i].style.height = String(grid.children[i].clientWidth*scale-6) + "px"; //workLinks blev 6px högre av nån anledning
+                }
                 for (let j = 0; j < grid.children[i].children.length; j++) {  
                     //loop though the columns children children... for worksLink
-                    grid.children[i].children[j].style.height = String(grid.children[i].children[j].clientWidth) + "px";
+                    grid.children[i].children[j].style.height = String(grid.children[i].children[j].clientWidth*scale) + "px";
                 }
             }
         }
@@ -34,31 +35,6 @@
 
     }
 
-    
-
-    //Image hover (gammalt försök med spook aka en helbild som ritas över kvadraten)
-    /*for (var i = 0; i < images.length; i++) {
-        //images[i].onmouseover = function() {imageMouseOver(images[i])};
-        images[i].addEventListener('mouseover', function() {imageMouseOver()});
-        images[i].onmouseout = function() {imageMouseOut(images[i])};
-    }
-    function imageMouseOver() {
-        var image = event.target;
-        
-        //spook.style.display = 'block';
-        spook.children[0].src = image.src;
-
-        var rect = image.getBoundingClientRect();
-        spook.style.left=String(rect.left) + 'px';
-        spook.style.top=String(rect.top) + 'px';
-        console.log(rect.left, rect.top)
-
-        
-        spook.children[0].style.width = image.style.width;
-    };
-    function imageMouseOut(e) {
-        //
-    };*/
 
     //Make images clickable
     for (let i = 0; i < images.length; i++) {
@@ -90,7 +66,6 @@
 
     
     function showLightbox(imageElement) {
-        lightboxBG.classList.toggle('hidden');
         lightbox.classList.toggle('hidden');
         prev.classList.toggle('hidden');
         next.classList.toggle('hidden');
@@ -104,8 +79,11 @@
         }
         
         const img = document.createElement('img');
+        img.className = 'lightboxImg';
         const text = document.createElement('p');
         text.className = 'lightboxText';
+        const background = document.createElement('div');
+        background.className = 'lightboxBg';
 
         //regular image
         if (imageElement.nodeName === 'IMG') {
@@ -121,7 +99,6 @@
                     correctUrl = correctUrl + '.';
                 }
             } //Get the url minus the file type (ex .jpg)
-            console.log(correctUrl.includes('_full'))
             if (correctUrl.includes('_full')) {
                 img.src = correctUrl+'.'+fileType;
             } else {
@@ -129,64 +106,75 @@
             }
             //console.log(imageElement.src)
             text.innerHTML = imageElement.alt;
-        } else {
-            //its a worksLink
-            //the image is its first child
-            img.src = imageElement.children[0].src;
-            text.innerHTML = imageElement.children[0].alt;
-            const link = document.createElement('a');
-            link.href = imageElement.children[1].href;
-            link.innerHTML = ' ...Goto Project &#10095'
-            text.appendChild(link)
         }
+        img.style.zIndex = '4';
+        text.style.zIndex = '4';
         lightbox.appendChild(img);
         lightbox.appendChild(text);
+        lightbox.appendChild(background);
 
-        //lightbox.style.width = String(img.clientWidth+50) + 'px';
-        //lightbox.style.height = String(img.clientHeight+50) + 'px';
 
-        lightboxBG.innerHTML = String(window.innerWidth-100) + 'px';
+        if (imageElement.parentElement.classList.contains('worksLink') 
+        && imageElement.parentElement.children[1].nodeName === 'OBJECT') {
+            //worksLink
 
-        //lightbox.style.width = String(window.innerWidth-100) + 'px';
-        //lightbox.style.height = String(window.innerHeight-100) + 'px';
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = '100%';
-        //lightbox.style.width = String(img.clientWidth) + 'px';
-        //lightbox.style.height = String(img.clientHeight) + 'px';
-        //img.style.maxWidth = '100%';
-        //img.style.maxHeight = '100%';
-        img.style.paddingBottom = '5em';
-        img.style.paddingLeft = '10px';
-        img.style.paddingRight = '10px';
-        img.style.paddingTop = '10px';
-        //lightbox.style.width = String(img.clientWidth+20) + 'px';
-        //lightbox.style.height = String(img.clientHeight+20) + 'px';
-        text.style.top = String(window.innerHeight-40) + 'px';
-        /*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-            text.innerHTML = "MOBILLLL";
+            img.classList.add('hidden');
+            text.classList.add('hidden');
+            background.remove();
+
+            const project = imageElement.parentElement.children[1]; //OBJECT element
+            const projectView = document.createElement('OBJECT');
+
+            projectView.data = project.data;
+
+            lightbox.appendChild(projectView);
+            projectView.style.maxWidth = '100%';
+            projectView.style.maxHeight = '100%';
+            projectView.style.height = '100%';
+            projectView.style.width = '100%';
+            projectView.style.zIndex = '4';
+
+            document.documentElement.style.overflowY = 'hidden';
+            document.documentElement.style.marginRight = '1em';
+
         } else {
-            text.innerHTML = "DATOOOR";
-        }*/
 
+            //regular image
+
+            //img.style.maxWidth = '1024px';
+            //img.style.maxHeight = '100%';
+
+            /*img.style.paddingBottom = '5em';
+            img.style.paddingLeft = '10px';
+            img.style.paddingRight = '10px';
+            img.style.paddingTop = '10px';*/
+
+            //text.style.top = String(window.innerHeight-40) + 'px';
+        }
+
+
+
+
+        /*
         // Create a media condition that targets viewports at least 768px wide
         const mediaQuery = window.matchMedia('(max-width: 768px)')
         // Check if the media query is true
         if (mediaQuery.matches) {
             // Then trigger an alert
             console.log("mobil")
-            //lightbox.style.width = '90%';
-            //lightbox.style.height = '90%';
-            //text.style.top = '88%';
-        }
+        }*/
     }
     
     function hideLightbox() {
-        lightboxBG.classList.toggle('hidden');
         lightbox.classList.toggle('hidden');
         prev.classList.toggle('hidden');
         next.classList.toggle('hidden');
         cross.classList.toggle('hidden');
         //if (title) title.classList.toggle('hidden');
+        
+        //make document scrollable again
+        document.documentElement.style.overflowY = 'unset';
+        document.documentElement.style.marginRight = 'unset';
 
         //Shpw the image links in the portfolio
         const worksLinks = document.getElementsByClassName('worksLink');
@@ -203,7 +191,12 @@
 
     function changeImage(step) {
         //const columns = document.getElementsByClassName('column');
-        let currentImage = lightbox.children[0].src.split('_full')[0]+lightbox.children[0].src.split('_full')[1];
+        let currentImage;
+        if (grid) {
+            currentImage = lightbox.children[0].src.split('_full')[0]+lightbox.children[0].src.split('_full')[1];
+        } else {
+            currentImage = lightbox.children[0].src;
+        }
         let img; //goto img nr
         const first = 4; //first lightboxable image index
 
@@ -219,12 +212,13 @@
                     img = first; //första bild efter icons, logo & lightbox
                 }
                 if (img < first) {
-                    img = images.length-2;
+                    img = images.length-5; //-5 för att skippa ikonerna i footern
                 }
                 if (images[img].parentElement.classList.contains('grid') ||
                 images[img].parentElement.classList.contains('display') ||
                 images[img].parentElement.classList.contains('blogArticle')) {
                     //lägg ngt här så bara rätt bilder visas
+                    //senare ture ser ingen nytta för detta
                 }
                 break;
             }

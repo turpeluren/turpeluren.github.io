@@ -60,7 +60,10 @@
     //parallax background home
     window.onscroll = function() {scrollBackground()};
 
+    const sidePatterns = document.getElementsByClassName('sidePattern');
+
     function scrollBackground() {
+        
         if (sPage === 'home.html') {
             const bg = document.getElementsByClassName('background')[0];
             const menu = document.getElementsByClassName('scrollHomeLinks')[0];
@@ -85,8 +88,51 @@
                 document.getElementsByClassName('homeFooterScroll')[0].style.display = none;
             }*/
         }
-    }
 
+        //Transparent header on scroll (mobile)
+        transparentHeader();
+
+        //and scroll sidepatterns
+        if (sidePatterns) {
+            for (let i=0; i<sidePatterns.length; i++) {
+                if (!sidePatterns[i].classList.contains('goat')) {
+                    if (document.documentElement.scrollTop < 100) {
+                        sidePatterns[i].style.top = String(100 - document.documentElement.scrollTop)+'px';
+                        sidePatterns[i].style.backgroundPosition = '0 0';
+                    } else {
+                        sidePatterns[i].style.top = 0;
+                        console.log(document.documentElement.scrollTop)
+                        sidePatterns[i].style.backgroundPosition = '0 calc(100px - '+String(document.documentElement.scrollTop)+'px';
+                    }
+                    // Create a media condition that targets viewports at least 1200px wide
+                    const mediaQuery = window.matchMedia('(max-width: 1200px)')
+                    // Check if the media query is true
+                    if (mediaQuery.matches) {
+                        sidePatterns[i].style.top = '160px';
+                    }
+                }
+            }
+        }
+    }
+    
+
+    //Transparent header on scroll (mobile)
+    function transparentHeader() {
+        const header = document.getElementsByClassName('topnav')[0];
+        const sidebar = document.getElementsByClassName('sidebar')[0];
+        const topnavBg = document.getElementById('topnavBg');
+        if (sidebar) {
+            if (document.documentElement.scrollTop > 80 && !sidebar.style.width) {
+                header.style.backgroundColor = 'rgba(0,0,0,0)';
+                header.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))'; //use gradient to set empty background
+            } else {
+                header.style.backgroundColor = 'rgb(49, 41, 33)';
+                if (topnavBg) {
+                    header.style.backgroundImage = topnavBg.style.backgroundImage;
+                }
+            }
+        }
+    }
 
 
     (function () {

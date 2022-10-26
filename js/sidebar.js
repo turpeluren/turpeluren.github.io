@@ -9,6 +9,8 @@
     const topnavLinks = document.getElementsByClassName('topnavLinks')[0];
     const topLogo = document.getElementsByClassName('logoTopLeft')[0];
     const icons = document.getElementsByClassName('horizontal');
+    const header = document.getElementsByClassName('topnav')[0];
+    const topnavBg = document.getElementById('topnavBg');
 
 
 
@@ -38,6 +40,14 @@
             for (var i=0; i<icons.length; i++) {
                 icons[i].style.width = '0';
             }
+            header.style.backgroundColor = 'rgba(0,0,0,0)';
+            header.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))'; //gradient to set empty bg image
+            if (document.documentElement.scrollTop < 80) {
+                header.style.backgroundColor = 'rgb(49, 41, 33)';
+                if (topnavBg) {
+                    header.style.backgroundImage = topnavBg.style.backgroundImage; //get image back from topnavBg-element
+                }
+            }
             //grid.style.marginLeft = null;
         } else {
             if (sidebar.children.length > 0) {
@@ -50,6 +60,11 @@
             topLogo.children[0].style.top = '-100px';
             for (var i=0; i<icons.length; i++) {
                 icons[i].style.width = '1.5em';
+            }
+            //topnav background (color or image)
+            header.style.backgroundColor = 'rgb(49, 41, 33)';
+            if (topnavBg) {
+                header.style.backgroundImage = topnavBg.style.backgroundImage;
             }
             //grid.style.marginLeft = '350px';
         }
