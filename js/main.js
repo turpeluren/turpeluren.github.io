@@ -47,14 +47,27 @@
         //setAboutLinkHeight();
     }
     
-    //window.onresize = function() {setAboutLinkHeight()};
 
-    //function setAboutLinkHeight() {  
-        //let introHeight = document.defaultView.getComputedStyle(introLink).height;
-        //let menuHeight = document.defaultView.getComputedStyle(homeLinks).height;
-        //aboutLink.style.height = String(Math.max(parseInt(menuHeight) - (0.3 * window.innerHeight + 40 + parseInt(introHeight)),0))+'px';
-        // 0.3*window.innerHeight + 20 är blog-knappen, 20 är margin, introHeight är höjden av logga och länkar
-    //}
+    //collapsibles
+    const coll = document.getElementsByClassName('collapsible');
+
+    for (let i=0; i < coll.length; i++) {
+        coll[i].nextElementSibling.style.maxHeight = null;
+        //coll[i].nextElementSibling.style.display = 'none';
+        coll[i].addEventListener('click', function() {
+            this.classList.toggle('collapsibleActive');
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                //content.style.maxHeight = '0px';
+                content.style.maxHeight = null;
+                //content.style.display = 'none';
+            } else {
+                //content.style.maxHeight = '0px';
+                content.style.maxHeight = content.scrollHeight+'px';
+                //content.style.display = 'block';
+            }
+        });
+    }
 
 
     //parallax background home

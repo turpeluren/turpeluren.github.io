@@ -424,7 +424,7 @@ h1:hover {
 
     transition-duration: 0.1s;
 }
-.nav a:hover, .portfoliocollapse:hover, .sidebar a:hover {
+.nav a:hover, .portfoliocollapse:hover, .sidebar a:hover, .collapsible:hover {
     /*Common for topnav and portfolionav*/
     /*text-decoration: none;*/
     text-shadow: 0 1px, 0 2px, 0 3px, 0 4px, 0 5px, 0 6px, 
@@ -509,7 +509,6 @@ h1:hover {
     max-height: 100%;
     transition: height 0.2s ease-out;
     transition: padding 0.2s ease-out;
-    background-color: rgb(250, 249, 248);
     /*overflow: hidden;*/
 }
 .portfnavlinks a {
@@ -568,11 +567,35 @@ h1:hover {
     font-size: xx-large;
     color: white;
     display: block;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
 }
 .sidebar p {
     font-size: xx-large;
     color: white;
+}
+.sidebar .collapsible {
+    font-size: xx-large;
+    text-decoration: underline;
+    color: rgb(224, 224, 224);
+    margin-bottom: 1em;
+    padding-left: 1em;
+    transition-duration: 0.1s;
+}
+.sidebar .collContent {
+    padding-left: 0.5em;
+    margin-bottom: 1.5em;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.1s;
+}
+.sidebar .collapsible::after {
+    content: '\00a0 +'; /*'\02795';*/
+}
+.sidebar .collapsibleActive {
+    color: rgb(143, 143, 143);
+}
+.sidebar .collapsibleActive::after {
+    content: '\00a0 -'; /*'\2796';*/
 }
 .spacer {
     font-size: xx-large;
@@ -746,7 +769,7 @@ h1:hover {
     text-align: center;
     padding-top: 4em;
     padding-bottom: 4em;
-    mix-blend-mode:difference;/*så den blendar med sidepatterns*/
+    /*mix-blend-mode:difference;*//*så den blendar med sidepatterns*/
 }
 .footer .icon {
     display: inline-block;
@@ -854,10 +877,10 @@ h1:hover {
 /*resize the grid*/
 @media only screen and (max-width: 1200px) {
     .grid img {
-      width: 33.33333%;
+      width: 49.999999%;
     }
     .grid .worksLink {
-      width: 33.33333%;
+      width: 49.999999%;
     }
     .grid {
         margin: 0 0 12%;
@@ -866,7 +889,7 @@ h1:hover {
   
 @media only screen and (max-width: 800px) {
     .grid img {
-        width: 49.9999%;
+        width: 49.99999%;
     }
     .grid .worksLink {
         width: 49.99999%;
@@ -891,14 +914,19 @@ h1:hover {
 .display {
     margin: 4% 4%;
 
-    align-items: center;
+    text-align: left;
+}
+.display p {
+    text-align: left;
+    padding: 0 0 0 0;
+    padding-left: 0;
 }
 
 .display img {
     max-width: 100%;
     max-height: 100vh;
 
-    margin: auto;
+    margin: 0 auto;
     display: block;
 }
 
@@ -936,6 +964,12 @@ h1:hover {
     content: "";
     /*padding-bottom: 40px;*/
 }
+.lightbox .blogArticle img {
+    position: unset;
+    transform: unset;
+    z-index: unset;
+    padding-bottom: 5px;
+}
 
 .lightboxBg {
     position: fixed;
@@ -958,13 +992,11 @@ h1:hover {
     left: 50%;
     transform: translate(calc(-50% + 4em), -50%);
     position: fixed;
-    color: white;
-    /*margin-top: 10px;*/
-    text-shadow: 1px 1px 2px black;
+    color: black;
+    text-shadow: .5px .5px 1.5px white;
     z-index: 2;
     margin: 0 -4em;
     vertical-align: text-bottom;
-    /*margin-right: -2em;*/       
     top: calc(100vh - 40px);
 }
 
@@ -1091,6 +1123,10 @@ h1:hover {
     }
     .lightboxImg {
         max-width: 100%;
+    }
+    .lightboxText {
+        font-size: 20px;
+        top: calc(40px);
     }
   }
 
@@ -1383,7 +1419,30 @@ h1:hover {
     color: rgb(224, 224, 224);
     margin-bottom: 1em;
     display: block;
+}
+.blogNav .collapsible {
+    color: rgb(224, 224, 224);
+    margin-bottom: 1em;
+    transition-duration: 0.1s;
+}
+/*.blogNav .collapsible:hover {
+    color: rgb(143, 143, 143);
+}*/
+.blogNav .collContent {
     padding-left: 0.5em;
+    margin-bottom: 1.5em;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s;
+}
+.blogNav .collapsible::after {
+    content: '\00a0 +'; /*'\02795';*/
+}
+.blogNav .collapsibleActive {
+    color: rgb(143, 143, 143);
+}
+.blogNav .collapsibleActive::after {
+    content: '\00a0 -'; /*'\2796';*/
 }
 .blogNav a:hover {
     color: darkgray;
@@ -1683,8 +1742,20 @@ html .article { /* prevent images overflowing x */
         padding-left: 32px;
         padding-right: 32px;
     }
+    .blogArticle p, .blogArticle h4 {
+        font-size: 32px;
+        line-height: 1.75em;
+    }
+    .blogArticle h3, .blogArticle h2 {
+        font-size: 40px;
+        line-height: 1.75em;
+    }
     .blogArticle .infoBackground {
         margin: 0 32px 0 32px;
+    }
+    .blogArticle .display p {
+        padding-left: 0;
+        padding-right: 0;
     }
     .blogArticle img {
         margin: 0 auto;
