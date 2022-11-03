@@ -13,7 +13,6 @@
     const topnavBg = document.getElementById('topnavBg');
 
 
-    console.log('testa')
     //Portfolio navbar collapsable button (mobile) 
     portfoliocollapse.addEventListener('click', function() {expandPortfolioNav()});
 
