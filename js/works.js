@@ -111,8 +111,7 @@
         lightbox.appendChild(img);
         lightbox.appendChild(text);
         lightbox.appendChild(background);
-
-        console.log(imageElement)
+        
         if (imageElement.parentElement.classList.contains('worksLink') 
         && imageElement.parentElement.children[1].classList.contains('blogArticle')) { //nodeName === 'OBJECT') {
             //worksLink
