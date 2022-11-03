@@ -266,8 +266,6 @@
         showLightbox(goToImg);
     }
 
-    console.log(images)
-
         //find the image in the columns
         //find which column and which children index and goto next column
                 /*for (let j = 0; j < columns.length; j++) {
