@@ -2,19 +2,21 @@
 
 (function () {
     'use strict';
+    
 
-    const portfoliocollapse = document.getElementsByClassName('portfoliocollapse')[0];
-    const portfolionav = document.getElementsByClassName('portfolionavbar')[0];
-    const sidebar = document.getElementsByClassName('sidebar')[0];
-    const topnavLinks = document.getElementsByClassName('topnavLinks')[0];
-    const topLogo = document.getElementsByClassName('logoTopLeft')[0];
-    const icons = document.getElementsByClassName('horizontal');
-    const header = document.getElementsByClassName('topnav')[0];
-    const topnavBg = document.getElementById('topnavBg');
+    let portfoliocollapse = document.getElementsByClassName('portfoliocollapse')[0];
+    let portfolionav = document.getElementsByClassName('portfolionavbar')[0];
+    let sidebar = document.getElementsByClassName('sidebar')[0];
+    let topnavLinks = document.getElementsByClassName('topnavLinks')[0];
+    let topLogo = document.getElementsByClassName('logoTopLeft')[0];
+    let icons = document.getElementsByClassName('horizontal');
+    let header = document.getElementsByClassName('topnav')[0];
+    let topnavBg = document.getElementById('topnavBg');
 
 
     //Portfolio navbar collapsable button (mobile) 
     portfoliocollapse.addEventListener('click', function() {expandPortfolioNav()});
+    
 
     function expandPortfolioNav() {
         //toggle active and change symbol for button
