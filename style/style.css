@@ -69,19 +69,16 @@ body.blog {
     background-image: url('../img/portfolio/drawings/the\ conversation.jpeg');
     background-image: url('../img/B181DC64-16C2-4A5D-823E-2726A385456E.JPEG');
     background-image: url('../img/pattern\ bg.png');
-    background-image: url('../img/lager2.png');
+    background-image: url('../img/lager2checkeredTEST.jpg');
     background-position: center center;
-    /*background-position: center top;*/
-    /*animation-name: scrollAnimBg;
-    animation-duration: 0.8s;
-    animation-delay: 1.5s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    margin-bottom: 100px;*/
+    /*background: center / 256px repeat url('../img/turpeluren_rich_forest_bottom_layer_biodiversity_soil_0_1b5e4557-1468-4f2f-b7a5-db7e530de109.png');
+    */
 }
 @media only screen and (max-width: 1200px) {
     .home {
-        background-image: url('../img/lager2d.png');
+        background-position: center center;
+        /*background-size: cover;*/
+        background-image: url('../img/lager2dcheckered.jpg');
     }
 }
 .blog {
@@ -200,19 +197,19 @@ h1:hover {
 .homeLinks a {
     display: block;
     outline: 4px dashed black;
+    outline: 6px dashed darkblue;
     margin: 10px;
     text-align: center;
     color: darkblue;
-    /*background-color: #b7cbf3a8;*/
     background-color: rgba(255, 255, 255, 0.7);
-    /*box-shadow: inset 0 0 100px 0px black;*/
+    /*background-color: rgba(0, 89, 255, 0.801);*/
     transition: box-shadow 0.5s;
     transition: background-color 0.05s;
 }
 .homeLinks a:hover {
     /*box-shadow: inset 0 0 150px -50px black;*/
     /*outline: 5px dashed darkblue;*/
-    outline-width: 5px;
+    outline-width: 8px;
     outline-color: darkblue;
     background-color: #809dff9f;
     background-color: #3975ec9c;
@@ -251,17 +248,27 @@ h1:hover {
     outline-style: dotted;
 }
 .introHomeLink h1 {
-    color: rgb(56, 97, 56);
+    color: white;
+    background-color: rgba(0, 89, 255, 0.801);
+    display: table;
     text-indent: -7px;
-    line-height: 32px;
+    line-height: 48px;
     animation-name: breakTitle;
     animation-duration: 10s;
     animation-iteration-count: infinite;
+    letter-spacing: 0px;
 }
 @keyframes breakTitle {
-    0% {width: 100%;}
+    0% {letter-spacing: 0px;}
+    1% {letter-spacing: -100px;}
+    5% {letter-spacing: 1px;}
+    6% {letter-spacing: 0px;}
+    /*
+    0% {width: auto;}
+    1% {width: 0%;}
     5% {width: 30%;}
     10% {width: 100%;}
+    11% {width: auto;}*/
 }
 .aboutHomeLink {
     position: absolute;
@@ -303,10 +310,9 @@ h1:hover {
     .homeLinks a {  
         outline-width: 7px;
         outline-width: 6px;
-        outline-style:ridge;
     }
     .homeLinks a:hover {
-        outline-width: 6px;
+        outline-width: 9px;
         outline-style: dashed;
     }
     .blogHomeLink {
@@ -321,7 +327,6 @@ h1:hover {
         width: calc(55% - 20px);
         height: calc(30vh - 20px);
     }
-    
     .aboutHomeLink {
         width: calc(55% - 30px);
         left: calc(45% + 1px);
@@ -331,6 +336,13 @@ h1:hover {
     .introHomeLink h1 {
         font-size: 64px;
         letter-spacing: -3px;
+        line-height: 48px;
+    }
+    @keyframes breakTitle {
+        0% {letter-spacing: -3px;}
+        1% {letter-spacing: -100px;}
+        5% {letter-spacing: -2px;}
+        6% {letter-spacing: -3px;}
     }
 }
 
@@ -520,7 +532,7 @@ h1:hover {
     /*display: block;*/
     /*position: absolute;*/
     width: 1.5em;
-    mix-blend-mode: normal;
+    mix-blend-mode:color-burn;
     transition-duration: 0.2s;
     z-index: 5;
 }

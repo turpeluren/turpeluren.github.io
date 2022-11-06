@@ -114,7 +114,6 @@
                         sidePatterns[i].style.backgroundPosition = '0 0';
                     } else {
                         sidePatterns[i].style.top = 0;
-                        console.log(document.documentElement.scrollTop)
                         sidePatterns[i].style.backgroundPosition = '0 calc(100px - '+String(document.documentElement.scrollTop)+'px';
                     }
                     // Create a media condition that targets viewports at least 1200px wide

@@ -3,21 +3,46 @@
 <head>
     <title>turpelurpeluren</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!--link rel="stylesheet" type="text/css" href="style/style.css"-->
     
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
 </head>
-<body>
-    <div class="background home"></div>
+<body style="margin: 0; padding: 0;">
+    <div style="width: 100%; position: fixed; top: 0; left: 0; z-index: -1; height: 100vh; background: center / 256px repeat url('img/turpeluren_rich_forest_bottom_layer_biodiversity_soil_0_1b5e4557-1468-4f2f-b7a5-db7e530de109.png')"></div>
+    <div style="top: 0; margin: 0 auto; padding: 32px; max-width: calc(1024px - 64px); height: calc(100vh - 64px); background-color: rgb(255, 255, 255);">
+        <div style="display:block;">
+            <h1 style="float: left; padding: 0; margin: 0;">Index of turpelurpeluren.online</h1>
+            <a href="home.html" style="float: right; padding: 0;"><h1 style="margin: 0;">Home</h1></a>
+            <hr style="border-style: dotted; border-left: none; border-right: none; border-bottom: none; transform: translateY(32px); padding-left: 16px;">
+        </div>
+        <br>
+        <br>
+        <div style="display:block; max-width: 1024px; margin: 32px auto;">
+            <a href="blog.html"><h2 style="margin: 0; float: left; text-decoration: underline;">Blog</h1>
+            <hr style="border-style: dotted; border-left: none; border-right: none; border-bottom: none; transform: translateY(24px); padding-left: 16px;">
+            </a>
+        </div>
+        <div style="display:block; max-width: 1024px; margin: 32px auto;">
+            <a href="works.html"><h2 style="margin: 0; float: left; text-decoration: underline;">Works</h1>
+            <hr style="border-style: dotted; border-left: none; border-right: none; border-bottom: none; transform: translateY(24px); padding-left: 16px;">
+            </a>
+        </div>
+        <div style="display:block; max-width: 1024px; margin: 32px auto;">
+            <a href="about.html"><h2 style="margin: 0; float: left; text-decoration: underline;">About</h1>
+            <hr style="border-style: dotted; border-left: none; border-right: none; border-bottom: none; transform: translateY(24px); padding-left: 16px;">
+            </a>
+        </div>
+    </div>
+
 
     <!--div class="border borderleft"></div>
     <div class="border borderright"></div>
     <div class="border bordertop"></div-->
 
-    <div class="block relative white opacity">
+    <!--div class="block relative white opacity">
 
         <h1><a style="background: none;" href="home.html">Ture <sup>://turpelurpeluren://</sup> Goldkuhl</a></h1>
         <br>
@@ -36,56 +61,12 @@
             <a href="works.html">WORKS</a>
             <br>
             <br>
-            <!--hr color="black"-->
         </div>
     </div>
     <br>
-    <p style="text-indent: 8%; max-width: 20%;">^^^ Check out my links!</p>
+    <p style="text-indent: 8%; max-width: 20%;">^^^ Check out my links!</p-->
 
-    <!-- home content -->
-    <div class="homeContent">
-        <h2 style="text-align: center;">Featured content</h2>
-        <hr style="border: 1px solid black;">
-
-        <br>
-        <br>
-
-        <div class="top">Latest blog post:</div>
-        <a style="text-decoration: none;" href="blog_posts/example_post.html">  
-            <div class="homePost">
-                <h2>Första test-blogg-inlägget! Med riktigt lång titel för att testa</h2>
-                <h5>2022-01-25 by Ture Goldkuhl</h5>
-
-                <!--img style="max-width: 100%; max-height: 200px;" src='img/xp_bg.jpg'-->
-                
-                <h4>En kort introduktion över det riktiga köttet i artikeln ger en övergripande bild av vad det kan komma att handla om.</h4>
-            </div>
-        </a>
-
-        <br>
-        <br>
-        
-        <br>
-        <div class="top">Latest blog post:</div>
-        <a style="text-decoration: none;" href="blog.html">  
-            <div class="homePost">
-                <h2>Title is this</h2>
-                <p>Here is a short summary of what the post is about or maybe just the beginning of the text like this is 
-                and it just fades out with dots...
-                </p>
-            </div>
-        </a>
-
-        <br>
-        <br>
-        <br>
-
-        <div class="top">My ceramics:</div>
-        <a style="text-decoration: none;" href="sculpture.html">  
-            <div class="homePost" style="background: center center / 1200px no-repeat url('img/portfolio/sculpture/tvålkopp_rörej.jpg'); height: 10em;">
-            </div>
-        </a>
-    </div>
+    
 
     <!--div style="z-index: -1;" class="imageBlur"></div-->
     
@@ -99,17 +80,8 @@
         <a href="https://www.youtube.com/user/MegaTures/videos">Youtube.</a>
     </div-->
 
-    <br></br>
-    <hr>
-    <div class="footer">
-        <p>Contact:</p>
-        <a href="https://www.instagram.com/turpelurpeluren/">instagram dm,</a>
-        <p>thenotteam@gmail.com</p>
-        <br></br>
-        <p>Page by Ture Goldkuhl</p>
-        <p>2022</p>
-    </div>
-    <script src="js/redirect_home.js"></script>
+    <div id="footer"></div>
     <script src="js/main.js"></script>
+    <script src="js/load.js"></script>
 </body>
 </html>
