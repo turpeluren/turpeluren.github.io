@@ -557,7 +557,8 @@ h1:hover {
     /*text-shadow: 0 1px 3px black;*/
     /*filter: invert(100%);*/
     /*background-color: black;*/
-    mix-blend-mode: multiply;
+    /*filter: brightness(+40%);*/
+    mix-blend-mode:screen;
     transform: scaleY(1.1) translateY(1px) rotate(360deg);
 }
 
