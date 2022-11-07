@@ -20,6 +20,9 @@ p {
 img {
     user-select: all;
 }
+/*body, .topnav {
+    transition: margin-left .1s;
+}*/
 
 body.home {
     background-image: url('../img/xp_bg.jpg');
@@ -575,7 +578,7 @@ h1:hover {
     padding-top: 200px;
 }
 .sidebar a {
-    padding: 12px 12px 12px 48px;
+    padding: 12px 12px 24px 48px;
     text-decoration: none;
     font-size: xx-large;
     color: white;
@@ -609,6 +612,23 @@ h1:hover {
 }
 .sidebar .collapsibleActive::after {
     content: '\00a0 -'; /*'\2796';*/
+}
+.sidebarIcon {
+    padding: 0;
+    margin: 24px 12px 24px 48px;
+    float: bottom;
+    display: block;
+    position: relative;
+    height: 48px;
+    width: 48px;
+}
+.sidebarIcon a, .sidebarIcon img {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 0;
+    height: 48px;
+    width: 48px;
 }
 .spacer {
     font-size: xx-large;
@@ -675,7 +695,7 @@ h1:hover {
         margin: 1.75em 0.6em;
         width: 0;
     }
-    /*.icon img {
+    /*.icon {
     }*/
     .spacer {
         margin-top: 7em;
@@ -837,10 +857,11 @@ h1:hover {
 
 .grid img {
     margin: 0;
-    border: 3px solid rgb(48, 43, 39);
     border: 6px solid white;
     width: 24.999%;
     height: 24.999%;
+    /*width: 33.333%;
+    height: 33.333%;*/
     transition-duration: 0.6s;
     object-fit: cover;
 }
@@ -870,7 +891,8 @@ h1:hover {
     border-radius: 3px;
     width: 24.999%;
     height: 24.999%;
-    /*width: 24%;*/
+    /*width: 33.333%;
+    height: 33.333%;*/
     transition-duration: 0.2s;
     /*object-fit: cover;*/
     /*rgb(144, 169, 207)*/  /*blue*/
@@ -878,6 +900,8 @@ h1:hover {
 }
 .grid .worksLink img {
     width: 100%;
+    /*border: 3px solid rgb(219, 208, 208)*/
+    border: 3px solid rgb(255, 255, 255);
 }
 
 .works h1, .about h1 {
@@ -1250,7 +1274,6 @@ h1:hover {
     
     background-color: rgba(137, 43, 226, 0.8);
     transition-duration: 0.1s;
-
 }
 .worksMenu .worksMenuOverlay {
     top: 0;
@@ -1268,9 +1291,10 @@ h1:hover {
     font-size: xx-large;
     transition-duration: 0.3s ease-in-out;
 }
-.worksMenuText::after {
+/*.worksMenuText::after {
     content: '\2BB3';
-}
+    content: '\01F86D'; //arrow indicating link
+}*/
 
 
 .homeContent {
@@ -1461,6 +1485,78 @@ h1:hover {
     color: darkgray;
 }
 
+
+.contactForm {
+    max-width: 1024px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 32px 0 32px;
+    /*background: center / 256px repeat url('../img/turpeluren_rich_forest_bottom_layer_biodiversity_soil_0_1b5e4557-1468-4f2f-b7a5-db7e530de109.png');
+    background: 50% 43% / cover repeat-y url('../img/lager2dcheckered.jpg');*/
+    
+
+    border-radius: 2px;
+    border: 1px solid #aaa;
+}
+.contactFormBox {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.contactForm h2 {
+    font-size: 32px;
+    font-weight: 400;
+    padding-bottom: 1.5em;
+    padding-top: 48px;
+}
+.contactForm h2::after {
+    float: right;
+    content: ":3";
+}
+.contactForm label {
+    display: inline-block;
+    width: 14%;
+    margin-bottom: 2em;
+    font-size: 18px;
+}
+.contactForm input {
+    float: right;
+    width: 42%;
+    margin-right: 42%;
+    height: 3em;
+    font-size: 16px;
+    text-indent: 4px;
+}
+.contactForm textarea {
+    resize: vertical;
+    width: 100%;
+    height: 150px;
+    font-size: 16px;
+    text-indent: .4em;
+    padding: .2em;
+    margin-bottom: 16px;
+}
+.contactForm button {
+    margin-left: calc(14% + 44% - 4px);
+    width: calc(42% + 4px);
+    display: block;
+    font-size: 16px;
+    margin-top: 4px;
+    height: 3em;
+    border-radius: 3px;
+    border-top: none;
+    color: white;
+    background-color: rgb(123, 65, 177);
+    transform: translateX(2px);
+    margin-bottom: 64px;
+}
+.contactForm button:hover {
+    border-top: 2px solid #000;
+    background-color: rgb(74, 41, 105);
+}
+.contactForm hr {
+    border: none;
+    border-top: 1px solid #aaa;
+}
 
 @media only screen and (max-width: 1200px) {
     .blogNavBackground {

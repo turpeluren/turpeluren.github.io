@@ -8,7 +8,6 @@
     const prev = document.getElementsByClassName('lightboxPrev')[0];
     const next = document.getElementsByClassName('lightboxNext')[0];
     const cross = document.getElementsByClassName('lightboxCross')[0];
-    const columns = document.getElementsByClassName('column');
     const grid = document.getElementsByClassName('grid')[0];
     
 
@@ -20,14 +19,21 @@
         function squareImages() {
 
             const scale = 1;
+            const imagePadding = 3;
             for (let i = 0; i < grid.children.length; i++) {  //loop though the columns children
-                grid.children[i].style.height = String(grid.children[i].clientWidth*scale) + "px";
+                grid.children[i].style.height = String(grid.children[i].clientWidth*scale+imagePadding*2) + "px";
                 if (grid.children[i].classList.contains('worksLink')) {
-                    grid.children[i].style.height = String(grid.children[i].clientWidth*scale-6) + "px"; //workLinks blev 6px högre av nån anledning
+                    grid.children[i].style.height = String(grid.children[i].clientWidth*scale) + "px"; //workLinks blev 6px högre av nån anledning
                 }
                 for (let j = 0; j < grid.children[i].children.length; j++) {  
-                    //loop though the columns children children... for worksLink
-                    grid.children[i].children[j].style.height = String(grid.children[i].children[j].clientWidth*scale) + "px";
+                    //loop though the grids children children... for worksLink
+                    if (grid.children[i].children[j].classList.contains('worksMenuOverlay')) {
+                        // worksmenuoverlay 12px less in height
+                        grid.children[i].children[j].style.height = String(grid.children[i].children[j].clientWidth*scale-12) + "px";
+                    } else {
+                        // everything else (images) normal height
+                        grid.children[i].children[j].style.height = String(grid.children[i].children[j].clientWidth*scale) + "px";
+                    }
                 }
             }
         }
@@ -111,7 +117,7 @@
         lightbox.appendChild(img);
         lightbox.appendChild(text);
         lightbox.appendChild(background);
-        
+
         if (imageElement.parentElement.classList.contains('worksLink') 
         && imageElement.parentElement.children[1].classList.contains('blogArticle')) { //nodeName === 'OBJECT') {
             //worksLink
