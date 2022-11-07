@@ -496,6 +496,14 @@ h1:hover {
     mix-blend-mode:color-dodge;
     border-bottom-right-radius: 10px;
 }
+.portfoliocollapse.right {
+    border-bottom-right-radius: unset;
+    border-bottom-left-radius: 10px;
+}
+.portfoliocollapse.right.active {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
 .portfoliocollapse:hover{
     /*outline: 3px solid white;
     width: calc(5em - 6px);
@@ -515,6 +523,7 @@ h1:hover {
     background-color: rgba(0, 0, 0, 0.5);
     mix-blend-mode:normal;
     border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 
     content: '';
     /*kryss som innehåll*/
@@ -545,6 +554,7 @@ h1:hover {
 .right {
     /*right: calc(4% + 24px + 1.5em);*/
     float: right;
+    right: 0;
 }
 .horizontal {
     /*transform: translateY(-2em);*/
@@ -615,7 +625,7 @@ h1:hover {
 }
 .sidebarIcon {
     padding: 0;
-    margin: 24px 12px 24px 48px;
+    margin: 24px auto 24px auto;
     float: bottom;
     display: block;
     position: relative;
@@ -663,6 +673,7 @@ h1:hover {
     }
     .topnav {
         padding: 0 calc(4% + 24px) 0 0;
+        padding: 0 0 0 0;
         font-size: xx-large;
         height: 5em;
         
@@ -683,13 +694,32 @@ h1:hover {
     .topnavLinks {
         height: auto;
         width: 0;
-        position: fixed;
+        position: absolute;
+        left: 0;
         overflow-x: hidden;
         white-space: nowrap;
-        transition: 0.5s;
-        padding-top: 1.7em;
+        transition: 0.1s;
+        /*padding-top: 1.5em;*/
         z-index: 2;
         transition-duration: 0.2s;
+        margin: 0 160px;
+        text-align: center;
+        font-size: 0;
+    }
+    .topnavLinks a {
+        display: inline-block;
+        width: calc((100vw - 380px) / 3);
+        height: calc(5 * 32px);
+        padding-top: 1.2em;
+        margin: 0;
+        font-size: 40px;
+        letter-spacing: 0;
+    }
+    .topnavLinks a:hover {
+        background-color: rgba(20, 15, 10, 0.35);
+    }
+    .topnavLinks a:nth-child(even) {
+        background-color: rgba(20, 15, 10, 0.25);
     }
     .horizontal {  /*icon*/ 
         margin: 1.75em 0.6em;
@@ -743,9 +773,6 @@ h1:hover {
 }
 .left {
     text-align: left;
-}
-.right {
-    text-align: right;
 }
 
 .navbar a {
