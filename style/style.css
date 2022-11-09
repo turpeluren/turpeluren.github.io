@@ -60,9 +60,9 @@ body.blog {
 
 }
 
-.works {
-    /*background-image: url('../img/portfolio/sculpture/PLAY.jpg');*/
-}
+/*.works {
+    background-image: url('../img/portfolio/sculpture/PLAY.jpg');
+}*/
 .table {
     background: center / cover no-repeat url('../img/portfolio/project_table/table_skull.JPG');
 }
@@ -458,13 +458,13 @@ h1:hover {
 .topnav a {
     color: rgb(255, 255, 255);
 }
-.topnav a:hover {
-    /*background-color: rgb(43, 11, 73);*/
-    /*color: rgb(0, 0, 0);*/
-    /*text-shadow: 0 1px 3px white;*/
-    /*padding: 0.5% 7%;*/
-    /*font-weight: 300;*/
-}
+/*.topnav a:hover {
+    background-color: rgb(43, 11, 73);
+    color: rgb(0, 0, 0);
+    text-shadow: 0 1px 3px white;
+    padding: 0.5% 7%;
+    font-weight: 300;
+}*/
 .portfolionavbar {
     display: block;
     text-align: right;
@@ -655,6 +655,10 @@ h1:hover {
     margin: 24px;
     font-size: 32px;
     display: inline-block;
+    mix-blend-mode: screen;
+}
+.sidebarIcon:hover {
+    mix-blend-mode: color-burn;
 }
 .sidebarIcon a, .sidebarIcon img {
     padding: 0;
@@ -816,27 +820,25 @@ h1:hover {
     padding: 0;
 }
 
-.links {
-    /*text-align: center;
+/*.links {
+    text-align: center;
     align-content: center;
     display: grid;
     align-content: center;
     justify-content: center;
     gap: 4px;
-    height: 800px;*/
+    height: 800px;
 }
 
 .links a {   
-    /*text-align: center;
+    text-align: center;
     align-content: center;
     flex-direction: column;
-    /*border: 3px dotted black;
+    border: 3px dotted black;
     width: 200px;
     max-width: 100%;
-    padding: 120px 60px;*/
-
-    
-}
+    padding: 120px 60px;
+}*/
 
 .links a:hover {
     padding: 0;

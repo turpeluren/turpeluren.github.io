@@ -170,17 +170,19 @@
             header.style.marginLeft = '0px';
             document.body.style.marginRight = '0px';
             header.style.marginRight = '0px';
-        } else {
-            //when mobile width
-            //put logo in place
-            /*topLogo.children[0].style.top = '1.5em';
-            topLogo.children[0].style.left = 'calc(50% - 1em)';*/
 
             //restore buttons
             portfoliocollapse.children[0].innerHTML = '&#9776';
             portfoliocollapseRight.children[0].innerHTML = '&#9776';
             portfoliocollapse.classList.remove('active');
             portfoliocollapseRight.classList.remove('active');
+        } else {
+            //when mobile width
+            //put logo in place
+            /*topLogo.children[0].style.top = '1.5em';
+            topLogo.children[0].style.left = 'calc(50% - 1em)';*/
+
+
 
             var btn; //which way to close and reopen the sidebar on resize?
             if (selButton) {
