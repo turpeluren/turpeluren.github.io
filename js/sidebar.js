@@ -2,7 +2,15 @@
 
 (function () {
     'use strict';
-    
+    // header
+    fetch('https://turpelurpeluren.online/resources/header.html') // the page we want to use for our header
+    .then(data => {
+        return data.text()
+    })
+    .then( data => {
+        document.getElementById("header").innerHTML = data; // inserts to element id="header"
+    })
+    .then(() => {
 
     let portfoliocollapse = document.getElementsByClassName('portfoliocollapse')[0];
     let portfoliocollapseRight = document.getElementsByClassName('portfoliocollapse')[1];
@@ -192,4 +200,5 @@
             sidebarEffects(btn);
         }
     }
+    })
 })();
