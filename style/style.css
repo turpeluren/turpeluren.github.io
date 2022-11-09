@@ -432,12 +432,18 @@ h1:hover {
     /*Common for topnav and portfolionav*/
     background-color: none;
     background-image: none;
-    margin: 1em 0.5em;
-    text-decoration: none;
     text-shadow: none;
     font-weight: 500;
-
     transition-duration: 0.1s;
+}
+/*.nav a:not(.icon a) {
+    margin: 1em 0.5em;
+}*/
+.topnavLinks a, .portfolionavbar a {
+    margin: 1em 0.5em;
+}
+.nav a:not(.aactive) {
+    text-decoration: none;
 }
 .nav a:hover, .portfoliocollapse:hover, .sidebar a:hover, .collapsible:hover {
     /*Common for topnav and portfolionav*/
@@ -558,8 +564,12 @@ h1:hover {
 }
 .horizontal {
     /*transform: translateY(-2em);*/
-    margin: 0 0.5em;
+    margin: 0 0 0 1em;
 }
+/*.horizontal:first {
+    margin: 0 0.5em 0 0;
+    margin: 0;
+}*/
 .icon img {
     width: 100%;
     height: auto;
@@ -586,30 +596,47 @@ h1:hover {
     overflow-x: hidden;
     transition: 0.2s;
     padding-top: 200px;
+    padding-bottom: calc(32px + 48px + 32px + 48px); /*icon height + margin + extra margin*/
+    text-align: left;
 }
 .sidebar a {
-    padding: 12px 12px 24px 48px;
+    padding: 12px 48px 24px 48px;
     text-decoration: none;
-    font-size: xx-large;
+    font-size: 48px;
     color: white;
     display: block;
     transition-duration: 0.1s;
 }
+.sidebar .aactive {
+    background-color: #222;
+    text-decoration: underline;
+}
+.aactive {
+    text-decoration: underline;
+}
+.aactive::after {
+    content: '.';
+}
+.sidebar a:nth-child(even) {
+    border: 2px dashed #444;
+    border-left: none;
+    border-right: none;
+}
 .sidebar p {
-    font-size: xx-large;
+    padding: 12px 48px 24px 48px;
+    font-size: 48px;
     color: white;
 }
 .sidebar .collapsible {
-    font-size: xx-large;
+    font-size: 48px;
     text-decoration: underline;
-    color: rgb(224, 224, 224);
-    margin-bottom: 1em;
-    padding-left: 1em;
+    color: rgb(104, 207, 168);
+    padding: 0 1em 1em 1em;
     transition-duration: 0.1s;
+    border-bottom: 2px solid #555;
 }
 .sidebar .collContent {
-    padding-left: 0.5em;
-    margin-bottom: 1.5em;
+    padding: 0 48px 1.5em 48px;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.1s;
@@ -619,26 +646,27 @@ h1:hover {
 }
 .sidebar .collapsibleActive {
     color: rgb(143, 143, 143);
+    color: rgb(71, 59, 82);
 }
 .sidebar .collapsibleActive::after {
     content: '\00a0 -'; /*'\2796';*/
 }
 .sidebarIcon {
-    padding: 0;
-    margin: 24px auto 24px auto;
-    float: bottom;
-    display: block;
-    position: relative;
-    height: 48px;
-    width: 48px;
+    margin: 24px;
+    font-size: 32px;
+    display: inline-block;
 }
 .sidebarIcon a, .sidebarIcon img {
-    position: absolute;
-    top:0;
-    left: 0;
     padding: 0;
-    height: 48px;
-    width: 48px;
+}
+.iconHolder {
+    background-color: #111;
+    position: fixed;
+    bottom: 0;
+    width: 550px;
+    padding: 32px calc(((550px - 4 * (48px + 24px + 24px)) / 2));
+    /*margin: 32px calc(((550px - 4 * (48px + 24px + 24px)) / 2));*/
+    /*           (sidebarwidth - nr of icons * (iconwidth + iconmargin + iconmargin)) / 2*/
 }
 .spacer {
     font-size: xx-large;
@@ -710,9 +738,9 @@ h1:hover {
         display: inline-block;
         width: calc((100vw - 380px) / 3);
         height: calc(5 * 32px);
-        padding-top: 1.2em;
+        padding-top: .9em;
         margin: 0;
-        font-size: 40px;
+        font-size: 48px;
         letter-spacing: 0;
     }
     .topnavLinks a:hover {

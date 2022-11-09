@@ -6,7 +6,7 @@
 
     let portfoliocollapse = document.getElementsByClassName('portfoliocollapse')[0];
     let portfoliocollapseRight = document.getElementsByClassName('portfoliocollapse')[1];
-    let portfolionav = document.getElementsByClassName('portfolionavbar')[0];
+    //let portfolionav = document.getElementsByClassName('portfolionavbar')[0];
     let sidebar = document.getElementsByClassName('sidebar')[0];
     let topnavLinks = document.getElementsByClassName('topnavLinks')[0];
     let topLogo = document.getElementsByClassName('logoTopLeft')[0];
@@ -14,6 +14,13 @@
     let header = document.getElementsByClassName('topnav')[0];
     let topnavBg = document.getElementById('topnavBg');
 
+    // create icon holder
+    const iconHolder = document.createElement('div');
+    iconHolder.classList.add('iconHolder');
+    iconHolder.classList.add('hidden');
+    sidebar.appendChild(iconHolder);
+
+    // create the right-side sidebar-button
     if (!portfoliocollapseRight) {
         portfoliocollapseRight = document.createElement('button');
         portfoliocollapseRight.classList.add('portfoliocollapse', 'right');
@@ -53,9 +60,6 @@
     }
 
     function sidebarEffects(e) {
-
-        console.log(portfoliocollapseRight.classList)
-
         //button effects on sidebar etc..
         topLogo.children[0].style.left = 'calc(50% - 1em)'; //center logo (säkerhets skull)
 
@@ -81,6 +85,7 @@
             document.body.style.marginRight = '0px';
             header.style.marginRight = '0px';
             // remove icons
+            iconHolder.classList.add('hidden');
             const ic = document.getElementsByClassName('sidebarIcon');
             for (let i=ic.length-1; i>=0; i--) {
                 ic[i].remove();
@@ -88,23 +93,47 @@
 
 
         } else { // fäll ut sidebar
-            if (sidebar.children.length > 0) {
-                //Only pull out the sidebar if it has content
+            //pull out the top links from the correct side
+            if (e.classList.contains('right')) {
+                topnavLinks.style.right = '0';
+                topnavLinks.style.left = 'unset';
+            } else {
+                topnavLinks.style.left = '0';
+                topnavLinks.style.right = 'unset';
+            }
+
+            if (sidebar.children.length > 1) { //Only pull out the sidebar if it has content
+                
                 sidebar.style.width = '550px';
 
-                if (e.classList.contains('right')) { //open the sidebar from the right
+                if (e.classList.contains('right')) {    
+                    //open the sidebar from the right
                     sidebar.style.right = '0';
                     sidebar.style.left = 'unset';
+                    
                     // and shift the document body & header
                     document.body.style.marginRight = '550px';
                     header.style.marginRight = '-550px';
-                } else {    // or from the left
+                } else {                                
+                    // or from the left
                     sidebar.style.left = '0';
                     sidebar.style.right = 'unset';
+
                     // and shift the document body & header
                     document.body.style.marginLeft = '550px';
                     header.style.marginLeft = '-550px';
-                    }
+                }
+            
+                // copy icons to sidebar
+                for (let i=icons.length-1; i >= 0; i--) {
+                    let iconCopy = icons[i].cloneNode(true);
+                    iconCopy.classList.remove('horizontal');
+                    iconCopy.classList.remove('right');
+                    iconCopy.classList.add('sidebarIcon');
+                    iconHolder.classList.remove('hidden');
+                    iconHolder.appendChild(iconCopy);
+                }
+                
             } else {
                 sidebar.style.width = '0px';
             }
@@ -118,14 +147,7 @@
             if (topnavBg) {
                 header.style.backgroundImage = topnavBg.style.backgroundImage;
             }
-            // copy icons to sidebar
-            for (let i=icons.length-1; i >= 0; i--) {
-                let iconCopy = icons[i].cloneNode(true);
-                iconCopy.classList.toggle('horizontal');
-                iconCopy.classList.toggle('right');
-                iconCopy.classList.toggle('sidebarIcon');
-                sidebar.appendChild(iconCopy);
-            }
+            
         }
     }
 
@@ -135,24 +157,30 @@
     function checkCorrect() {
         //when full width
         if (window.innerWidth > 1200) {
-            //icons visible
-            for (var i=0; i<icons.length; i++) {
-                icons[i].style.width = '1.5em';
-            }
+
             //remove sidebar
             sidebar.style.width = null;
             //put logo in place
             topLogo.children[0].style.top = '1.75em';
             topLogo.children[0].style.left = 'initial';
+            //hide icons
+            iconHolder.classList.add('hidden');
+            //remove body margin
+            document.body.style.marginLeft = '0px';
+            header.style.marginLeft = '0px';
+            document.body.style.marginRight = '0px';
+            header.style.marginRight = '0px';
         } else {
             //when mobile width
             //put logo in place
             /*topLogo.children[0].style.top = '1.5em';
             topLogo.children[0].style.left = 'calc(50% - 1em)';*/
-            //icons not visible
-            /*for (var i=0; i<icons.length; i++) {
-                icons[i].style.width = '0';
-            }*/
+
+            //restore buttons
+            portfoliocollapse.children[0].innerHTML = '&#9776';
+            portfoliocollapseRight.children[0].innerHTML = '&#9776';
+            portfoliocollapse.classList.remove('active');
+            portfoliocollapseRight.classList.remove('active');
 
             var btn; //which way to close and reopen the sidebar on resize?
             if (selButton) {
