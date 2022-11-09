@@ -14,13 +14,13 @@
         // copy end
 
         // header
-        fetch('https://turpelurpeluren.online/resources/header.html') // the page we want to use for our header
+        /*fetch('https://turpelurpeluren.online/resources/header.html') // the page we want to use for our header
         .then(data => {
             return data.text()
         })
         .then( data => {
             document.getElementById("header").innerHTML = data; // inserts to element id="header"
-        })
+        })*/
         // copy end
 
         // sidepatterns

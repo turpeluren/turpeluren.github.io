@@ -215,7 +215,7 @@
             currentImage = lightbox.children[0].src;
         }
         let img; //goto img nr
-        const first = 5; //first lightboxable image index
+        const first = 1; //first lightboxable image index
 
         //loop through all images
         /*WARING*/ //this depends on there being 4 images before the first lightboxable image
