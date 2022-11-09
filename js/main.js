@@ -74,6 +74,7 @@
     window.onscroll = function() {scrollBackground()};
 
     const sidePatterns = document.getElementsByClassName('sidePattern');
+    const arrow = document.getElementsByClassName('continueArrow')[0];
 
     function scrollBackground() {
         
@@ -89,6 +90,9 @@
             } else {
                 menu.style.top = String(600-document.documentElement.scrollTop)+'px';
             }
+
+            //fade out arrow
+            arrow.style.opacity = String(1 - document.documentElement.scrollTop / 300);
 
             /*
             if (document.documentElement.scrollTop > window.innerHeight*1.9) {

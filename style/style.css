@@ -291,6 +291,25 @@ h1:hover {
     content: "\00a0";
     margin-bottom: 1px;
 }
+.continueArrow {
+    rotate: 90deg;
+    font-size: 48px;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 12px);
+    color: #ded6cc;
+    text-shadow: -3px 0 8px black;
+    animation: arrowBop 1.5s ease-in-out 0s infinite; /* forwards none;*/
+}
+
+@keyframes arrowBop {
+    0% {transform: translateY(0);
+        text-shadow: -3px 0 8px black;}
+    50% {transform: translateX(-16px);
+        text-shadow: 3px 0 8px black;}
+    100% {transform: translateY(0);
+        text-shadow: -3px 0 8px black;}
+} 
 
 
 @media only screen and (max-width: 909px) { /*The h1 line breaks!*/
@@ -340,6 +359,9 @@ h1:hover {
         font-size: 64px;
         letter-spacing: -3px;
         line-height: 48px;
+    }
+    .continueArrow {
+        bottom: 48px;
     }
     @keyframes breakTitle {
         0% {letter-spacing: -3px;}
@@ -745,6 +767,7 @@ h1:hover {
         padding-top: .9em;
         margin: 0;
         font-size: 48px;
+        font-weight: 400;
         letter-spacing: 0;
     }
     .topnavLinks a:hover {
@@ -1616,6 +1639,35 @@ h1:hover {
 }
 
 @media only screen and (max-width: 1200px) {
+    .contactFormBox {
+        max-width: 900px;
+    }
+    .contactForm h2 {
+        font-size: 48px;
+    }
+    .contactForm label {
+        margin-bottom: 5em;
+        font-size: 24px;
+    }
+    .contactForm input {
+        height: 5em;
+        font-size: 24px;
+        text-indent: 8px;
+        width: 62%;
+        margin-right: 22%;
+    }
+    .contactForm textarea {
+        height: 250px;
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+    .contactForm button {
+        font-size: 24px;
+        height: 5em;
+        margin-left: calc(14% + 64% - 4px);
+        width: calc(22% + 4px);
+    }
+
     .blogNavBackground {
         display: none;
     }
