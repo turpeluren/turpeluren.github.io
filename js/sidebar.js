@@ -145,7 +145,7 @@
             } else {
                 sidebar.style.width = '0px';
             }
-            topnavLinks.style.width = 'calc(100% - 2 * 160px)'; //minus bredden på knapparna
+            topnavLinks.style.width = 'calc(100% - 320px)'; //minus bredden på knapparna
             topLogo.children[0].style.top = '-100px';
             /*for (var i=0; i<icons.length; i++) {
                 icons[i].style.width = '1.5em';

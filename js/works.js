@@ -9,6 +9,7 @@
     const next = document.getElementsByClassName('lightboxNext')[0];
     const cross = document.getElementsByClassName('lightboxCross')[0];
     const grid = document.getElementsByClassName('grid')[0];
+    const nrOfIcons = 4; //icons in the topnav
     
 
     if (grid) {
@@ -44,7 +45,8 @@
 
     //Make images clickable
     for (let i = 0; i < images.length; i++) {
-        images[i].addEventListener('click', function () { showLightbox(images[i]) });
+        images[i].addEventListener('click', function () { showLightbox(images[i+nrOfIcons+1]) });
+        //pass index + 5 since icons will be appended earlier in the doc by sidebar.js
     }
 
 
@@ -215,7 +217,7 @@
             currentImage = lightbox.children[0].src;
         }
         let img; //goto img nr
-        const first = 1; //first lightboxable image index
+        const first = nrOfIcons+1+1; //first lightboxable image index
 
         //loop through all images
         /*WARING*/ //this depends on there being 4 images before the first lightboxable image
@@ -224,6 +226,8 @@
         
         for (let i = first; i < images.length; i++) {
             if (currentImage === images[i].src) {
+
+                console.log(images[first])
 
                 img = i+step; //get -1 eller 1
                 
@@ -254,11 +258,11 @@
                     }
                 }
                 
-                if (img >= images.length-3) { //-3 är inklusive tre icons i footern!
+                if (img >= images.length-4) { //-4 är inklusive fyra icons i footern!
                     img = first; //första bild efter icons, logo & lightbox
                 }
                 if (img < first) {
-                    img = images.length-4; //-5 för att skippa ikonerna i footern
+                    img = images.length-5; //-5 för att skippa ikonerna i footern
                 }
 
                 checkIsChild();
