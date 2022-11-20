@@ -1413,6 +1413,7 @@ h1:hover {
 /* BLOG */
 .blogContent {
     padding-top: 2em;
+    overflow: hidden;
 }
 .blogContent h1 {
     margin-left: calc(50vw - 520px);

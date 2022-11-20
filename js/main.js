@@ -41,11 +41,6 @@
     //get what page we are on
     var sPath = window.location.pathname;
     var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
-
-    //set the height of 'about' button on home screen
-    if (sPage === 'home.html') {
-        //setAboutLinkHeight();
-    }
     
 
     //collapsibles
@@ -81,10 +76,10 @@
         if (sPage === 'home.html') {
             const bg = document.getElementsByClassName('background')[0];
             const menu = document.getElementsByClassName('scrollHomeLinks')[0];
-            const homeContent = document.getElementsByClassName('homeContent')[0];
+            //parallax the background
             bg.style.top = '-'+String(document.documentElement.scrollTop/8)+'px';
 
-            
+            //scroll menu after 600px scroll
             if (document.documentElement.scrollTop < 600) {
                 menu.style.top = '0px';
             } else {
@@ -94,16 +89,6 @@
             //fade out arrow
             arrow.style.opacity = String(1 - document.documentElement.scrollTop / 300);
 
-            /*
-            if (document.documentElement.scrollTop > window.innerHeight*1.9) {
-                //get up the footer
-                const footer = document.getElementsByClassName('footer')[0]
-                document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight-footer.clientHeight)+'px';
-                document.getElementsByClassName('homeFooterScroll')[0].style.display = block;
-            } else {
-                document.getElementsByClassName('homeFooterScroll')[0].style.height = String(2*window.innerHeight)+'px';
-                document.getElementsByClassName('homeFooterScroll')[0].style.display = none;
-            }*/
         }
 
         //Transparent header on scroll (mobile)
@@ -151,9 +136,9 @@
     }
 
 
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    /*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         window.innerWidth = 768;
-    }
+    }*/
 
     /*window.innerWidth = 800;*/
     /*console.log(window.innerWidth)*/
