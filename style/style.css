@@ -302,6 +302,7 @@ h1:hover {
     animation: arrowBop 1.5s ease-in-out 0s infinite; /* forwards none;*/
 }
 
+
 @keyframes arrowBop {
     0% {transform: translateY(0);
         text-shadow: -3px 0 8px black;}
@@ -362,6 +363,9 @@ h1:hover {
     }
     .continueArrow {
         bottom: 48px;
+    }
+    .avatar {
+        display: none;
     }
     @keyframes breakTitle {
         0% {letter-spacing: -3px;}
