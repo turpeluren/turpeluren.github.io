@@ -1,95 +1,62 @@
 (function () {
     'use strict';
 
-    // footer
-    fetch('https://turpelurpeluren.online/resources/footer.html') // the page we want to use for our footer
-    .then(data => {
-        return data.text()
-    })
-    .then( data => {
-        document.getElementById("footer").innerHTML = data; // inserts to element id="footer"
-    })
-    // copy end
+    //essentials
+    
+    // header handled in sidebar.js
 
-    // header
-    //  handled in sidebar.js
+    // footer
+    loadResource("footer", 'https://turpelurpeluren.online/resources/footer.html', false);
 
     // sidepatterns
-    var sPatterns = document.getElementById("sidepatterns");
-    if (sPatterns) {
-        fetch('https://turpelurpeluren.online/resources/sidepatterns.html') // the page we want to use for our sidepatterns
-        .then(data => {
-            return data.text()
-        })
-        .then( data => {
-            sPatterns.innerHTML = data; // inserts to element id="sidepatterns"
-        })
-    }
-
+    loadResource("sidepatterns", 'https://turpelurpeluren.online/resources/sidepatterns.html', false);
 
 
 
     //related articles
+    //projects top
+    loadResource("related_projects", 'https://turpelurpeluren.online/resources/related/related_projects.html', true);
+    //articles top
+    loadResource("related_articles", 'https://turpelurpeluren.online/resources/related/related_articles.html', true);
 
     // vessel
-    if (document.getElementById("related_vessel")) {
-        fetch('https://turpelurpeluren.online/resources/related/related_vessel.html') 
-        .then(data => {
-            return data.text()
-        })
-        .then( data => {
-            sPatterns.innerHTML = data;
-        })
-    }
+    loadResource("related_vessel", 'https://turpelurpeluren.online/resources/related/related_vessel.html', false);
+
     // boundless
-    if (document.getElementById("related_boundless")) {
-        fetch('https://turpelurpeluren.online/resources/related/related_boundless.html') 
-        .then(data => {
-            return data.text()
-        })
-        .then( data => {
-            sPatterns.innerHTML = data;
-        })
-    }
+    loadResource("related_boundless", 'https://turpelurpeluren.online/resources/related/related_boundless.html', false);
+
     // table
-    if (document.getElementById("related_table")) {
-        fetch('https://turpelurpeluren.online/resources/related/related_table.html') 
-        .then(data => {
-            return data.text()
-        })
-        .then( data => {
-            sPatterns.innerHTML = data;
-        })
-    }
+    loadResource("related_table", 'https://turpelurpeluren.online/resources/related/related_table.html', false);
+
     // pheasant
-    if (document.getElementById("related_pheasant")) {
-        fetch('https://turpelurpeluren.online/resources/related/related_pheasant.html') 
-        .then(data => {
-            return data.text()
-        })
-        .then( data => {
-            sPatterns.innerHTML = data;
-        })
-    }
+    loadResource("related_pheasant", 'https://turpelurpeluren.online/resources/related/related_pheasant.html', false);
+
     // rightfully
-    if (document.getElementById("related_rightfully")) {
-        fetch('https://turpelurpeluren.online/resources/related/related_rightfully.html') 
-        .then(data => {
-            return data.text()
-        })
-        .then( data => {
-            sPatterns.innerHTML = data;
-        })
-    }
+    loadResource("related_rightfully", 'https://turpelurpeluren.online/resources/related/related_rightfully.html', false);
+
     // soapholder
-    if (document.getElementById("related_soapholder")) {
-        fetch('https://turpelurpeluren.online/resources/related/related_soapholder.html') 
-        .then(data => {
-            return data.text()
-        })
-        .then( data => {
-            sPatterns.innerHTML = data;
-        })
+    loadResource("related_soapholder", 'https://turpelurpeluren.online/resources/related/related_soapholder.html', false);
+
+
+    //loadResource function
+    function loadResource(elementId, resourceUrl, add) {
+        /// loads a resource from a file url to a given element
+
+        if (document.getElementById(elementId)) { // if element exists
+
+            var content = null;
+            if (add === true) {
+                content = document.getElementById(elementId).innerHTML;
+            }
+
+            fetch(resourceUrl) //fetch resource
+            .then(data => {
+                return data.text() //get data
+            })
+            .then(data => {
+                document.getElementById(elementId).innerHTML = data + content; //paste in element
+            })
+        }
     }
 
 })();
