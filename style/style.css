@@ -884,13 +884,13 @@ h1:hover {
     border-radius: -50% -50% 0 0;
     background: rgb(144, 169, 207);
     text-align: center;
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: 2em;
+    padding-bottom: 5em;
     /*mix-blend-mode:difference;*//*så den blendar med sidepatterns*/
 }
 .footer .icon {
     display: inline-block;
-    margin: 1.5em 0.5em;
+    margin: 0 0 1em 1em;
     mix-blend-mode: multiply;
 }
 .footer .icon:hover {
@@ -902,7 +902,7 @@ h1:hover {
     }
     .footer .icon {
         width: 2em;
-        margin: 1.5em 1em;
+        margin: 0 0 0 1.5em;
     }
 }
 
