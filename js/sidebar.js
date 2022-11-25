@@ -22,6 +22,16 @@
     let header = document.getElementsByClassName('topnav')[0];
     let topnavBg = document.getElementById('topnavBg');
 
+    // create background (click to close)
+    const closeBackground = document.createElement('div');
+    closeBackground.classList.add("sidebarBackground");
+    closeBackground.classList.add("hidden");
+    closeBackground.addEventListener('click', expandPortfolioNav);
+    for (let i=0; i<500; i++) {
+        closeBackground.innerHTML += 'Click here to close sidebar. '
+    }
+    document.body.appendChild(closeBackground);
+
     // create icon holder
     const iconHolder = document.createElement('div');
     iconHolder.classList.add('iconHolder');
@@ -87,11 +97,13 @@
                     header.style.backgroundImage = topnavBg.style.backgroundImage; //get image back from topnavBg-element
                 }
             }
+
             //shift back body and header
             document.body.style.marginLeft = '0px';
             header.style.marginLeft = '0px';
             document.body.style.marginRight = '0px';
             header.style.marginRight = '0px';
+
             // remove icons
             iconHolder.classList.add('hidden');
             const ic = document.getElementsByClassName('sidebarIcon');
@@ -99,6 +111,8 @@
                 ic[i].remove();
             }
 
+            // remove the background
+            closeBackground.classList.add('hidden');
 
         } else { // fäll ut sidebar
             //pull out the top links from the correct side
@@ -110,19 +124,22 @@
                 topnavLinks.style.right = 'unset';
             }
 
+            // show the background
+            closeBackground.classList.remove('hidden');
+
             if (sidebar.children.length > 1) { //Only pull out the sidebar if it has content
-                
+
                 sidebar.style.width = '550px';
 
                 if (e.classList.contains('right')) {    
                     //open the sidebar from the right
                     sidebar.style.right = '0';
                     sidebar.style.left = 'unset';
-                    
+
                     // and shift the document body & header
                     document.body.style.marginRight = '550px';
                     header.style.marginRight = '-550px';
-                } else {                                
+                } else {
                     // or from the left
                     sidebar.style.left = '0';
                     sidebar.style.right = 'unset';
@@ -184,6 +201,9 @@
             portfoliocollapseRight.children[0].innerHTML = '&#9776';
             portfoliocollapse.classList.remove('active');
             portfoliocollapseRight.classList.remove('active');
+            
+            // remove the background
+            closeBackground.classList.add('hidden');
         } else {
             //when mobile width
             //put logo in place
