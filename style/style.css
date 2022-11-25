@@ -704,17 +704,18 @@ h1:hover {
     height: 0;
 }
 .sidebarBackground {
-    opacity: 0.5;
-    background-color: #000;
+    opacity: .5;
     background-color: darkslateblue;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    color: white;
-    font-size: 24px;
+    color: rgb(219, 130, 152);
+    font-size: 28px;
+    word-break: break-all;
 }
+
 
 @media only screen and (max-width: 1200px) {  /* NAV MOBILE         NAV MOBILE      NAV MOBILE */
     .nav a {
@@ -790,7 +791,9 @@ h1:hover {
         background-color: rgba(20, 15, 10, 0.35);
     }
     .topnavLinks a:nth-child(even) {
-        background-color: rgba(20, 15, 10, 0.25);
+        /*background-color: rgba(20, 15, 10, 0.25);*/
+        border-left: 3px dashed rgb(114, 106, 101);
+        border-right: 3px dashed rgb(114, 106, 101);
     }
     .horizontal {  /*icon*/ 
         margin: 1.75em 0.6em;
@@ -1399,7 +1402,7 @@ h1:hover {
     max-width: 1024px;
 }
 
-.homeContent .top {
+.top {
     padding: 0.5em;
     margin-left: 1em;
     display: table;
@@ -1753,7 +1756,7 @@ h1:hover {
         width: 90%;
         margin: 1em auto 2.5em auto;
     }
-    .homeContent .top {
+    .top {
         font-size: 32px;
     }
 }

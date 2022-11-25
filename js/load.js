@@ -45,8 +45,11 @@
         if (document.getElementById(elementId)) { // if element exists
 
             var content = "";
+            var holder;
             if (add === true) { //auto false
                 content = document.getElementById(elementId).innerHTML;
+                holder = document.createElement('div');
+                holder.innerHTML = content;
             }
 
             fetch(resourceUrl) //fetch resource
@@ -54,10 +57,10 @@
                 return data.text() //get data
             })
             .then(data => {
+                document.getElementById(elementId).innerHTML = data; //paste in element
                 if (add) {
-                    document.getElementById(elementId).innerHTML = data + content; //paste in element & keep content
-                } else {
-                    document.getElementById(elementId).innerHTML = data; //paste in element
+                    //for related content to be pasted under the title
+                    document.getElementById(elementId).children[0].appendChild(holder); //append the old content inside first child at end
                 }
             })
         }

@@ -28,7 +28,7 @@
     closeBackground.classList.add("hidden");
     closeBackground.addEventListener('click', expandPortfolioNav);
     for (let i=0; i<500; i++) {
-        closeBackground.innerHTML += 'Click here to close sidebar. '
+        closeBackground.innerHTML += 'Press anywhere inside this area to close the menu. '
     }
     document.body.appendChild(closeBackground);
 
