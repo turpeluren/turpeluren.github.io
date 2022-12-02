@@ -1532,7 +1532,7 @@ h1:hover {
 }
 
 .blogNavBackground {
-    position: sticky;
+    position: static;
     
     top: 2em;
     /*left: calc(50vw + 270px);*/
@@ -1550,7 +1550,7 @@ h1:hover {
 .blogNav {
     width: 220px;
     padding: 1em 2em;
-    position: relative;
+    /*position: relative;*/
 }
 .blogNav a {
     color: rgb(224, 224, 224);

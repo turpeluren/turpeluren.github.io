@@ -136,6 +136,10 @@
                     sidebar.style.right = '0';
                     sidebar.style.left = 'unset';
 
+                    //open the sidebar from the right
+                    iconHolder.style.right = '0';
+                    iconHolder.style.left = 'unset';
+
                     // and shift the document body & header
                     document.body.style.marginRight = '550px';
                     header.style.marginRight = '-550px';
@@ -143,6 +147,10 @@
                     // or from the left
                     sidebar.style.left = '0';
                     sidebar.style.right = 'unset';
+                    
+                    // or from the left
+                    iconHolder.style.left = '0';
+                    iconHolder.style.right = 'unset';
 
                     // and shift the document body & header
                     document.body.style.marginLeft = '550px';
