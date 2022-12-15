@@ -48,6 +48,7 @@
 .date h3 {
     font-weight: 400;
     margin: 0;
+    display: inline;
 }
 
 .display {
@@ -93,21 +94,38 @@
     color: white;
     text-align: center;
     cursor: pointer;
+    overflow: hidden;
 }
 .button:hover {
     background-color: rgb(28, 118, 209);
     color: rgb(183, 217, 228);
 }
+.play {
+    background-color: rgb(27, 139, 32);
+}
+.play:hover {
+    background-color: rgb(20, 110, 24);
+}
+.paused{
+    background-color: rgb(179, 78, 11);
+}
+.paused:hover {
+    background-color: rgb(116, 50, 6);
+}
 
 .buttonseparator {
-    flex: calc(min(1024px, 100vw) - 78px * 3);
+    flex: calc(min(1024px, 100vw) - 78px * 5);
 }
 
 .frontStep {
     float: right;
 }
 
-.play {
+.lastStep, .firstStep {
+    letter-spacing: -11px;
+} 
+
+.play, .backStep, .lastStep  {
     border-left: 1px dashed darkslateblue;
 }
 
@@ -123,10 +141,10 @@
     height: 0px;
     border-width: 22px 0 22px 24px;
 }
-.paused {
+.paused .playIcon {
     /* pause state */
     margin: 17px 21px;
-    border-color: transparent #fff transparent #ffffff;
+    border-color: transparent #fff transparent #fff;
     border-style: solid;
     height: 44px;
     width: 17px;
@@ -135,8 +153,20 @@
 .play:hover .playIcon {
     border-color: transparent transparent transparent rgb(183, 217, 228);
 }
-.play:hover .paused {
+.paused:hover .playIcon   {
     border-color: transparent rgb(183, 217, 228) transparent rgb(183, 217, 228);
+}
+
+.settings {
+    float: right;
+    position: relative;
+}
+.settings img {
+    width: 24px;
+    height: 24px;
+}
+.settings img:hover {
+    filter: brightness(0.6);
 }
 
 @media only screen and (max-height: calc(28px + 78px + 48px * 2 + min(56.25vw, 0.5625 * 1024px))) {
@@ -154,4 +184,8 @@
     50% { opacity: 0;}
     100% {  transform: translateY(-64px);
         opacity: 0;}
+}
+
+.hidden {
+    display: none;
 }

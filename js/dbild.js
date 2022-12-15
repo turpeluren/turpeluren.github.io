@@ -2,7 +2,37 @@
 const jsondata = '{'+
     '"y2018": {'+
         '"jan1": {'+
-
+            '"n1": "xsvUvrE",'+
+            '"n2": "na7Clg7",'+
+            '"n3": "zXN6UWC",'+
+            '"n4": "oLX18RW",'+
+            '"n5": "kIzMRCs",'+
+            '"n6": "PTTKDK8",'+
+            '"n7": "U0QAFOv",'+
+            '"n8": "n0lDiad",'+
+            '"n9": "Jvkztea",'+
+            '"n10": "n0FPtEp",'+
+            '"n11": "",'+
+            '"n12": "",'+
+            '"n13": "",'+
+            '"n14": "",'+
+            '"n15": "",'+
+            '"n16": "",'+
+            '"n17": "",'+
+            '"n18": "",'+
+            '"n19": "",'+
+            '"n20": "",'+
+            '"n21": "",'+
+            '"n22": "",'+
+            '"n23": "",'+
+            '"n24": "",'+
+            '"n25": "",'+
+            '"n26": "",'+
+            '"n27": "",'+
+            '"n28": "",'+
+            '"n29": "",'+
+            '"n30": "",'+
+            '"n31": ""'+
         '},'+
         '"feb2": {'+
             
@@ -167,6 +197,8 @@ const jsondata = '{'+
     const playIcon = playBtn.children[0];
     const backBtn = document.getElementsByClassName('backStep')[0];
     const forwBtn = document.getElementsByClassName('frontStep')[0];
+    const firstBtn = document.getElementsByClassName('firstStep')[0];
+    const lastBtn = document.getElementsByClassName('lastStep')[0];
     const date = document.getElementById('date');
     const img = document.getElementById('image');
     let imgURL = "";
@@ -174,6 +206,8 @@ const jsondata = '{'+
     playBtn.addEventListener('click', play);
     backBtn.addEventListener('click', stepBack);
     forwBtn.addEventListener('click', stepForward);
+    firstBtn.addEventListener('click', gotoFirst);
+    lastBtn.addEventListener('click', gotoLast);
 
     var yy, mm, dd;
     let size = 'l'; //m: minsta, l: low, h: high: tom string: största
@@ -181,43 +215,6 @@ const jsondata = '{'+
     var isPlaying = false;
 
     updateImage();
-
-    function play() {
-
-        if (playIcon.classList.contains('paused')) {
-            playIcon.classList.remove('paused');
-            clearTimeout(playTimeout);
-            isPlaying = false;
-            size = 'l';
-            updateImage();
-        } else {
-            playIcon.classList.add('paused');
-            //playInterval = setInterval(playImages, 100);
-            gotoCorrectDayInMonth(1);
-            isPlaying = true;
-            size = 'm';
-        }
-    }
-
-    function playImages() {
-        gotoCorrectDayInMonth(1);
-    }
-
-    function resumePlaying() {
-        isPlaying = true;
-        gotoCorrectDayInMonth(1);
-        console.log('resumes')
-    }
-    
-    img.addEventListener("load", event => {
-        var image = document.querySelector('img');
-        var isLoaded = image.complete && image.naturalHeight !== 0;
-        if (isPlaying) {
-            gotoCorrectDayInMonth(1);
-            isPlaying = false;
-            playTimeout = setTimeout(resumePlaying, 100);
-        }
-    });
 
     function updateImage() {
         // display image from the json object
@@ -227,6 +224,57 @@ const jsondata = '{'+
 
         //update date
         date.innerHTML = getDate();
+    }
+
+    function play() {
+        if (playBtn.classList.contains('paused')) {
+            //pause
+            playBtn.classList.remove('paused');
+            clearTimeout(playTimeout);
+            isPlaying = false;
+            size = 'h';
+            updateImage();
+        } else {
+            //play
+            playBtn.classList.add('paused');
+            gotoCorrectDayInMonth(1);
+            isPlaying = true;
+            size = 'l';
+        }
+    }
+
+    function resumePlaying() {
+        //when the minimum interval has passed for playing 
+        //  goto next image
+        isPlaying = true;
+        gotoCorrectDayInMonth(1);
+        console.log('resumes')
+    }
+    
+    img.addEventListener("load", event => {
+        //onload for the image, if playing change to next image
+        var image = document.querySelector('img');
+        var isLoaded = image.complete && image.naturalHeight !== 0;
+        if (isPlaying) {
+            gotoCorrectDayInMonth(1);
+            //set timeout to not change image too fast
+            isPlaying = false;
+            playTimeout = setTimeout(resumePlaying, 100);
+        }
+    });
+
+    function gotoFirst() {
+        pointer[0] = 'y2018';
+        pointer[1] = 'jan1';
+        pointer[2] = 'n1';
+        updateImage();
+    }
+
+    function gotoLast() {
+        pointer[0] = 'y2021';
+        pointer[1] = 'dec12';
+        pointer[2] = 'n31';
+        updateImage();
     }
 
     function getDate() {
