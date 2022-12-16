@@ -201,6 +201,8 @@ const jsondata = '{'+
     const lastBtn = document.getElementsByClassName('lastStep')[0];
     const date = document.getElementById('date');
     const img = document.getElementById('image');
+    const slider = document.getElementsByClassName('slider')[0].children[0];
+    const sliderFps = document.getElementsByClassName('slider')[0].children[2];
     let imgURL = "";
 
     playBtn.addEventListener('click', play);
@@ -208,11 +210,27 @@ const jsondata = '{'+
     forwBtn.addEventListener('click', stepForward);
     firstBtn.addEventListener('click', gotoFirst);
     lastBtn.addEventListener('click', gotoLast);
+    slider.addEventListener('input', updateFps);
+
+    img.addEventListener("load", event => {
+        //onload for the image, if playing change to next image
+        var image = document.querySelector('img');
+        var isLoaded = image.complete && image.naturalHeight !== 0;
+        if (isPlaying) {
+            gotoCorrectDayInMonth(1);
+            //set timeout to not change image too fast
+            isPlaying = false;
+            clearTimeout(playTimeout);
+            playTimeout = setTimeout(resumePlaying, fps);
+            console.log('updates')
+        }
+    });
 
     var yy, mm, dd;
     let size = 'l'; //m: minsta, l: low, h: high: tom string: största
     var playTimeout;
     var isPlaying = false;
+    var fps = (1000 / slider.value);
 
     updateImage();
 
@@ -226,6 +244,10 @@ const jsondata = '{'+
         date.innerHTML = getDate();
     }
 
+    function updateFps() {
+        fps = (1000 / slider.value);
+    }
+
     function play() {
         if (playBtn.classList.contains('paused')) {
             //pause
@@ -237,8 +259,7 @@ const jsondata = '{'+
         } else {
             //play
             playBtn.classList.add('paused');
-            gotoCorrectDayInMonth(1);
-            isPlaying = true;
+            resumePlaying();
             size = 'l';
         }
     }
@@ -246,22 +267,11 @@ const jsondata = '{'+
     function resumePlaying() {
         //when the minimum interval has passed for playing 
         //  goto next image
-        isPlaying = true;
         gotoCorrectDayInMonth(1);
+        isPlaying = false;
+        playTimeout = setTimeout(resumePlaying, fps);
         console.log('resumes')
     }
-    
-    img.addEventListener("load", event => {
-        //onload for the image, if playing change to next image
-        var image = document.querySelector('img');
-        var isLoaded = image.complete && image.naturalHeight !== 0;
-        if (isPlaying) {
-            gotoCorrectDayInMonth(1);
-            //set timeout to not change image too fast
-            isPlaying = false;
-            playTimeout = setTimeout(resumePlaying, 100);
-        }
-    });
 
     function gotoFirst() {
         pointer[0] = 'y2018';
@@ -345,13 +355,13 @@ const jsondata = '{'+
         if (eval("data."+pointer[0]+"."+pointer[1]+".n"+String(dd+dir))) {
             //return if landed on a valid day
             pointer[2] = "n"+String(dd+dir);
-            console.log(pointer[2]);
+            /*console.log(pointer[2]);*/
             updateImage()
             return
         } else {
             //else goto next month
             gotoNextMonth(dir)
-            console.log("data."+pointer[0]+"."+pointer[1]+".n"+String(dd+dir));
+            /*console.log("data."+pointer[0]+"."+pointer[1]+".n"+String(dd+dir));*/
             gotoCorrectDayInMonth(dir)
         }
     }
@@ -375,7 +385,7 @@ const jsondata = '{'+
                     pointer[2] = 'n32';
                 }
                 updateDate();
-                console.log(mm + " gotoNextMonth")
+                /*console.log(mm + " gotoNextMonth")*/
                 return
             }
         }

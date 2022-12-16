@@ -28,12 +28,16 @@
             </div>
             <div class="controls">
                 <div class="buttonRow">
-                    <div class="button firstStep">||&#10094</div>
+                    <div class="button firstStep"><p>|&#10094</p></div>
                     <div class="button backStep">&#10094</div>
                     <div class="button play"><div class="playIcon"></div></div>
+                    <div class="slider">
+                        <input type="range" min="1" max="60" value="24" oninput="rangeValue.innerText = this.value">
+                        <p style="font-size: 14px; padding: 2px;">fps</p><p id="rangeValue">24</p>
+                    </div>
                     <div class="buttonseparator"></div>
                     <div class="button frontStep">&#10095</div>
-                    <div class="button lastStep">&#10095||</div>
+                    <div class="button lastStep"><p>&#10095|</p></div>
                 </div>
             </div>
         </div>
