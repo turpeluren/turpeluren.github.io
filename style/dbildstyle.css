@@ -2,35 +2,49 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+body {
+    background-color: #fff;
+}
+
 
 .mainContainer {
     max-width: min(1024px, 100vw);
     margin: 0 auto;
-    background-color: azure;
+    /*background-color: azure;*/
 
-    height: 100vh;
+    max-height: 100vh;
 
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .header {
     /*flex: calc(max-content * 2);*/
-    background-color: #fff;
-
+    /*background-color: rgb(198, 231, 241);*/
     padding: 48px 16px;
-    text-align: center;
+    padding: 16px 16px 48px;
     display: flex;
-    justify-content: center;
+    justify-content:last baseline;
     align-items: center;
+    flex-direction: column;
 
     overflow: hidden;
 }
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight:600;
+}
+.header a {
+    text-decoration: none;
+    color: black;
+}
 .header h2 {
     margin: 0;
-
-    
+    font-size: 20px;
+    font-weight: 300;
+    transform: translateY(-6px);
 }
 
 .focus {
@@ -41,8 +55,9 @@
 .date {
     flex: 10%;
     background-color: lightskyblue;
-    padding: 3px 9px;
-    border-top: 1px dashed darkslateblue;
+    padding: 6px 9px;
+    /*border-top: 1px dashed darkslateblue;*/
+    border-radius: 2px 2px 0 0;
 }
 
 .date h3 {
@@ -60,11 +75,32 @@
 .imgContainer/*, .imgContainer img*/ {
     max-width: min(1024px, 100vw);
     max-height: 576px;
+    width: min(1024px, 100vw);
+    height: min(576px, 100vw * (9/16));
+    position: relative;
 }
 
-.imgContainer img {
+.image, .lastImage {
     height: 100%;
     width: 100%;
+    
+    width: min(1024px, 100vw);
+    height: min(576px, 100vw * (9/16));
+
+    overflow: hidden;
+}
+
+.lastImage {
+    /*width: 341px;
+    height: 192px;*/
+    mix-blend-mode:lighten;
+    mix-blend-mode:normal;
+}
+
+.lastImage, .image {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .controls {
@@ -78,6 +114,7 @@
     font-size: 0;
 
     display: flex;
+    border-radius: 0 0 12px 12px;
 }
 
 .bottom {
@@ -95,6 +132,7 @@
     text-align: center;
     cursor: pointer;
     overflow: hidden;
+    border-radius: 2px;
 }
 .button:hover {
     background-color: rgb(28, 118, 209);
@@ -114,7 +152,7 @@
 }
 
 .buttonseparator {
-    flex: calc(min(1024px, 100vw) - 78px * 5 - 200px);
+    flex: calc(min(1024px, 100vw) - 78px * 5 - 2 * 200px);
 }
 
 .frontStep {
@@ -128,7 +166,7 @@
     overflow: hidden;
 }
 
-.play, .backStep, .lastStep  {
+.play, .backStep, .lastStep, .slider  {
     border-left: 1px dashed darkslateblue;
 }
 
@@ -138,6 +176,7 @@
 
     /* play state */
     margin: 17px 27px;
+    margin: 17px auto;
     border-style: solid;
     border-color: transparent transparent transparent #ffffff;
     width: 0px;
@@ -147,6 +186,7 @@
 .paused .playIcon {
     /* pause state */
     margin: 17px 21px;
+    margin: 17px auto;
     border-color: transparent #fff transparent #fff;
     border-style: solid;
     height: 44px;
@@ -163,31 +203,94 @@
 .settings {
     float: right;
     position: relative;
+    cursor: pointer;
 }
 .settings img {
     width: 24px;
     height: 24px;
+    transition:all 0.1s;
 }
 .settings img:hover {
     filter: brightness(0.6);
+    transform: rotate(45deg);
 }
 
 .slider {
     width: 200px;
-    height: 78px;
+    height: calc(78px - 12px);
     background-color: rgb(22, 22, 22);
-    padding-right: 12px
+    /*padding-right: 12px;*/
+    padding-top: 12px;
+    position: relative;
 }
+.settingsMenu .slider {
+    width: 300px;
+    text-align: center;
+}
+.settingsMenu .slider input {
+    width: 200px;
+    top: 57px;
+}
+.settingsMenu .slider p {
+    top: 41px;
+}
+
 .slider input {
+    width: 55%; /*min(130px, 65%);*/
     height: 3px;
-    margin-top: 37px;
-    margin-left: 12px;
+    top: 47px;
+    left: 12px;
+    position: absolute;
 }
 .slider p {
-    font-size: 16px;
+    font-size: 12px;
     float: right;
     color: white;
-    margin-top: calc(78px / 2 - 10px);
+    top: 31px;
+    right: 12px;
+    line-break:loose;
+    position: absolute;
+}
+.slider pre { /*rubirk*/
+    font-size: 16px;
+    color:rgb(197, 197, 197);
+    margin: 0 0 0 12px;
+}
+
+.settingsBackground {
+    background-color: black;
+    opacity: 0.4;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.settingsMenu {
+    position: absolute;
+    background-color: rgba(240, 248, 255, 0.486);
+    border-radius: 2px;
+    border: 1px dashed #222;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    padding: 0 24px 24px 24px;
+    color: black;
+    font-size: 6px;
+    text-align: center;
+}
+.settingsMenu h1 {
+    font-size: 24px;
+}
+.settingsMenu .settings {
+    float: unset;
+    display: inline;
+    cursor: unset;
+}
+.settingsMenu .settings img {
+    transform: translateY(4px);
 }
 
 @media only screen and (max-height: calc(28px + 78px + 48px * 2 + min(56.25vw, 0.5625 * 1024px))) {
@@ -201,10 +304,19 @@
         overflow: unset;
     }
 }
+@media only screen and (max-height: calc(28px + 78px + 48px * 2 + min(56.25vw, 0.5625 * 1024px) - 24px)) {
+    .header h1 {
+        animation: 0.2s ease-in 0s 1 normal both running scrollOffTop;
+        padding: 16px 16px;
+    }
+    .header {
+        padding: 0;
+    }
+}
 
 
 @keyframes scrollOffTop {
-    0%  {   transform: translateY(0)}
+    0%  {   transform: translateY(-6px);}
     50% { opacity: 0;}
     100% {  transform: translateY(-64px);
         opacity: 0;}

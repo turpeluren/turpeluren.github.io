@@ -187,12 +187,34 @@ const jsondata = '{'+
     '}'+
 '}';
 
+const arraydata = [
+    ["1 jan 2018", "xsvUvrE"],
+    ["2 jan 2018", "na7Clg7"],
+    ["3 jan 2018", "zXN6UWC"],
+    ["4 jan 2018", "oLX18RW"],
+    ["5 jan 2018", "kIzMRCs"],
+    ["6 jan 2018", "PTTKDK8"],
+    ["7 jan 2018", "U0QAFOv"],
+    ["8 jan 2018", "n0lDiad"],
+    ["9 jan 2018", "Jvkztea"],
+    ["10 jan 2018", "n0FPtEp"],
+    ["10 apr 2018", "R68yNfU"],
+
+    ["11 nov 2021", "lLHotkQ"],
+
+    ["3 dec 2021", "ZxLCTHw"],
+    ["24 dec 2021", "l8Iag8t"],
+    ["31 dec 2021", "O2f81WH"]
+];
+
 (function () {
     //'use strict';
 
 
-    const data = JSON.parse(jsondata);
-    const pointer = ["y2021", "dec12", "n31"];
+    /*const data = JSON.parse(jsondata);*/
+    const data = arraydata;
+    /*const pointer = ["y2021", "dec12", "n31"];*/
+    let pointer = data.length-1;
     const playBtn = document.getElementsByClassName('play')[0];
     const playIcon = playBtn.children[0];
     const backBtn = document.getElementsByClassName('backStep')[0];
@@ -200,9 +222,14 @@ const jsondata = '{'+
     const firstBtn = document.getElementsByClassName('firstStep')[0];
     const lastBtn = document.getElementsByClassName('lastStep')[0];
     const date = document.getElementById('date');
+    const imgContainer = document.getElementsByClassName('imgContainer')[0];
     const img = document.getElementById('image');
-    const slider = document.getElementsByClassName('slider')[0].children[0];
-    const sliderFps = document.getElementsByClassName('slider')[0].children[2];
+    const oldimg = document.getElementById('lastImage');
+    const slider = document.getElementById('fpsSlider').children[1];
+    const onionSlider = document.getElementById('onionSlider').children[1];
+    const settingsBtn = document.getElementById('settings');
+    const settingsBackground = document.getElementsByClassName('settingsBackground')[0];
+    const settingsMenu = document.getElementsByClassName('settingsMenu')[0];
     let imgURL = "";
 
     playBtn.addEventListener('click', play);
@@ -211,41 +238,97 @@ const jsondata = '{'+
     firstBtn.addEventListener('click', gotoFirst);
     lastBtn.addEventListener('click', gotoLast);
     slider.addEventListener('input', updateFps);
+    onionSlider.addEventListener('input', updateOnionTime);
+    settingsBtn.addEventListener('click',toggleSettings);
+    settingsBackground.addEventListener('click', toggleSettings);
+    oldimg.style.opacity = 0;
+
+    document.addEventListener('keydown', function(event) {
+        if(event.key == "s") {
+            toggleSettings();
+        }
+        if(event.keyCode == 32) {
+            play();
+        }
+    });
 
     img.addEventListener("load", event => {
         //onload for the image, if playing change to next image
         var image = document.querySelector('img');
         var isLoaded = image.complete && image.naturalHeight !== 0;
         if (isPlaying) {
-            gotoCorrectDayInMonth(1);
+            changeImage(1);
+            animateLastFrame(0);
             //set timeout to not change image too fast
             isPlaying = false;
             clearTimeout(playTimeout);
             playTimeout = setTimeout(resumePlaying, fps);
-            console.log('updates')
         }
     });
 
     var yy, mm, dd;
-    let size = 'l'; //m: minsta, l: low, h: high: tom string: största
+    let size = 'h'; //m: minsta, l: low, h: high: tom string: största
     var playTimeout;
     var isPlaying = false;
     var fps = (1000 / slider.value);
+    var id = [];
+    var onionskin = [];
+    var adir = [];
+    var pos = [];
+    var onionTime = onionSlider.value;
 
     updateImage();
+
+    function toggleSettings() {
+        settingsMenu.classList.toggle('hidden');
+        settingsBackground.classList.toggle('hidden');
+    }
 
     function updateImage() {
         // display image from the json object
         //  using the pointer array
-        imgURL = eval("data."+pointer[0]+"."+pointer[1]+"."+pointer[2]);
+        //imgURL = eval("data."+pointer[0]+"."+pointer[1]+"."+pointer[2]);
+        oldimg.src = img.src;
+        imgURL = data[pointer][1];
+        console.log(data[pointer][1])
         img.src = "https://imgur.com/" + imgURL + size + ".jpg";
 
         //update date
         date.innerHTML = getDate();
     }
 
+    function animateLastFrame(dir) {
+        var nr = onionskin.length;
+        console.log(nr)
+        onionskin[nr] = document.createElement('img');
+        onionskin[nr].classList.add('lastImage');
+        onionskin[nr].src = oldimg.src;
+        onionskin[nr].style.zIndex = String(1000000000-nr);
+        imgContainer.appendChild(onionskin[nr]);
+        adir[nr] = dir;
+        pos[nr] = 0;
+        //var width = onionskin[nr].offsetWidth;
+        clearInterval(id[nr]);
+        id[nr] = setInterval(function(){frame(nr)}, 1);
+        function frame(nr) {
+            if (Math.abs(pos[nr]) >= 1) {
+                clearInterval(id[nr]);
+                console.log(1-Math.abs(pos[nr])/1)
+                onionskin[nr].remove();
+            } else {
+                pos[nr] += 1/onionTime*4; //Math.round(slider.value^0.2)+3; //pos[nr]/5;
+                //onionskin[nr].style.left = -adir[nr]*pos[nr] + 'px';
+                onionskin[nr].style.opacity = 1-pos[nr];
+            }
+        }
+    }
+
     function updateFps() {
         fps = (1000 / slider.value);
+    }
+
+    function updateOnionTime() {
+        onionTime = onionSlider.value;
     }
 
     function play() {
@@ -254,7 +337,7 @@ const jsondata = '{'+
             playBtn.classList.remove('paused');
             clearTimeout(playTimeout);
             isPlaying = false;
-            size = 'h';
+            size = '';
             updateImage();
         } else {
             //play
@@ -267,27 +350,38 @@ const jsondata = '{'+
     function resumePlaying() {
         //when the minimum interval has passed for playing 
         //  goto next image
-        gotoCorrectDayInMonth(1);
+        changeImage(1);
+        animateLastFrame(0);
         isPlaying = false;
         playTimeout = setTimeout(resumePlaying, fps);
-        console.log('resumes')
     }
 
     function gotoFirst() {
-        pointer[0] = 'y2018';
+        /*pointer[0] = 'y2018';
         pointer[1] = 'jan1';
-        pointer[2] = 'n1';
+        pointer[2] = 'n1';*/
+        pointer = 0;
+        
         updateImage();
+        animateLastFrame(0);
     }
 
     function gotoLast() {
-        pointer[0] = 'y2021';
+        /*pointer[0] = 'y2021';
         pointer[1] = 'dec12';
-        pointer[2] = 'n31';
+        pointer[2] = 'n31';*/
+        pointer = data.length-1;
+        
         updateImage();
+        animateLastFrame(0);
     }
 
     function getDate() {
+        let date = data[pointer][0];
+        return date;
+    }
+
+    /*function getDate() {
         //day
         let date = pointer[2].slice(1) + " ";
         //month
@@ -319,20 +413,22 @@ const jsondata = '{'+
         //year
         date += " " + pointer[0].slice(1);
         return date;
-    }
+    }*/
 
     function stepForward() {
         //go through the json
-        updateDate();
+        //updateDate();
 
-        gotoCorrectDayInMonth(1);
+        changeImage(1);
+        animateLastFrame(1);
     }
 
     function stepBack() {
         //go through the json
-        updateDate();
+        //updateDate();
 
-        gotoCorrectDayInMonth(-1);
+        changeImage(-1);
+        animateLastFrame(-1);
     }
 
     function updateDate() {
@@ -341,7 +437,14 @@ const jsondata = '{'+
         dd = parseInt(pointer[2].slice(1));
     }
 
-    function gotoCorrectDayInMonth(dir) {
+    function changeImage(dir) {
+        pointer += dir;
+        if (pointer > data.length-1) pointer = 0;
+        if (pointer < 0) pointer = data.length-1;
+        updateImage();
+    }
+
+    /*function gotoCorrectDayInMonth(dir) {
         yy = parseInt(pointer[0].slice(1));
         mm = parseInt(pointer[1].slice(3));
         dd = parseInt(pointer[2].slice(1));
@@ -355,16 +458,14 @@ const jsondata = '{'+
         if (eval("data."+pointer[0]+"."+pointer[1]+".n"+String(dd+dir))) {
             //return if landed on a valid day
             pointer[2] = "n"+String(dd+dir);
-            /*console.log(pointer[2]);*/
             updateImage()
             return
         } else {
             //else goto next month
             gotoNextMonth(dir)
-            /*console.log("data."+pointer[0]+"."+pointer[1]+".n"+String(dd+dir));*/
             gotoCorrectDayInMonth(dir)
         }
-    }
+    }*/
 
     //logs the month before the pointer
     function gotoNextMonth(dir) {
