@@ -314,7 +314,7 @@ const arraydata = [
     });
 
     var yy, mm, dd;
-    let size = ''; //t: thumbnail, m: medium, l: large, h: huge: tom string: största
+    let size = 'h'; //t: thumbnail, m: medium, l: large, h: huge: tom string: största
     var playTimeout;
     var isPlaying = false;
     var fps = (1000 / slider.value);
