@@ -198,7 +198,54 @@ const arraydata = [
     ["8 jan 2018", "n0lDiad"],
     ["9 jan 2018", "Jvkztea"],
     ["10 jan 2018", "n0FPtEp"],
+    ["11 jan 2018", "OWJ5BQc"],
+    ["12 jan 2018", "T0NADA5"],
+    ["13 jan 2018", "S03eNyx"],
+    ["14 jan 2018", "3KY19TQ"],
+    ["15 jan 2018", "vY1XybU"],
+    ["16 jan 2018", "d985VN4"],
+    ["17 jan 2018", "UkLvolh"],
+    ["18 jan 2018", "kpmaP5c"],
+    ["19 jan 2018", "6hP5niz"],
+    ["20 jan 2018", "6apg3OG"],
+    ["21 jan 2018", "I8hiZif"],
+    ["22 jan 2018", "ncGfZ1j"],
+    ["23 jan 2018", "GELgnjH", "There is another image from this day with other lighting.", "gKGjuZ3"],
+    ["24 jan 2018", "vikBvin"],
+    ["25 jan 2018", "9XrCIIa"],
+    
+    ["1 feb 2018", "fPhXehd"],
+    ["2 feb 2018", "gSN6IEv"],
+    ["3 feb 2018", "guqVwMY"],
+    ["4 feb 2018", "OVlvNH8"],
+    ["5 feb 2018", "wvJhsB5"],
+    ["6 feb 2018", "Ugk1AaB"],
+    ["7 feb 2018", "EEKdt7M"],
+    ["8 feb 2018", "Rk9Qxpd"],
+    ["9 feb 2018", "bXcp0We"],
+    ["10 feb 2018", "Adzz2K9", "My 17th birthday!"],
+    ["11 feb 2018", "hzbAzy9"],
+    ["12 feb 2018", "epz76A2"],
+    ["13 feb 2018", "EZaiVkb"],
+    ["14 feb 2018", "giSX5fh"],
+    ["15 feb 2018", "C1qnQi5"],
+    ["16 feb 2018", "vjR5Kby"],
+    ["17 feb 2018", "BxSZOPJ"],
+    ["18 feb 2018", "cUSyC1n"],
+    ["19 feb 2018", "l4ttgJ5"],
+    ["20 feb 2018", "u1zf0x4"],
+    ["21 feb 2018", "wVW1XOm"],
+    ["22 feb 2018", "WQK8SA0"],
+    ["23 feb 2018", "qQW8mYB"],
+    ["24 feb 2018", "2Gjt2zh"],
+    ["25 feb 2018", "IGGGuoA"],
+    ["26 feb 2018", "vtt9473"],
+    ["27 feb 2018", "MKtPopr"],
+    ["28 feb 2018", "4u8YJHM"],
+
+
     ["10 apr 2018", "R68yNfU"],
+    
 
     ["11 nov 2021", "lLHotkQ"],
 
@@ -267,7 +314,7 @@ const arraydata = [
     });
 
     var yy, mm, dd;
-    let size = 'h'; //m: minsta, l: low, h: high: tom string: största
+    let size = ''; //t: thumbnail, m: medium, l: large, h: huge: tom string: största
     var playTimeout;
     var isPlaying = false;
     var fps = (1000 / slider.value);
@@ -291,6 +338,7 @@ const arraydata = [
         oldimg.src = img.src;
         imgURL = data[pointer][1];
         console.log(data[pointer][1])
+        img.src = "";
         img.src = "https://imgur.com/" + imgURL + size + ".jpg";
 
         //update date
@@ -337,7 +385,7 @@ const arraydata = [
             playBtn.classList.remove('paused');
             clearTimeout(playTimeout);
             isPlaying = false;
-            size = '';
+            size = 'h';
             updateImage();
         } else {
             //play

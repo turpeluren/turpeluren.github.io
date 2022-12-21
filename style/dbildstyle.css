@@ -69,6 +69,7 @@ body {
 .display {
     height: min(56.25vw, 0.5625 * 1024px); /*16 : 9 aspect ratio*/
     background-color: #555;
+    background-image: url(https://imgur.com/GImY5TBh.jpg);
     margin: 0 auto;
 }
 
@@ -103,9 +104,7 @@ body {
     left: 0;
 }
 
-.controls {
-    flex: 78px;
-}
+
 
 .buttonRow {
     height: 78px;
@@ -311,6 +310,82 @@ body {
     }
     .header {
         padding: 0;
+    }
+}
+
+/* PHONE */
+@media only screen and (max-width: 1200px) {
+    .date h3 {
+        font-size: 32px;
+    }
+    .settings img {
+        width: 38px;
+        height: 38px;
+    }
+    .header h1 {
+        font-size: 64px;
+        text-align: center;
+    }
+    .buttonRow {
+        height: 128px;
+    }
+    .button {
+        height: 128px;
+        width: 128px;
+        font-size: 88px;
+    }
+    .lastStep p, .firstStep p {
+        letter-spacing: -5px;
+        height: 98px;
+    }
+
+    .playIcon {
+        margin: 26px auto;
+        border-width: 36px 0 36px 40px;
+    }
+    .paused .playIcon {
+        margin: 28px auto;
+        height: 68px;
+        width: 33px;
+        border-width: 0px 13px 0px 13px;
+    }
+    
+
+    .slider {
+        width: 800px;
+        height: calc(128px);
+        padding-top: 24px;
+    }
+    .settingsMenu .slider {
+        width: 800px;
+        text-align: center;
+    }
+    .settingsMenu .slider input {
+        width: 675px;
+        top: 92px;
+    }
+    .settingsMenu .slider p {
+        top: 68px;
+    }
+    
+    .slider input {
+        height: 24px;
+    }
+    .slider p {
+        font-size: 24px;
+    }
+    .slider pre { /*rubirk*/
+        font-size: 26px;
+    }
+    
+    .settingsMenu {
+        width: 800px;
+        height: 800px;
+        padding: 0 36px 36px 36px;
+        font-size: 12px;
+    }
+    .settingsMenu h1 {
+        font-size: 48px;
     }
 }
 
