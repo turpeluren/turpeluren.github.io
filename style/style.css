@@ -2,12 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /*color: black;*/
     cursor: url('../img/cursors/pointer4.png'), auto;
     /*text-shadow: 2px 2px violet;*/
     user-select: none;
     scroll-behavior: smooth
+}
+
+@font-face {
+    font-family: Titillum;
+    src: url(../fonts/TitilliumWeb-Regular.ttf);
+    font-weight: unset;
+}
+
+@font-face {
+    font-family: Titillum;
+    src: url(../fonts/TitilliumWeb-SemiBold.ttf);
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: Titillum;
+    src: url(../fonts/TitilliumWeb-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Titillum;
+    src: url(../fonts/TitilliumWeb-Regular.ttf);
+    font-weight: lighter;
 }
 
 /*rgb(144, 169, 207)*/  /*blue*/
@@ -1723,6 +1747,7 @@ h1:hover {
     }
     .blogPost h5, .homePost h5 {
         font-size: 16px;
+        font-weight:400;
     }
     .blogPost h4, .homePost h4 {
         font-size: 20px;
