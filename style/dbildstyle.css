@@ -69,7 +69,8 @@ body {
 .display {
     height: min(56.25vw, 0.5625 * 1024px); /*16 : 9 aspect ratio*/
     background-color: #555;
-    background-image: url(https://imgur.com/GImY5TBh.jpg);
+    background-size: contain;
+    background-image: url(https://imgur.com/XgJwi8Dh.jpg);
     margin: 0 auto;
 }
 
@@ -104,6 +105,34 @@ body {
     left: 0;
 }
 
+
+.timeline {
+    background-color: #222;
+    height:32px;
+
+    display: flex;
+    align-items: center;
+    
+    position: relative;
+}
+
+.timeline hr {
+    position: absolute;
+    left: 4px;
+    width: min(1014px, 100vw);
+    border-color: #eee;
+    border-width: 1px 0 0 0;
+}
+
+.timePointer {
+    height:34px;
+    width: 16px;
+    border-radius: 6px;
+    background-color: lightblue;
+
+    /*margin-left: calc(10% - 28px);*/
+    z-index: 1;
+}
 
 
 .buttonRow {
@@ -292,8 +321,8 @@ body {
     transform: translateY(4px);
 }
 
-@media only screen and (max-height: calc(28px + 78px + 48px * 2 + min(56.25vw, 0.5625 * 1024px))) {
-    .header h2 {
+@media only screen and (max-height: calc(28px + 78px + 48px * 2 + 32px + min(56.25vw, 0.5625 * 1024px) + 48px)) {
+    .header h2, .header .ytLink {
         animation: 0.2s ease-in 0s 1 normal both running scrollOffTop;
     }
     .header {
@@ -303,7 +332,7 @@ body {
         overflow: unset;
     }
 }
-@media only screen and (max-height: calc(28px + 78px + 48px * 2 + min(56.25vw, 0.5625 * 1024px) - 24px)) {
+@media only screen and (max-height: calc(28px + 78px + 48px * 2 + 32px + min(56.25vw, 0.5625 * 1024px))) {
     .header h1 {
         animation: 0.2s ease-in 0s 1 normal both running scrollOffTop;
         padding: 16px 16px;
@@ -386,6 +415,18 @@ body {
     }
     .settingsMenu h1 {
         font-size: 48px;
+    }
+                                    /*   date + timeline + buttonrow + screen       +          header space*/
+    @media only screen and (max-height: calc(38px + 32px + 128px + min(56.25vw, 0.5625 * 1024px) + 320px)) {
+        .header {
+            animation: 0.2s ease-in 0s 1 normal both running scrollOffTop;
+        }
+        .header {
+            flex-shrink: 2;
+        }
+        .mainContainer {
+            overflow: unset;
+        }
     }
 }
 
