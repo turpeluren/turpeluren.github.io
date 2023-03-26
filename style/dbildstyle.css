@@ -113,8 +113,59 @@ body {
     display: flex;
     align-items: center;
     
-    position: relative;
+    /*position: relative;*/
 }
+
+.timeline .slider {
+    height: 16px;
+    width: 100%;
+
+    padding: 0;
+    
+    display: flex;
+    align-items: center;
+
+    
+}
+
+.timeline input {
+    width: 100%;
+    margin: 0;
+
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: none;
+    outline: none;
+    height: 6px;
+    background-color: #89adc5;
+    overflow: hidden;
+}
+.timeline input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    height: 25px;
+    width: 2px;
+    -webkit-transition: .2s;
+    transition: all .2s;
+    background-color: chocolate;
+    box-shadow: -400px 0 0 400px dodgerblue;
+}
+.timeline input::-webkit-slider-thumb:hover.timeline input::-webkit-slider-thumb {
+    box-shadow: -400px 0 0 390px dodgerblue;
+}
+.timeline input::-webkit-slider-thumb:hover {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: rgb(156, 79, 24);
+
+    
+}
+.timeline input::-moz-range-thumb {
+    cursor: pointer;
+}
+
 
 .timeline hr {
     position: absolute;
@@ -131,7 +182,11 @@ body {
     background-color: lightblue;
 
     /*margin-left: calc(10% - 28px);*/
-    z-index: 1;
+    z-index: 2;
+}
+
+.timePointer:hover {
+    background-color: #89adc5;
 }
 
 
@@ -243,7 +298,7 @@ body {
     transform: rotate(45deg);
 }
 
-.slider {
+.settingsMenu .slider {
     width: 200px;
     height: calc(78px - 12px);
     background-color: rgb(22, 22, 22);
@@ -263,7 +318,7 @@ body {
     top: 41px;
 }
 
-.slider input {
+.settingsMenu .slider input {
     width: 55%; /*min(130px, 65%);*/
     height: 3px;
     top: 47px;
@@ -397,13 +452,13 @@ body {
         top: 68px;
     }
     
-    .slider input {
+    .settingsMenu .slider input {
         height: 24px;
     }
-    .slider p {
+    .settingsMenu .slider p {
         font-size: 24px;
     }
-    .slider pre { /*rubirk*/
+    .settingsMenu .slider pre { /*rubirk*/
         font-size: 26px;
     }
     
@@ -423,6 +478,10 @@ body {
         }
         .header {
             flex-shrink: 2;
+        }
+        .header {
+            padding: 0;
+            height: 0;
         }
         .mainContainer {
             overflow: unset;

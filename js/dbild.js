@@ -600,7 +600,12 @@ const arraydata = [
     const settingsBtn = document.getElementById('settings');
     const settingsBackground = document.getElementsByClassName('settingsBackground')[0];
     const settingsMenu = document.getElementsByClassName('settingsMenu')[0];
+    //const timePointer = document.getElementsByClassName('timePointer')[0];
+    const timelineSlider = document.getElementsByClassName('timeSlider')[0];
     let imgURL = "";
+
+    console.log(timelineSlider);
+    console.log(slider);
 
     playBtn.addEventListener('click', play);
     backBtn.addEventListener('click', stepBack);
@@ -611,6 +616,8 @@ const arraydata = [
     onionSlider.addEventListener('input', updateOnionTime);
     settingsBtn.addEventListener('click',toggleSettings);
     settingsBackground.addEventListener('click', toggleSettings);
+    //timePointer.addEventListener('click', slideTimeline);
+    timelineSlider.addEventListener('input', slideToImage);
     oldimg.style.opacity = 0;
 
     document.addEventListener('keydown', function(event) {
@@ -666,6 +673,9 @@ const arraydata = [
 
         //update date
         date.innerHTML = getDate();
+
+        //update timeline
+        updateTimeLine();
     }
 
     function animateLastFrame(dir) {
@@ -700,6 +710,18 @@ const arraydata = [
 
     function updateOnionTime() {
         onionTime = onionSlider.value;
+    }
+
+    function updateTimeLine() {
+        //Update pointer according to current frame
+        //called from updateImage
+        var timelinePos = pointer / data.length * 10000;
+        timelineSlider.value = timelinePos;
+    }
+
+    function slideToImage() {
+        pointer = Math.round((timelineSlider.value / 10000) * data.length);
+        updateImage();
     }
 
     function play() {
