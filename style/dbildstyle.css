@@ -108,6 +108,7 @@ body {
 
 .timeline {
     background-color: #222;
+    background-color: #000;
     height:32px;
 
     display: flex;
@@ -117,14 +118,16 @@ body {
 }
 
 .timeline .slider {
-    height: 16px;
+    height: 29px;
     width: 100%;
 
     padding: 0;
     
     display: flex;
     align-items: center;
+    position: relative;
 
+    /*border: 2px solid black;*/
     
 }
 
@@ -134,59 +137,52 @@ body {
 
     -webkit-appearance: none;
     appearance: none;
-    border-radius: none;
+    border-radius: 2px;
     outline: none;
     height: 6px;
-    background-color: #89adc5;
+    background-color: #666;
     overflow: hidden;
+    box-shadow: inset 0 -1px 0 0px #000, inset 0 1px 0 0px #000;
+    cursor: pointer;
+    
+    -webkit-transition: .05s;
+    transition: all .05;
+}
+.timeline input:hover {
+    background-color: rgb(90, 90, 90);
+}
+.timeline input:hover::-webkit-slider-thumb {
+    box-shadow: -512px 0 0 512px rgb(110, 168, 204);
 }
 .timeline input::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
-    height: 25px;
+    height: 6px;
     width: 2px;
-    -webkit-transition: .2s;
-    transition: all .2s;
-    background-color: chocolate;
-    box-shadow: -400px 0 0 400px dodgerblue;
-}
-.timeline input::-webkit-slider-thumb:hover.timeline input::-webkit-slider-thumb {
-    box-shadow: -400px 0 0 390px dodgerblue;
-}
-.timeline input::-webkit-slider-thumb:hover {
-    height: 24px;
-    width: 24px;
-    border-radius: 50%;
-    background-color: rgb(156, 79, 24);
+    -webkit-transition: .05s;
+    transition: all .05s;
+    /*background-color: lightskyblue;*/
 
+    box-shadow: -512px 0 0 512px lightskyblue;
     
+}
+.timeline input:hover + .timePointer{
+    background-color: rgb(110, 168, 204);    
 }
 .timeline input::-moz-range-thumb {
     cursor: pointer;
 }
 
-
-.timeline hr {
-    position: absolute;
-    left: 4px;
-    width: min(1014px, 100vw);
-    border-color: #eee;
-    border-width: 1px 0 0 0;
-}
-
 .timePointer {
-    height:34px;
-    width: 16px;
-    border-radius: 6px;
-    background-color: lightblue;
+    height:24px;
+    width: 2px;
+    background-color: lightskyblue;
 
-    /*margin-left: calc(10% - 28px);*/
-    z-index: 2;
-}
-
-.timePointer:hover {
-    background-color: #89adc5;
+    position: absolute;
+    
+    user-select: none;
+    /*z-index: 2;*/
 }
 
 

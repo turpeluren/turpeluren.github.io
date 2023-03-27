@@ -600,7 +600,7 @@ const arraydata = [
     const settingsBtn = document.getElementById('settings');
     const settingsBackground = document.getElementsByClassName('settingsBackground')[0];
     const settingsMenu = document.getElementsByClassName('settingsMenu')[0];
-    //const timePointer = document.getElementsByClassName('timePointer')[0];
+    const timePointer = document.getElementsByClassName('timePointer')[0];
     const timelineSlider = document.getElementsByClassName('timeSlider')[0];
     let imgURL = "";
 
@@ -616,7 +616,6 @@ const arraydata = [
     onionSlider.addEventListener('input', updateOnionTime);
     settingsBtn.addEventListener('click',toggleSettings);
     settingsBackground.addEventListener('click', toggleSettings);
-    //timePointer.addEventListener('click', slideTimeline);
     timelineSlider.addEventListener('input', slideToImage);
     oldimg.style.opacity = 0;
 
@@ -715,13 +714,20 @@ const arraydata = [
     function updateTimeLine() {
         //Update pointer according to current frame
         //called from updateImage
-        var timelinePos = pointer / data.length * 10000;
+        var timelinePos = pointer / data.length * 10024;
         timelineSlider.value = timelinePos;
+        positionTimelinePointer();
     }
 
     function slideToImage() {
         pointer = Math.round((timelineSlider.value / 10000) * data.length);
+        positionTimelinePointer();
         updateImage();
+    }
+
+    function positionTimelinePointer() {
+        //position the marker on the timeline
+        timePointer.style.left = Math.round((timelineSlider.value / 10000) * timelineSlider.clientWidth -2) + 'px';
     }
 
     function play() {
