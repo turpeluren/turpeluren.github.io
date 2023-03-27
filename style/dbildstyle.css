@@ -429,7 +429,22 @@ body {
         width: 33px;
         border-width: 0px 13px 0px 13px;
     }
+
     
+    .timeline {
+        height: 64px;
+    }
+    .timeline input {
+        height: 32px;
+    }
+    .timeline input::-webkit-slider-thumb {
+        background-color: dodgerblue;
+        height: 32px;
+        width: 32px;
+    }
+    .timePointer {
+        display: none;
+    }
 
     .slider {
         width: 800px;
