@@ -1686,10 +1686,32 @@ const arraydata = [
     ["30 jan 2023", "wS6Vv5R"],
     ["31 jan 2023", "da2gqsk"],
     
-                                 
-    
+    ["1 feb 2023", "wjqW0bq"],
+    ["2 feb 2023", "98r9V4z"],
+    ["3 feb 2023", "mcHwSdE"],
+    ["4 feb 2023", "PCDa7H1"],
+    ["6 feb 2023", "hPi56Go"],
+    ["8 feb 2023", "sfB2nl6"],
+    ["9 feb 2023", "kg2X3yK"],
+    ["10 feb 2023", "ntkqHh7"],
+    ["11 feb 2023", "OqxBwX0"],
+    ["12 feb 2023", "9SSHSMx"],
+    ["15 feb 2023", "93ZJCuP"],
+    ["16 feb 2023", "YJfFzFe"],
+    ["17 feb 2023", "tt4ZXmo"],
+    ["18 feb 2023", "9GO19R6"],
+    ["19 feb 2023", "lFpzJxN"],
+    ["20 feb 2023", "8uqT7dT"],
+    ["21 feb 2023", "4JQVQ7P"],
+    ["22 feb 2023", "TrYAOof"],
+    ["23 feb 2023", "quU87ff"],
+    ["24 feb 2023", "9HsGUvd"],
+    ["25 feb 2023", "O2Ns2vo"],
+    ["26 feb 2023", "SqH1YRQ"],
+    ["28 feb 2023", "GyFphzh"],
 
-    
+
+
 ];
 
 (function () {
@@ -1750,6 +1772,10 @@ const arraydata = [
         if(event.key == "ArrowLeft") {
             stepBack();
         }
+        //fullscreen
+        if(event.key == 'f') {
+            toggleFullscreen();
+        }
     });
 
     img.addEventListener("load", event => {
@@ -1775,6 +1801,7 @@ const arraydata = [
     var adir = [];
     var pos = [];
     var onionTime = onionSlider.value;
+    var fullscreen = false;
 
     var loadstyle = 'paused';
 
@@ -1974,6 +2001,33 @@ const arraydata = [
         if (pointer > data.length-1) pointer = 0;
         if (pointer < 0) pointer = data.length-1;
         updateImage();
+    }
+
+    //Toggle fullscreen
+    function toggleFullscreen() {
+        var elem = document.documentElement;
+
+        if (!fullscreen) {
+            /* View in fullscreen */
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+            fullscreen = true;
+        } else {
+            /* Close fullscreen */
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+            fullscreen = false;
+        }
     }
 
 })();
