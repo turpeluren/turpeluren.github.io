@@ -185,6 +185,14 @@ body {
     /*z-index: 2;*/
 }
 
+.preloadContainer {
+    position: relative;
+    z-index: -2;
+}
+.preloadContainer img {
+    position: absolute;
+}
+
 
 .buttonRow {
     height: 78px;
@@ -445,6 +453,7 @@ body {
     .timePointer {
         display: none;
     }
+
 
     .slider {
         width: 800px;

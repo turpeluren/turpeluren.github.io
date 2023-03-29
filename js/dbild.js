@@ -1113,7 +1113,124 @@ const arraydata = [
     ["30 dec 2020", "p63boKA"],
     ["31 dec 2020", "JuHBtbt"],
     
+    ["5 jan 2021", "NY41tfC"],
+    ["7 jan 2021", "lNc5rRP"],
+    ["8 jan 2021", "3iyWlED"],
+    ["9 jan 2021", "qM56sR3"],
+    ["11 jan 2021", "uUIlcal"],
+    ["12 jan 2021", "hfxO5W7"],
+    ["14 jan 2021", "speDen8"],
+    ["16 jan 2021", "FV0hi8W"],
+    ["17 jan 2021", "aRmsVdD"],
+    ["18 jan 2021", "PwcUi3D"],
+    ["19 jan 2021", "pA2cfw2"],
+    ["20 jan 2021", "KCU0mzy"],
+    ["21 jan 2021", "oBIulXb"],
+    ["23 jan 2021", "sGjMPNc"],
+    ["25 jan 2021", "R6zyMXY"],
+    ["26 jan 2021", "cRvHLIo"],
+    ["28 jan 2021", "gw2mcU8"],
+    ["29 jan 2021", "wpDZ88C"],
+    ["30 jan 2021", "s2lRky1"],
+    ["31 jan 2021", "hNw3EhJ"],
+
+    ["2 feb 2021", "9MH5ULG"],
+    ["4 feb 2021", "FJtaESI"],
+    ["7 feb 2021", "r7cOFVz"],
+    ["8 feb 2021", "InmBxw4"],
+    ["9 feb 2021", "6C6X31I"],
+    ["10 feb 2021", "GQZn4wJ"],
+    ["12 feb 2021", "TAqTOci"],
+    ["13 feb 2021", "gSGuwH9"],
+    ["17 feb 2021", "NGenOr3"],
+    ["18 feb 2021", "gbLkpNC"],
+    ["19 feb 2021", "bbLHNl8"],
+    ["21 feb 2021", "WaC5Pvh"],
+    ["22 feb 2021", "nplqFL9"],
+    ["23 feb 2021", "YPDHHLb"],
+    ["24 feb 2021", "1roTOWQ"],
+    ["25 feb 2021", "y9B0jkp"],
+    ["26 feb 2021", "Qa6Vqcp"],
+    ["27 feb 2021", "BpgzTpw"],
     
+    ["1 mar 2021", "n3SNnCk"],
+    ["2 mar 2021", "3K8mH03"],
+    ["4 mar 2021", "CiWzshP"],
+    ["6 mar 2021", "s8BDT7p"],
+    ["7 mar 2021", "eauPPyc"],
+    ["8 mar 2021", "XCx57NC"],
+    ["9 mar 2021", "T1TZQDu"],
+    ["11 mar 2021", "FF8vSlk"],
+    ["12 mar 2021", "byOKJgD"],
+    ["14 mar 2021", "9aF64EL"],
+    ["15 mar 2021", "iMOlkGb"],
+    ["18 mar 2021", "1KHZ2QN"],
+    ["20 mar 2021", "Vb0Xtyl"],
+    ["22 mar 2021", "GnwDBoU"],
+    ["25 mar 2021", "lMldmNy"],
+    ["26 mar 2021", "XTWusLx"],
+    ["28 mar 2021", "JeUgpw7"],
+    ["30 mar 2021", "KqUajN8"],
+    ["31 mar 2021", "uFOExSb"],
+    
+    ["1 apr 2021", "gKW0OUo"],
+    ["2 apr 2021", "QqkjhNy"],
+    ["3 apr 2021", "piJabtd"],
+    ["4 apr 2021", "4tuzJdL"],
+    ["5 apr 2021", "EXb9rCq"],
+    ["8 apr 2021", "igww2sP"],
+    ["10 apr 2021", "8ohRuMF"],
+    ["12 apr 2021", "wl8TcnE"],
+    ["14 apr 2021", "7dzgzqF"],
+    ["16 apr 2021", "pqXQsk4"],
+    ["18 apr 2021", "LPLU5eB"],
+    ["19 apr 2021", "ZEA9zv6"],
+    ["20 apr 2021", "8IaRf8Y"],
+    ["22 apr 2021", "AAvUlxs"],
+    ["25 apr 2021", "CsdVook"],
+    ["26 apr 2021", "oDgIz47"],
+    ["27 apr 2021", "yinm45V"],
+    ["28 apr 2021", "DRDlluR"],
+    ["30 apr 2021", "dyoeUPA"],
+    
+    ["1 maj 2021", "0xbKOtx"],
+    ["3 maj 2021", "vRyUUET"],
+    ["4 maj 2021", "AOiqCQE"],
+    ["5 maj 2021", "1mlQKmd"],
+    ["11 maj 2021", "HhKsAWi"],
+    ["13 maj 2021", "gdIOB0Y"],
+    ["16 maj 2021", "Cw0wjdg"],
+    ["17 maj 2021", "Cy31LEi"],
+    ["18 maj 2021", "jWt2tyn"],
+    ["20 maj 2021", "Hx17qwB"],
+    ["21 maj 2021", "jtlRCEm"],
+    ["22 maj 2021", "0gIsfGv"],
+    ["25 maj 2021", "jK8esYg"],
+    ["26 maj 2021", "y7rLvbf"],
+    ["28 maj 2021", "NC6K3Iz"],
+    ["29 maj 2021", "oWK38wq"],
+    ["30 maj 2021", "Sk7Uq4Z"],
+    
+    ["2 jun 2021", "iSrvAMO"],
+    ["3 jun 2021", "EkiOabn"],
+    ["4 jun 2021", "jRWc835"],
+    ["7 jun 2021", "C9fY9rA"],
+    ["10 jun 2021", "s9ijF6P"],
+    ["12 jun 2021", "9l3gCkq"],
+    ["14 jun 2021", "2JUUAq1"],
+    ["15 jun 2021", "V0mhvaa"],
+    ["16 jun 2021", "cNProUX"],
+    ["18 jun 2021", "t4wDP6w"],
+    ["20 jun 2021", "pDLNQdA"],
+    ["21 jun 2021", "wSV5Xfn"],
+    ["23 jun 2021", "BkViNHc"],
+    ["24 jun 2021", "T9TK889"],
+    ["25 jun 2021", "AcZIRzs"],
+    ["27 jun 2021", "Ff7sYRl"],
+    ["29 jun 2021", "dwhCxTH"],
+    ["30 jun 2021", "9Fd73dU"],
+    
+                
     
 
     ["11 nov 2021", "lLHotkQ"],
@@ -1127,10 +1244,9 @@ const arraydata = [
     //'use strict';
 
 
-    /*const data = JSON.parse(jsondata);*/
     const data = arraydata;
-    /*const pointer = ["y2021", "dec12", "n31"];*/
     let pointer = data.length-1;
+
     const playBtn = document.getElementsByClassName('play')[0];
     const playIcon = playBtn.children[0];
     const backBtn = document.getElementsByClassName('backStep')[0];
@@ -1141,6 +1257,7 @@ const arraydata = [
     const imgContainer = document.getElementsByClassName('imgContainer')[0];
     const img = document.getElementById('image');
     const oldimg = document.getElementById('lastImage');
+    const preloadContainer = document.getElementsByClassName('preloadContainer')[0]; //container for preloaded images
     const slider = document.getElementById('fpsSlider').children[1];
     const onionSlider = document.getElementById('onionSlider').children[1];
     const settingsBtn = document.getElementById('settings');
@@ -1166,11 +1283,20 @@ const arraydata = [
     oldimg.style.opacity = 0;
 
     document.addEventListener('keydown', function(event) {
+        //s for settings
         if(event.key == "s") {
             toggleSettings();
         }
+        //space to play
         if(event.keyCode == 32) {
             play();
+        }
+        //step forwards and backwards
+        if(event.key == "ArrowRight") {
+            stepForward();
+        }
+        if(event.key == "ArrowLeft") {
+            stepBack();
         }
     });
 
@@ -1188,16 +1314,17 @@ const arraydata = [
         }
     });
 
-    var yy, mm, dd;
     let size = 'h'; //t: thumbnail, m: medium, l: large, h: huge: tom string: största
-    var playTimeout;
-    var isPlaying = false;
+    var playTimeout; //timeout for switching image while playing
+    var isPlaying = false; 
     var fps = (1000 / slider.value);
     var id = [];
     var onionskin = [];
     var adir = [];
     var pos = [];
     var onionTime = onionSlider.value;
+
+    var loadstyle = 'paused';
 
     updateImage();
 
@@ -1207,9 +1334,9 @@ const arraydata = [
     }
 
     function updateImage() {
-        // display image from the json object
+        // display image from the imgur index array
         //  using the pointer array
-        //imgURL = eval("data."+pointer[0]+"."+pointer[1]+"."+pointer[2]);
+
         oldimg.src = img.src;
         imgURL = data[pointer][1];
         console.log(data[pointer][1])
@@ -1221,6 +1348,9 @@ const arraydata = [
 
         //update timeline
         updateTimeLine();
+
+        //preload next image
+        preloadImage();
     }
 
     function animateLastFrame(dir) {
@@ -1249,12 +1379,63 @@ const arraydata = [
         }
     }
 
+    function preloadImage() {
+        //index is steps from pointer
+        if (loadstyle == 'paused') {
+            //preload two images back and two forward, same res as settings
+            preload(0, -2);
+            preload(1, -1);
+            preload(2, 1);
+            preload(3, 2);
+        }
+        if (loadstyle == 'playing') {
+            //preload high res of current image and three forward at current (playing) res
+            preload(0, 0, 'h');
+            preload(1, 1);
+            preload(2, 2);
+            preload(3, 3);
+            preload(4, 4);
+            preload(5, 5);
+            preload(6, 6);
+            preload(7, 7);
+            preload(8, 8);
+            preload(9, 9);
+            preload(10, 10);
+            preload(11, 11);
+            preload(12, 12);
+        }
+    }
+
+    function preload(htmlindex, arrayindex, presize=size) {
+        //if arrayindex points inside array
+        var finalarrayindex = pointer + arrayindex;
+        if (pointer + arrayindex >= data.length) {
+            //if arrayindex points outside array bounds
+            finalarrayindex = pointer + arrayindex - data.length;
+        }
+        if (pointer + arrayindex < 0) {
+            // if arrayindex points outside array bounds
+            finalarrayindex = pointer + arrayindex + data.length;
+        }
+        console.log(presize)
+        preloadContainer.children[htmlindex].src = "https://imgur.com/" + data[finalarrayindex][1] + presize + ".jpg";
+    }
+
     function updateFps() {
+        //fps slider
         fps = (1000 / slider.value);
     }
 
     function updateOnionTime() {
+        //onion skin time slider
         onionTime = onionSlider.value;
+    }
+
+    function slideToImage() {
+        //timeline slider
+        pointer = Math.round((timelineSlider.value / 10000) * data.length);
+        positionTimelinePointer();
+        updateImage();
     }
 
     function updateTimeLine() {
@@ -1263,12 +1444,6 @@ const arraydata = [
         var timelinePos = pointer / data.length * 10024;
         timelineSlider.value = timelinePos;
         positionTimelinePointer();
-    }
-
-    function slideToImage() {
-        pointer = Math.round((timelineSlider.value / 10000) * data.length);
-        positionTimelinePointer();
-        updateImage();
     }
 
     function positionTimelinePointer() {
@@ -1283,12 +1458,14 @@ const arraydata = [
             clearTimeout(playTimeout);
             isPlaying = false;
             size = 'h';
+            loadstyle = 'paused';
             updateImage();
         } else {
             //play
             playBtn.classList.add('paused');
             resumePlaying();
             size = 'l';
+            loadstyle = 'playing';
         }
     }
 
@@ -1326,43 +1503,8 @@ const arraydata = [
         return date;
     }
 
-    /*function getDate() {
-        //day
-        let date = pointer[2].slice(1) + " ";
-        //month
-        if (pointer[1] === "jan1") {
-            date += "januray";
-        } else if (pointer[1] === "feb2") {
-            date += "february";
-        } else if (pointer[1] === "mar3") {
-            date += "mars";
-        } else if (pointer[1] === "apr4") {
-            date += "april";
-        } else if (pointer[1] === "maj5") {
-            date += "may";
-        } else if (pointer[1] === "jun6") {
-            date += "june";
-        } else if (pointer[1] === "jul7") {
-            date += "july";
-        } else if (pointer[1] === "aug8") {
-            date += "august";
-        } else if (pointer[1] === "sep9") {
-            date += "september";
-        } else if (pointer[1] === "okt10") {
-            date += "october";
-        } else if (pointer[1] === "nov11") {
-            date += "november";
-        } else if (pointer[1] === "dec12") {
-            date += "december";
-        }
-        //year
-        date += " " + pointer[0].slice(1);
-        return date;
-    }*/
-
     function stepForward() {
         //go through the json
-        //updateDate();
 
         changeImage(1);
         animateLastFrame(1);
@@ -1370,16 +1512,9 @@ const arraydata = [
 
     function stepBack() {
         //go through the json
-        //updateDate();
 
         changeImage(-1);
         animateLastFrame(-1);
-    }
-
-    function updateDate() {
-        yy = parseInt(pointer[0].slice(1));
-        mm = parseInt(pointer[1].slice(3));
-        dd = parseInt(pointer[2].slice(1));
     }
 
     function changeImage(dir) {
@@ -1387,89 +1522,6 @@ const arraydata = [
         if (pointer > data.length-1) pointer = 0;
         if (pointer < 0) pointer = data.length-1;
         updateImage();
-    }
-
-    /*function gotoCorrectDayInMonth(dir) {
-        yy = parseInt(pointer[0].slice(1));
-        mm = parseInt(pointer[1].slice(3));
-        dd = parseInt(pointer[2].slice(1));
-
-        // while previous day data does not exist & before 1st of the month
-        while (!eval("data."+pointer[0]+"."+pointer[1]+".n"+String(dd+dir)) && dd > -1 && dd < 33) {
-            // step back one day in the same month
-            pointer[2] = "n"+String(dd+dir);
-            dd = dd + dir;
-        }
-        if (eval("data."+pointer[0]+"."+pointer[1]+".n"+String(dd+dir))) {
-            //return if landed on a valid day
-            pointer[2] = "n"+String(dd+dir);
-            updateImage()
-            return
-        } else {
-            //else goto next month
-            gotoNextMonth(dir)
-            gotoCorrectDayInMonth(dir)
-        }
-    }*/
-
-    //logs the month before the pointer
-    function gotoNextMonth(dir) {
-        if (mm == 1 && dir < 0) {
-            gotoNextYear(dir);
-        }
-        if (mm == 12 && dir > 0) {
-            gotoNextYear(dir);
-        }
-        for (key in Object.keys(data.y2021)) {
-            if (Object.keys(data.y2021)[key].includes(String(mm+dir))) {
-                //set month pointer
-                pointer[1] = Object.keys(data.y2021)[key];
-                //reset day pointer 
-                if (dir > 0) {
-                    pointer[2] = 'n0';
-                } else {
-                    pointer[2] = 'n32';
-                }
-                updateDate();
-                /*console.log(mm + " gotoNextMonth")*/
-                return
-            }
-        }
-    }
-
-    function gotoNextYear(dir) {
-        if (yy == 2018 && dir < 0) {
-            //loop to end
-            //reset all pointers
-            pointer[0] = 'y2022';
-            pointer[1] = 'dec13';
-            pointer[2] = 'n32';
-            updateDate();
-        }
-        if (yy == 2021 && dir > 0) {
-            //loop to start
-            //reset all pointers
-            pointer[0] = 'y2017';
-            pointer[1] = 'jan0';
-            pointer[2] = 'n0';
-            updateDate();
-        }
-        for (key in Object.keys(data)) {
-            if (Object.keys(data)[key].includes(String(yy+dir))) {
-                //set month pointer
-                pointer[0] = Object.keys(data)[key];
-                //reset day pointer 
-                if (dir > 0) {
-                    pointer[1] = 'jan0';
-                    pointer[2] = 'n0';
-                } else {
-                    pointer[1] = 'dec13';
-                    pointer[2] = 'n32';
-                }
-                updateDate();
-                return
-            }
-        }
     }
 
 })();
