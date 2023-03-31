@@ -314,20 +314,19 @@ body {
     width: 300px;
     text-align: center;
 }
-.settingsMenu .slider input {
-    width: 200px;
-    top: 57px;
-}
 .settingsMenu .slider p {
     top: 41px;
 }
 
 .settingsMenu .slider input {
-    width: 55%; /*min(130px, 65%);*/
+    -webkit-appearance: none;
+    appearance: none;
+    width: 225px; /*min(130px, 65%);*/
     height: 3px;
-    top: 47px;
+    top: 57px;
     left: 12px;
     position: absolute;
+    cursor: pointer;
 }
 .slider p {
     font-size: 12px;
@@ -455,7 +454,7 @@ body {
     }
 
 
-    .slider {
+    .settingsMenu .slider {
         width: 800px;
         height: calc(128px);
         padding-top: 24px;
@@ -465,16 +464,29 @@ body {
         text-align: center;
     }
     .settingsMenu .slider input {
+        -webkit-appearance: none;
+        appearance: none;
         width: 675px;
-        top: 92px;
+        height: 4px;
+        top: 102px;
+        cursor: pointer;
+    }
+    .settingsMenu .slider input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: dodgerblue;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .settingsMenu .slider input::-webkit-slider-thumb:hover {
+        background-color: rgb(25, 124, 223);
     }
     .settingsMenu .slider p {
         top: 68px;
     }
     
-    .settingsMenu .slider input {
-        height: 24px;
-    }
     .settingsMenu .slider p {
         font-size: 24px;
     }
