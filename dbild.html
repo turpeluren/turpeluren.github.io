@@ -13,15 +13,7 @@
 <body style="margin: 0; padding: 0; overflow-x: hidden;">
     
     <div class="mainContainer">
-        <div class="header">
-            <h1><a href="https://turpelurpeluren.online/home" target="_blank">@turpelurpeluren</a>'s Picture of the day</h1> 
-            <h2><hr style="border: none; border-top: 1px solid black;">
-            One picture of my face every day since janurary 1st 2018</h2>
-            <br>
-            <a class="ytLink" href="https://www.youtube.com/watch?v=tEDPqoQhj14" target="_blank">Latest compiled video (Youtube)
-                <div style="transform: translateY(2px); display: inline-block; background: 75% / 17px no-repeat url('img/icons/launch_gm_grey_18dp.png'); width: 16px; height: 16px;"></div>
-            </a>
-        </div>
+        
         <div class="focus">
             <div class="date">
                 <h3 id="date">13 november 2021</h3>
@@ -70,6 +62,15 @@
                 </div>
             </div>
         </div>
+        <div class="header">
+            <h1><a href="https://turpelurpeluren.online/home" target="_blank">@turpelurpeluren</a>'s Picture of the day</h1> 
+            <h2><hr style="border: none; border-top: 1px solid black;">
+            One picture of my face every day since janurary 1st 2018</h2>
+            <br>
+            <a class="ytLink" href="https://www.youtube.com/watch?v=tEDPqoQhj14" target="_blank">Latest compiled video (Youtube)
+                <div style="transform: translateY(2px); display: inline-block; background: 75% / 17px no-repeat url('img/icons/launch_gm_grey_18dp.png'); width: 16px; height: 16px;"></div>
+            </a>
+        </div>
         <div class="bottom"></div>
     </div>
 
@@ -79,14 +80,14 @@
         <h1>Settings(s) <div id="settings" class="settings"><img src="img/icons/settings.png"></div></h1>
         <div class="slider" id="fpsSlider">
             <pre>Play speed</pre>
-            <input class="fpsSlider" type="range" min="1" max="60" value="24" oninput="fpsRangeValue.innerText = this.value+' fps'">
-            <p id="fpsRangeValue">24 fps</p>
+            <input class="fpsSlider" type="range" min="1" max="60" value="10" oninput="fpsRangeValue.innerText = this.value+' fps'">
+            <p id="fpsRangeValue">10 fps</p>
         </div>
         <br>
         <div class="slider" id="onionSlider">
             <pre>Onionskin fade time</pre>
-            <input class="onionSlider" type="range" min="0" max="1000" value="150" oninput="onionRangeValue.innerText = this.value+' ms';">
-            <p id="onionRangeValue">150 ms</p>
+            <input class="onionSlider" type="range" min="0" max="1000" value="50" oninput="onionRangeValue.innerText = this.value+' ms';">
+            <p id="onionRangeValue">50 ms</p>
         </div>
     </div>
 

@@ -9,8 +9,9 @@ body {
 
 .mainContainer {
     max-width: min(1024px, 100vw);
+    /*width: 100vw;*/
     margin: 0 auto;
-    /*background-color: azure;*/
+    /*background-color: black;*/
 
     max-height: 100vh;
 
@@ -188,6 +189,8 @@ body {
 .preloadContainer {
     position: relative;
     z-index: -2;
+    overflow: hidden;
+    display: none;
 }
 .preloadContainer img {
     position: absolute;
@@ -220,6 +223,7 @@ body {
     cursor: pointer;
     overflow: hidden;
     border-radius: 2px;
+    user-select: none;
 }
 .button:hover {
     background-color: rgb(28, 118, 209);
