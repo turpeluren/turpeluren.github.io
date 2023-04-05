@@ -44,12 +44,12 @@ h1 {
 }
 
 body {
-    background-color: #b92073;
+    /*background-color: #b92073;*/
 }
 
 .backgroundcolor {
     background-color: rgb(240, 240, 240);
-    padding-bottom: 20px;
+    padding-bottom: 80px;
 }
 
 .hidden {
@@ -593,6 +593,16 @@ a.external {
     display: block;
     margin-top: 1rem;
     font-weight: 200;
+}
+
+.afterfooter {
+    position: fixed;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #b92073;
+    overflow: hidden;
+    z-index: -1;
 }
 
 
