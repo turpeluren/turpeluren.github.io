@@ -45,6 +45,7 @@ h1 {
 
 body {
     /*background-color: #b92073;*/
+    background-color: rgb(240, 240, 240);
 }
 
 .backgroundcolor {
@@ -598,7 +599,7 @@ a.external {
 .afterfooter {
     position: fixed;
     bottom: 0;
-    height: 100vh;
+    height: 50vh;
     width: 100vw;
     background-color: #b92073;
     overflow: hidden;
@@ -606,6 +607,18 @@ a.external {
 }
 
 
-@media only screen and (max-width: 768px) {
-    
+@media only screen and (max-width: 1200px) {
+    .searcharea {
+        grid-column: 1/span 4;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 16px;
+
+        height: auto;
+        padding-bottom: 16px;
+        margin-bottom: 23px;
+    }
+
+    .searchbutton {
+        grid-column: 1/span 3;
+    }
 }
