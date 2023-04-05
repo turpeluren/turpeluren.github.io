@@ -71,7 +71,7 @@ body {
 }
 
 .mainContainer {
-    width: min(960px, 100vw);
+    width: min(960px, 100vw - 48px);
     padding: 0 24px 80px 24px;
     margin: 0 auto;
 }
@@ -453,6 +453,10 @@ input:focus {
     background-color: #ddd;
 }
 
+.button-component {
+    cursor: pointer;
+}
+
 .searchresultcard .course_action_area .resultcard_expanded {
     order: 3;
     grid-column: 1/span 2;
@@ -589,4 +593,9 @@ a.external {
     display: block;
     margin-top: 1rem;
     font-weight: 200;
+}
+
+
+@media only screen and (max-width: 768px) {
+    
 }

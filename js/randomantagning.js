@@ -412,6 +412,9 @@ const coursedata = [
     const resultcard = document.getElementById('resultcard');
     const randomize = document.getElementById('randomize');
     const visarResultatText = document.getElementById('visarResultatText');
+    const addbtn = document.getElementById('add');
+    const link = document.getElementsByClassName('external')[0];
+
 
     const title = document.getElementById('title');
     const hp = document.getElementById('hp');
@@ -425,6 +428,7 @@ const coursedata = [
     expand.addEventListener('click', function(){showmoreinfo(expand)});
     heart.addEventListener('click', function(){heartit(heart)});
     randomize.addEventListener('click', randomizecourse);
+    addbtn.addEventListener('click', addcourse);
 
     function randomizecourse() {
         //pick a random course from the array
@@ -447,6 +451,28 @@ const coursedata = [
         alreadyfavourited = false;
     }
 
+    function addcourse() {
+        window.open(getcourse());
+    }
+
+    function opencourseUrl(url) {
+        window.open(url);
+    }
+
+    function getcourse() {
+        var infolist = document.getElementsByClassName('gridrowgap')[0];
+        for(var i=0; i<infolist.children.length; i++) {
+            if (infolist.children[i].children[0].innerHTML.includes('Anmälningskod')) {
+                var s = infolist.children[i].outerHTML;
+                s = s.split(">");
+                s = s[3].split("\\")
+                s = s[0].split("<")
+                s = s[0].replace(/^\s+|\s+$/gm,'');
+                return('https://www.antagning.se/se/search?period=18&freeText='+s)
+            }
+        }
+    }
+
     function heartit(instance) {
         //save a card with the heart button
         // pass the heart instance that's being pressed
@@ -456,6 +482,9 @@ const coursedata = [
             var favourite = resultcard.cloneNode(true);
             resultsection.appendChild(favourite);
             alreadyfavourited = true; //to not favourite same again
+
+            //update the "showing x of this many courses"
+            visarResultatText.innerHTML = 'Visar ' + String(resultsection.children.length) +' av 16 124 utbildningar under Hösten 2023';
             
             //pass instance of heart to its eventlistener
             var heartslist = document.getElementsByClassName('favourite-toggle');
@@ -466,12 +495,26 @@ const coursedata = [
             var infobtnslist = document.getElementsByClassName('showmoreinfo');
             const thisinfobtn = infobtnslist[infobtnslist.length-1];
             thisinfobtn.addEventListener('click', function(){showmoreinfo(thisinfobtn)})
+            if(!thisinfobtn.nextElementSibling.classList.contains('hidden')) {
+                //dont show more info if that is activated at duplication
+                showmoreinfo(thisinfobtn);
+            }
+            
+            //pass url to new addbtn's eventlistener
+            var addbtnslist = document.getElementsByClassName('toggleselection');
+            const thisaddbtn = addbtnslist[addbtnslist.length-1];
+            const thisaddbtnUrl = getcourse();
+            thisaddbtn.addEventListener('click', function(){opencourseUrl(thisaddbtnUrl)})
             
         } else {
             //remove unhearted cards (not top)
             if (instance != heart) {
                 resultsection.removeChild(instance.parentElement.parentElement.parentElement.parentElement);
                 alreadyfavourited = false;
+                
+                //update the "showing x of this many courses"
+                visarResultatText.innerHTML = 'Visar ' + String(resultsection.children.length) +' av 16 124 utbildningar under Hösten 2023';
+                
             }
         }
     }
