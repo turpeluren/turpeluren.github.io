@@ -7,7 +7,7 @@
 @font-face {
     font-family: Circular;
     font-style: light;
-    font-weight: 100 400;
+    font-weight: 100 300;
     font-stretch: 0% 200%;
     src: url(../fonts/circular/CircularStd-Light.otf);
 }
@@ -15,15 +15,23 @@
 @font-face {
     font-family: Circular;
     font-style: bold;
-    font-weight: 600 1000;
+    font-weight: 500 700;
     font-stretch: 0% 200%;
     src: url(../fonts/circular/CircularStd-Bold.otf);
 }
 
 @font-face {
     font-family: Circular;
+    font-style: bolder;
+    font-weight: 700 1000;
+    font-stretch: 0% 200%;
+    src: url(../fonts/circular/CircularStd-Black.otf);
+}
+
+@font-face {
+    font-family: Circular;
     font-style: normal;
-    font-weight: 400 600;
+    font-weight: 300 500;
     font-stretch: 0% 200%;
     src: url(../fonts/circular/CircularStd-Book.otf);
 }
@@ -40,12 +48,14 @@ a {
 
 h1 {
     margin: 0;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 body {
     /*background-color: #b92073;*/
     background-color: rgb(240, 240, 240);
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .backgroundcolor {
@@ -53,12 +63,22 @@ body {
     padding-bottom: 80px;
 }
 
+.adbg {
+    background-color: rgb(240, 240, 240);
+    max-width: 100vw;
+}
+
+.ad {
+    margin: 0 auto;
+    max-width: min(960px, calc(100vw - 48px));
+}
+
 .hidden {
     display: none;
 }
 
 .background {
-    width: 100vw;
+    max-width: 100vw;
     margin: 0 auto;
     height: calc(361px - 80px);
     /*height: 439px;*/
@@ -68,23 +88,23 @@ body {
     background-size: cover;
     background-position: 50% 25%;
 
-    margin-bottom: 86px;
+    
 }
 
 .mainContainer {
-    width: min(960px, 100vw - 48px);
+    max-width: min(960px, calc(100vw - 48px));
     padding: 0 24px 80px 24px;
     margin: 0 auto;
 }
 
 .header {
-    width: 100vw;
+    max-width: 100vw;
     height: 78px;
     background-color: white;
 }
 
 .headerUtil {
-    width: min(960px, 100vw);
+    max-width: min(960px, 100vw);
     margin: 0 auto;
     padding: 0 24px 0 24px;
 }
@@ -107,12 +127,13 @@ body {
     padding: 12px 16px 12px 16px;
     font-size: 2rem;
     line-height: 1.125;
+    font-family: "Circular",Arial,Helvetica,sans-serif;
 }
 
 .searcharea {
     margin-top: 24px;
     height: 71px;
-    width: min(912px, calc(100vw - 48px - 48px));
+    max-width: min(912px, calc(100vw - 48px - 48px));
     background-color: white;
     padding: 16px 24px 30px 24px;
 
@@ -161,6 +182,21 @@ body {
     height: 55px;
     outline: 1px solid black;
     position: relative;
+}
+
+.undoBtn {
+    display: table;
+    float: right;
+    color: #006e96;
+    font-weight: 700;
+    line-height: 1.3;
+    cursor: pointer;
+}
+.undoBtn:hover {
+    color:#005a82;
+}
+.undoBtn:active {
+    color:#00456d;
 }
 
 select {
@@ -241,9 +277,18 @@ input:focus {
     cursor: auto;
 }
 
+.container {
+    max-width: min(960px, calc(100vw - 48px));
+    margin: 0 auto;
+}
+
 .visarResultatText {
     font-weight: 100;
     padding-top: 40px;
+}
+
+.visarResultatText p {
+    display: inline;
 }
 
 .searchsection {
@@ -251,7 +296,7 @@ input:focus {
 }
 
 .resultsection {
-    width: min(632px, 100vw - 48px);
+    max-width: min(632px, calc(100vw - 48px));
     margin: 24px auto;
     margin-bottom: 80px;
 }
@@ -563,13 +608,13 @@ a.external {
 
 .footer {
     height:80px;
-    width: 100%;
+    max-width: 100%;
     background-color: #b92073;
 
     bottom: 0;
     color: white;
     
-    width: min(960px, calc(100vw - 48px));
+    max-width: min(960px, calc(100vw - 48px));
     margin: 0 auto;
     padding: 24px;
 
@@ -583,6 +628,11 @@ a.external {
     grid-column: auto;
 }
 
+.footerheader {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
 .footer a {
     color: white;
     display: block;
@@ -594,20 +644,75 @@ a.external {
     display: block;
     margin-top: 1rem;
     font-weight: 200;
+    padding-bottom: 24px;
+}
+
+.kofi {
+    transform: translateX(-12px);
+}
+
+.kofi .script {
+    display: initial;
+}
+
+.kofi .image {
+    display: none;
 }
 
 .afterfooter {
     position: fixed;
     bottom: 0;
     height: 50vh;
-    width: 100vw;
+    width: 100%;
     background-color: #b92073;
     overflow: hidden;
     z-index: -1;
 }
 
+.hidden {
+    display: none;
+}
 
-@media only screen and (max-width: 1200px) {
+
+@media only screen and (max-width: 1200px) and (orientation: portrait) {
+
+    .rounded {
+        border-radius: 6px;
+    }
+
+    .header {
+        height: 156px;
+    }
+    .headerUtil {
+        padding: 0 40px;
+    }
+    .logo {
+        height: 112px;
+        padding-top: 22px;
+    }
+
+
+    .background {
+        height: calc(948px - 80px);
+        height: auto;
+        padding-bottom: 0px;
+    }
+    
+    .mainContainer {
+        padding: 0 40px 64px 40px; 
+    }
+
+    .container {
+        padding: 0 40px 64px 40px; 
+    }
+
+    .headline {
+        font-size: 4.3rem;
+        padding: 30px 36px 30px 36px;
+        font-weight: 800;
+        letter-spacing: -1px;
+    }
+
     .searcharea {
         grid-column: 1/span 4;
         grid-template-columns: repeat(2, 1fr);
@@ -615,10 +720,224 @@ a.external {
 
         height: auto;
         padding-bottom: 16px;
-        margin-bottom: 23px;
+        padding: 22px 40px 40px 40px;
+        margin-top: 64px;
+        margin-bottom: 0;
     }
 
-    .searchbutton {
+    .searchbutton, .termin, .searchfield {
         grid-column: 1/span 3;
+        margin-top: 48px;
+        height: auto;
+    }
+    .searchbutton {
+        height: auto;
+        font-size: 2.5rem;
+        line-height: 1.3;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 2.1rem 0 2.3rem 0;
+    }
+    
+    .bar {
+        border-radius: 6px;
+        border: 2px solid black;
+        outline: none;
+    }
+    .bar label {
+        color: rgba(0,0,0,.67);
+        font-size: 2.1rem; /*1.875rem;*/
+        left: 2rem;
+        padding: 0 0.4rem;
+        top: -1.6rem;
+        font-weight: 300;
+    }
+    
+    select, input {
+        background-size: 4rem;
+        font-weight: 300;
+        font-size: 2.5rem;
+        width: 100%;
+        padding: 2.1rem 7rem 2.3rem 2rem;
+    }
+    
+    input {
+      background-position: 2rem center;
+      padding: 2.5rem 2rem 2.75rem 7.9rem;
+      max-width: calc(100% - 10rem - 6px);
+    }
+    input:focus {
+        border: 4px solid #0087b8;
+    }
+    
+    
+    .visarResultatText {
+        font-size: 2.5rem;
+        font-weight: 200;
+        color: rgba(0,0,0,.57);
+        padding-top: 100px;
+    }
+    .visarResultatText p {
+        font-weight: 200;
+    }
+    .undoBtn {
+        padding: 0 0 4rem 0;
+        display: block;
+        float: none;
+    }
+    
+    
+    .resultsection {
+        max-width: 100%;
+    }
+
+    .searchresultcard {
+        padding: 40px;
+        margin-top: 16px;
+    }
+
+    .searchresultcard .resultcard_header .header_info {
+        grid-row-gap: 6px;
+    }
+    
+    .headline4 {
+        font-size: 3rem; 
+    }
+    .universal_medium {
+        font-size: 2.5rem;
+        line-height: 1.38;
+        font-weight: 200;
+        color: rgba(0,0,0,.77);
+    }
+
+    .searchresultcard .applicable_status .greendot, .searchresultcard .applicable_status .reddot, .searchresultcard .applicable_status .orangedot, .searchresultcard .applicable_status .greydot {
+        width: 2rem;
+        height: 2rem;
+        margin: 0.3750rem 0.6250rem 0 0;
+        flex-shrink: 0;
+        transform: translate(0px, 3px);
+    }
+
+    .popup-component .info-toggle.favourite-toggle {
+        width: 6rem;
+        height: 6rem;
+        background-size: 4rem;
+    }
+    .popup-component .info-toggle.favourite-toggle.active {
+        background-size: 4rem;
+    }
+
+    .contained-button, .outlined-button, .text-button, .buttonlike {
+        font-weight: 500;
+        font-size: 2.75rem;
+        letter-spacing: -.5px;
+        padding: 2rem 2.5rem;
+        margin-top: 32px;
+        border-radius: 6px;
+    }
+    .contained-button.expand-button.showmoreinfo, .outlined-button.expand-button.showmoreinfo, .text-button.expand-button.showmoreinfo {
+        background: url(../img/arrow_down-black-87.svg) right 0.75rem center no-repeat;
+        background-size: 4rem;
+        padding-right: 5.5rem;
+        color: rgba(0,0,0,.87);
+        border: 2px solid black;
+    }
+    .contained-button.expand-button.showmoreinfo.expanded, .outlined-button.expand-button.showmoreinfo.expanded, .text-button.expand-button.showmoreinfo.expanded {
+        background-size: 4rem;
+    }
+
+    .searchresultcard .course_details {
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 32px;
+    }
+
+    .block, .block a {
+        margin-top: 32px;
+        font-size: 2.5rem;
+    }
+
+    .searchresultcard .course_details .gridrowgap {
+        grid-row-gap: 8px;
+        margin-top: 8px;
+        font-weight: 200;
+    }
+
+    .accordion {
+        margin-top: 32px;
+    }
+    .accordion.expandableinfoblock>.heading>.expand-button {
+        background: url(../img/arrow_down-black-87.svg) right 0.75rem top 1rem no-repeat;
+        background-size: 4rem;
+        padding: 2rem 5.5rem 2rem 2rem;
+    }
+    .accordion.expandableinfoblock .accordioncontent {
+        padding: 0 2rem 2rem;
+    }
+
+    a.external {
+        margin-top: 32px;
+        font-size: 2.5rem;
+        background: url(../img/externallink_blue.svg) center right no-repeat;
+        padding-right: 2.5rem;
+        background-size: 2.75rem;
+    }
+
+
+    .footer {
+        height: 160px;
+
+        /*max-width: min(960px, calc(100vw - 48px));*/
+        padding: 0 40px;
+    
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 0px;
+        font-size: 2.5rem;
+    }
+    
+    .footersection {
+        grid-column: auto;
+    }
+    
+    .footer a {
+        color: white;
+        display: block;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+
+    a.footerheader {
+        font-size: 3rem;
+    }
+    
+    .footer p {
+        color: white;
+        display: block;
+        margin-top: 2rem;
+        font-weight: 400;
+        padding-bottom: 48px;
+    }
+
+    .kofi {
+        margin: 1.75rem 0 2rem 0;
+    }
+    
+    .kofi .script{
+        display: none;
+    }
+
+    .kofi .image {
+        display: initial;
+        padding-left: 10px;
+    }
+    .kofi .image img {
+        transform: translateY(16px);
+        padding-right: 10px;
+    }
+
+ 
+    
+    .hidden {
+      display: none;
     }
 }
