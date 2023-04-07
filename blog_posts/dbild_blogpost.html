@@ -1,0 +1,177 @@
+<!doctype html>
+<html class="article">
+<head>
+    <title>turpelurpeluren</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../img/favicon/site.webmanifest">
+</head>
+<body class="article">
+    <!-- Websitewide navbar -->
+    <!--div class="topnav nav">
+            
+        <button class="portfoliocollapse"><p>&#9776</p></button>
+        
+        <a class="logoTopLeft" href="../home.html"><img src="../img/logoCreamSmall.png"></a>
+
+        <div class="topnavLinks">
+            <a class="aactive" href="../blog.html">blog</a>
+            <a href="../works.html">works</a>
+            <a href="../about.html">about</a>
+        </div>
+
+        <div class="icon right horizontal"><a href="https://feraldreamssanctuary.bigcartel.com/"><img src='../img/icons/bigcartel-icon.png'></a></div>
+        <div class="icon right horizontal"><a href="https://www.twitter.com/turpeluren/"><img src='../img/icons/twitter-icon.png'></a></div>
+        <div class="icon right horizontal"><a href="https://www.youtube.com/user/MegaTures/videos"><img src='../img/icons/youtube-logo.png'></a></div>
+        <div class="icon right horizontal"><a href="https://www.instagram.com/turpelurpeluren/"><img src='../img/icons/instagram-icon.png'></a></div>
+        <br>
+        <br>
+        <br>
+    </div-->
+    <!-- TOP NAV -->
+    <div id="header"></div>
+
+    <div class="sidebar"></div>
+
+    <div class="spacer"><p style="transform: translateY(-2em); text-indent: -2em; white-space: nowrap; overflow-x: hidden;">
+    </p></div> <!--extra space because no margin on mobile-->
+    
+    <!-- ARTICLE -->
+    <div class="blogArticle"> 
+        <h1>Picture of the day Interactive web player</h1>
+        <h5>2023-04-07 by Ture Goldkuhl</h5>
+        <h4>
+            For more than five years I have taken a picture of my face every day.
+            Now the archive is interactive and readily avaliable online for anyone to 
+            browse through at their own pace.
+        </h4>
+        <a style="cursor: pointer;" href="https://turpelurpeluren.online/dbild" target="_blank"><h4>
+
+        <img style="width: 100%" src='../img/blog/4x3-mosaik-webplayer.jpg' alt="mosaic of my face in the player">
+        <p class="imgp" style="width: 500px">A mosaic of my face in the player</p>
+
+        
+
+            Check it out!
+        </h4></a>
+
+        <div class="infoBackground">
+        <p>
+            The player has support for flipping one image at a time, playing at desired
+            fps and dragging across the timeline. 
+        </p>
+
+        <p>It also has an option in the settings 
+            menu for onionskin time, which means the time it takes to fade into the next 
+            image. Highly recommend to play around with this setting.</p>
+
+        <p>
+            Open the settings menu with "s", play with Space or flip one image with the
+            arrow keys. 
+        </p></div>
+
+        <br>
+        <br>
+        <br>
+        <h2>My process of making it</h2>
+        <p>
+            I first got this idea while streaming the process of stabilising the images (which 
+            I do manually in Photoshop). Since the files on my computer are organised in folders
+            like year/month/day I though it wouldn't be too hard to have a pointer of the same
+            format and display a correct image.
+        </p>
+        <p>
+            I realized there was no way I could upload all the (over 1800) images to my own website.
+            As of now I am hosting this via github pages where a 5GB storage limit is "strongly
+            recommended" whatever that means. My site is already over 1GB and the pictures of the day
+            are about 6GB in total. So just uploading them to github would not be a long term solution. 
+        </p>
+        <p>
+            Next step was then to use an image hosing service, and I already had some of the pictures
+            uploaded to google drive in the same handy folder organisation. When I looked into it, 
+            however, there is no way to automatically fetch the url of an image in google drive
+            according to file hierarcy. Each file is just given their own random string as url and
+            that is the only way to get the image link.
+        </p>
+        <p>
+            I couldn't find any image hosting which did what I wanted and had easy-to-access urls.
+            So, I just started uploading some images to imgur, pasting the individual urls in an
+            array in my Javasript file. The iea was to just put a long list with all the urls
+            ready to access for my website program. But to get all the urls in place I had to manually
+            upload each image and copy the url to the file, even adding the date by hand.
+        </p>
+        <p>
+            With just a few images I got the code working for the player. Adding the onion skin fade
+            effect and seeing the player work really made me want to finish the project.
+        </p>
+        <p>
+            So I started uploading and adding the first few months of images manually. It took forever
+            so I decided to just automate my own writing of the dates in the array. Each line looked like this:
+        </p>
+        <p>["day month year", "ImgurUrl"],</p>
+        <p>
+            I did a quick python script to generate a months worth of lines for me to paste the urls
+            into. 
+        </p>
+        <img style="width: 100%" src='../img/blog/dbildpythontext.jpg'>
+        <p class="imgp" style="width: 100%"></p>
+        <p>
+            After this, my process was super bottle-necked only by the uploading of images to Imgur and
+            copying their urls. I started to upload one month at a time to an album and noticed the order,
+            (which I had first thought was random and affected only by the upload speed of each image,) followed
+            1 10 11... 2 20 21.. 3 30 31 4 5 6... Now when I knew there was a pattern to the order I could 
+            inspect the elements on the web page, copy the HTML data and with some python string splicing
+            extract the url parts I needed. Then it was just a matter of getting them in the right order.
+        </p>
+        <img style="width: 100%" src='../img/blog/imgurHTML.jpg'>
+        <p class="imgp" style="width: 100%"></p>
+        <p>
+            I expanded the python program to take the raw HTML as input and now it was spitting out a full 
+            month of organised array code for my Javascript file. 60 months with this method did not feel as 
+            much as now when I am realizing it was 60 months... But using the algorithm felt very rewarding
+            and I got the site running with all the pictures in no time.
+        </p>
+        <img style="width: 100%" src='../img/blog/dbildpythonprogram.jpg'>
+        <p class="imgp" style="width: 100%">The finished python program</p>
+        
+    </div>
+    
+    <!-- ARTICLE -->
+
+    
+    <!-- RELATED -->
+    <div id="related_articles">
+
+        <div class="top">Check out my works</div>
+        <a style="text-decoration: none;" href="https://turpelurpeluren.online/works">  
+            <div class="homePost" style="background: center center / cover no-repeat url('https://turpelurpeluren.online/img/portfolio/sculpture/tvålkopp_rörej.jpg');">
+                <h2>Portfolio</h2>
+                <p style="mix-blend-mode: difference; color: white;">This is so far the only blog post so all I can link here is my portfolio :)
+                </p>
+            </div>
+        </a>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="top">Screen printed shirts documentation</div>
+        <a id="related_vessel"></a>
+        <a id="related_boundless"></a>
+
+    </div>
+    <!-- RELATED -->
+    
+    <!-- FOOTER -->
+    <br></br>
+    <div id="footer"></div>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/load.js"></script>
+</body>
+</html>
