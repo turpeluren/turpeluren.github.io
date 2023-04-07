@@ -20,7 +20,7 @@
     loadResource("related_articles", 'https://turpelurpeluren.online/resources/related_articles.html', true);
 
     // dbild web player
-    loadResource("related_vessel", 'https://turpelurpeluren.online/resources/related/related_dbild.html');
+    loadResource("related_dbild", 'https://turpelurpeluren.online/resources/related/related_dbild.html');
 
     // vessel
     loadResource("related_vessel", 'https://turpelurpeluren.online/resources/related/related_vessel.html');
