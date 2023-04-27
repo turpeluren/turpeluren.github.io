@@ -415,12 +415,19 @@ a.ytLink {
     body {
         background-color: #222;
     }
+    .date {
+        height: 4em;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
     .date h3 {
-        font-size: 32px;
+        padding: 2px;
+        font-size: 48px;
     }
     .settings img {
-        width: 38px;
-        height: 38px;
+        width: 64px;
+        height: 64px;
     }
     .header {
         padding: 2em;
