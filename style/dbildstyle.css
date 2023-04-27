@@ -4,6 +4,7 @@
 
 body {
     background-color: #fff;
+    /*background-color: #222;*/
 }
 
 
@@ -21,13 +22,13 @@ body {
 }
 
 .header {
-    /*flex: calc(max-content * 2);*/
-    /*background-color: rgb(198, 231, 241);*/
-    padding: 48px 16px;
-    padding: 16px 16px 48px;
+
+    /*padding: 48px 16px;
+    padding: 16px 16px 48px;*/
+    padding-top: 1em;
     display: flex;
     justify-content:last baseline;
-    align-items: center;
+    /*align-items: center;*/
     flex-direction: column;
 
     overflow: hidden;
@@ -46,6 +47,11 @@ body {
     font-size: 20px;
     font-weight: 300;
     transform: translateY(-6px);
+}
+a.ytLink {
+    width: fit-content;
+    padding-right: 1.2em;
+    background: url('../img/icons/launch_gm_grey_18dp.png') bottom right no-repeat;
 }
 
 .focus {
@@ -257,7 +263,7 @@ body {
     overflow: hidden;
 }
 
-.play, .backStep, .lastStep, .slider  {
+.play, .backStep, .lastStep  {
     border-left: 1px dashed darkslateblue;
 }
 
@@ -406,6 +412,9 @@ body {
 
 /* PHONE */
 @media only screen and (max-width: 1200px) {
+    body {
+        background-color: #222;
+    }
     .date h3 {
         font-size: 32px;
     }
@@ -413,12 +422,30 @@ body {
         width: 38px;
         height: 38px;
     }
+    .header {
+        padding: 2em;
+        color: white;
+    }
     .header h1 {
         font-size: 64px;
-        text-align: center;
+    }
+    .header h1 a {
+        color:aqua;
+    }
+    .header h2 {
+        font-size: 48px;
+    }
+    .header .ytLink {
+        font-size: 48px;
+
+        padding-right: 1.2em;
+        background-size: 48px;
+        color:aqua;
+
     }
     .buttonRow {
         height: 128px;
+        background-color: #111;
     }
     .button {
         height: 128px;
