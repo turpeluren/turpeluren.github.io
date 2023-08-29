@@ -1828,6 +1828,38 @@ const arraydata = [
     ["29 jun 2023", "onscyQv", "jobb & trött. Jag o ami lagade mat o sen försökte se Wong kar Wais Ashes of Time men amelie gav upp."],
     ["30 jun 2023", "79gSQXE", "jobbade, gick ut med cecilia amelie o sven. Tagade lite för första gången på länge."],
     
+    ["1 jul 2023", "sY2fU8W", "bakistrött o helt förlorat min röst. Ritade en del o jobbade kvällen. Såg delicatessen"],
+    //2 jul gick en promenad o jobbade på kvällen (söndag)Installerade min nya ssd.
+    ["3 jul 2023", "acr7tAH", "Jobbade 14:15 till 23. Vagnen hem stannade vid kungssten pga ”stenkastning vid käringberget” så gick hem o övade lite på tag."],
+    ["4 jul 2023", "ma4vpzh", "ledddig! Streamade när jag stabiliserade maj & juni dagens bild och åt middag hos jacob m ami, frida & cecilia."],
+    ["5 jul 2023", "5M1NPZB", "Handlade, sökte boende m blocketannons."],
+    ["6 jul 2023", "LZJLTnJ", "jobbade och började svara folk på blocket."],
+    ["7 jul 2023", "UTvHEnS", "jobbade och pratade med en Marie om lägenhet i Umeå."],
+    ["8 jul 2023", "JDiVKU8", "åkte till Skanör & hängde med mormor märta stella & pelle. Facetimeade med Marie om lägenheten i Umeå och bestämde oss för att ta den."],
+    ["9 jul 2023", "TfgTNkj", "god frulle hos pelle och badade på stranden. Chill kväll sen i gbg."],
+    ["10 jul 2023", "1yE9wjV", "ledig. Gjorde två första testen i sommarmatten och handlade med ami på hennes lunch."],
+    ["11 jul 2023", "eNoRz1z"],
+    ["12 jul 2023", "5vfBR25"],
+    ["13 jul 2023", "Ovi7APj"],
+    ["14 jul 2023", "BxWRUMS"],
+    ["15 jul 2023", "3pH2PiC"],
+    ["16 jul 2023", "BAByf3T"],
+    ["17 jul 2023", "fxdqKBv"],
+    ["18 jul 2023", "9Mb6oQF"],
+    ["19 jul 2023", "4uEYfN7"],
+    ["20 jul 2023", "EdZl9iL"],
+    ["21 jul 2023", "aSqg6aI"],
+    ["22 jul 2023", "htM3hyI"],
+    ["23 jul 2023", "YJIGE57"],
+    ["24 jul 2023", "sCt0qQX"],
+    ["25 jul 2023", "xqRK1RP"],
+    ["26 jul 2023", "0Uasvuk"],
+    ["27 jul 2023", "DvP2dTP"],
+    ["28 jul 2023", "ATtYelu"],
+    ["29 jul 2023", "PNkgCma"],
+    ["30 jul 2023", "QQCgNqE"],
+    ["31 jul 2023", "mMJ7BII"],
+    
 
 ];
 
