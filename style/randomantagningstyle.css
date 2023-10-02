@@ -351,6 +351,20 @@ input:focus {
     background-color: #26d07c;
 }
 
+.searchresultcard .applicable_status .reddot {
+    background-color: #e42635;
+}
+
+.searchresultcard .applicable_status .orangedot {
+    background-color: #fdd757;
+}
+
+.searchresultcard .applicable_status .graydot {
+    background-color: rgba(0,0,0,.38);
+}
+
+
+
 .searchresultcard .applicable_status .greendot, .searchresultcard .applicable_status .reddot, .searchresultcard .applicable_status .orangedot, .searchresultcard .applicable_status .greydot {
     width: 0.9375rem;
     height: 0.9375rem;

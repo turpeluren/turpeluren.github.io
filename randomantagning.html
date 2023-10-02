@@ -38,8 +38,11 @@
                     <h1 class="headline rounded">Hitta random utbildningar</h1>
                     <div class="searcharea rounded">
                         <div class="termin rounded bar" id="termin">
-                            <select>
-                                <option value="0" selected>Hösten 2023</option></select>
+                            <select class="semester">
+                                <option value="0">Hösten 2023</option>
+                                <option value="1" selected>Våren 2024</option>
+                                <option value="2" >Sommar 2024</option>
+                                <option value="3" >Hösten 2024</option></select>
                             <label for="termin">Termin</label>
                         </div>
                         <div class="searchfield rounded bar" id="sök">
@@ -55,7 +58,8 @@
         <div class="container">
             <div id="visarResultatText" class="visarResultatText hidden"><div id="undoBtn" class="undoBtn hidden">Ta tillbaka senaste</div>
             Visar <p id="nrshowing" class="nrsh
-                ">1</p> av 16 150 utbildningar under Hösten 2023
+                ">1</p> <p id="nrofcourses">av</p>
+                <p id="semestername">utbildningar under </p>
             </div>
         </div>
     
@@ -67,7 +71,7 @@
                                 <h3 id="title" class="headline4">Testnamn på en kurs</h3>
                                 <p id="hp" class="universal_medium hp">15 högskolepoäng, Lunds universitet, Studieort: Lund</p>
                                 <div class="applicable_status universal_medium">
-                                    <span class="greendot"></span>
+                                    <span id="dot" class="reddot"></span>
                                     <p id="period" class="period">Anmälningsperiod 15 mars - 17 apr.</p>
                                 </div>
                             </div>
