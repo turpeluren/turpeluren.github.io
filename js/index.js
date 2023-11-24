@@ -57,14 +57,7 @@
 			break;
 
 		case 'index':
-			printLine('Index of turpelurpeluren.online:\n\n'+
-					  '* <a href="about">about</a>\n'+
-					  '* <a href="blog">blog</a>\n'+
-					  '* <a href="home">home</a>\n'+
-					  '* <a href="works">works</a>\n');
-			break;
-
-		case 'index -all':
+			if (args[1] == '-all') {
 			printLine('Index of turpelurpeluren.online:\n\n'+
 					  '* <a href="404.html">404.html</a>\n'+
 					  '* <a href="about.html">about.html</a>\n'+
@@ -113,6 +106,13 @@
 					  '\t\t* <a href="resources/related/related_vessel.html">related_vessel.html</a>\n'+
 					  
 					  '');
+			} else {
+				printLine('Index of turpelurpeluren.online:\n\n'+
+						  '* <a href="about">about</a>\n'+
+						  '* <a href="blog">blog</a>\n'+
+						  '* <a href="home">home</a>\n'+
+						  '* <a href="works">works</a>\n');
+				}
 			break;
 
 		default:
