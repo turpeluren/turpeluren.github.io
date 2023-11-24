@@ -1,0 +1,116 @@
+* {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #222;
+}
+
+h1 {
+	color: white;
+}
+
+.mainContainer {
+    max-width: min(1024px, 100vw);
+    margin: 0 auto;
+
+    max-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    /*overflow-x: hidden;*/
+}
+
+.settings {
+	display: flex;
+	background-color: #111;
+	padding: 1em;
+}
+
+.setting {
+	/*background-color: #222;*/
+	color: white;
+	height: 2em;
+	display: flex;
+	align-items: center;
+	padding: 0 2em 0 0;
+}
+
+.setting input {
+	width: 8em;
+}
+
+.graph {
+	height: calc(min(1024px, 100vw) * 0.5625);
+	height: calc(min(1024px, 100vw));
+
+	background-color: black;
+	position: relative;
+
+	margin-top: 2em;
+	padding: 1em;
+}
+
+.graph .yaxis {
+	background-color: white;
+	height: 100%;
+	width: 1px;
+}
+
+.graph .xaxis {
+	background-color: white;
+	height: 1px;
+	width: 100%;
+}
+
+.graph .yarrow {
+	position: absolute;
+	top: 1em;
+	left: 0.75em;
+	line-height: 0;
+	color: white;
+	transform: rotate(-90deg);
+}
+
+.graph .xarrow {
+	position: absolute;
+	line-height: 0;
+	top: calc(100% - 1em);
+	left: calc(100% - 1.5em);
+	color: white;
+}
+
+.graph .ylabel {
+	position: absolute;
+	top: -1.5em;
+	left: 0;
+	color: white;
+
+}
+
+.graph .xlabel {
+	/*position: absolute;*/
+	text-align: right;
+	/*top: 100%;
+	left: 100%;*/
+	line-height: 3.75em;
+	color: white;
+}
+
+.dots {
+	position: absolute;
+	width: calc(100% - 2em);
+	height: calc(100% - 2em);
+	top: 1em;
+	left: 1em;
+}
+
+.dot {
+	position: absolute;
+	display: block;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background-color: rgb(105, 194, 46);
+	transform: translate(-2px, -2px);
+}

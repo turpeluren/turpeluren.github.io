@@ -1,0 +1,33 @@
+* {
+	line-height: 1.5;
+	font-size: 16px;
+	font-family: monospace;
+	font-family: 'Roboto Mono', monospace;
+}
+
+pre, p {
+	margin: 0;
+}
+
+.type {
+}
+
+.type p, pre p {
+	color: blue;
+	display: flex;
+}
+
+pre p pre {
+	color: black;
+}
+
+.type input {
+	margin-left: .5rem;
+	border: white 0;
+	outline-color: white;
+	height: 1.5em;
+	
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+	
+}
