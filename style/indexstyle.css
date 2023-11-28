@@ -7,27 +7,45 @@
 
 pre, p {
 	margin: 0;
+	word-break: break-all;
+	display: inline;
 }
 
 .type {
+	/*display: flex;
+	flex-wrap: wrap;*/
 }
 
-.type p, pre p {
+.user {
 	color: blue;
-	display: flex;
 }
 
-pre p pre {
-	color: black;
+.maintext {
+	/*word-break: break-all;*/
 }
 
-.type input {
-	margin-left: .5rem;
+.type p {
+	/*flex-grow: 1;*/
+}
+
+.type input, .type .input {
+	/*margin-left: .5rem;*/
+	padding: 0;
 	border: white 0;
-	outline-color: white;
+	outline: white 0;
+	color: black;
 	height: 1.5em;
+
+	word-break: break-all;
 	
-	-webkit-box-flex: 1;
-	flex-grow: 1;
+	/*-webkit-box-flex: 2;
+	flex-grow: 2;*/
 	
+	/*width: max-content;*/
+}
+
+@media only screen and (max-width: 1200px) {
+	* {
+		font-size: 32px;
+	}
 }
