@@ -5,6 +5,10 @@
 	font-family: 'Roboto Mono', monospace;
 }
 
+.maintext {
+	overflow-x: hidden;
+}
+
 pre, p {
 	margin: 0;
 	word-break: break-all;
@@ -17,19 +21,14 @@ pre, p {
 }
 
 .user {
-	color: blue;
+	color: rgb(255, 115, 0);
 }
 
-.maintext {
-	/*word-break: break-all;*/
-}
-
-.type p {
-	/*flex-grow: 1;*/
+.cmdline {
+	color: green;
 }
 
 .type input, .type .input {
-	/*margin-left: .5rem;*/
 	padding: 0;
 	border: white 0;
 	outline: white 0;
@@ -37,16 +36,13 @@ pre, p {
 	height: 1.5em;
 
 	word-break: break-all;
-	
-	/*-webkit-box-flex: 2;
-	flex-grow: 2;*/
-	
-	/*width: max-content;*/
 }
 
 :root {
 	--framescale: 0.5;
 	--framescaleMobile: 0.75;
+	--framescaleWide: 1;
+	--scrollbar-width: calc(100vw - 100%);
 }
 
 .frameWrap {
@@ -58,6 +54,13 @@ pre, p {
 
 .frameWrap.mobileView {
 	height: min(calc(16 * 768px / 12), 95vh);
+}
+
+.frameWrap.wideView {
+	max-width: calc(100vw - 4px - var(--scrollbar-width));
+	height: min(calc(16 * 100vw / 12), 100vh);
+
+	overflow-x: hidden;
 }
 
 iframe {
@@ -78,17 +81,25 @@ iframe {
 
 iframe.mobileView {
 	width: calc(100% / var(--framescaleMobile));
-	height: min(calc(16 * 768px / 12 / var(--framescaleMobile)), 95vh / var(--framescaleMobile));
-
-	/*border: calc(2px / var(--framescale)) solid black;*/
+	height: min(calc(16 * 768px / 12 / var(--framescaleMobile)), 100vh / var(--framescaleMobile));
 
 	-ms-zoom: var(--framescaleMobile);
-	-moz-transform: scale(var(--framescale)Mobile);
-	-moz-transform-origin: 0 0;
+	-moz-transform: scale(var(--framescaleMobile));
 	-o-transform: scale(var(--framescaleMobile));
-	-o-transform-origin: 0 0;
 	-webkit-transform: scale(var(--framescaleMobile));
-	-webkit-transform-origin: 0 0;
+}
+
+iframe.wideView {
+	width: calc((100vw - var(--scrollbar-width) - 4px) / var(--framescaleWide));
+	height: min(calc(16 * 100vh / 12 / var(--framescaleWide)), 95vh / var(--framescaleWide));
+
+	position: absolute;
+	left: 0;
+
+	-ms-zoom: var(--framescaleWide);
+	-moz-transform: scale(var(--framescaleWide));
+	-o-transform: scale(var(--framescaleWide));
+	-webkit-transform: scale(var(--framescaleWide));
 }
 
 /*#wrap { width: 600px; height: 390px; padding: 0; overflow: hidden; }

@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+	const version = '1.0.5'
+
 	const siteIndex = {
 		"pages": [
 			{"name": "404.html", "href": "404.html"},
@@ -107,10 +109,11 @@
 	var input = document.getElementById('cmd');
 	const freshinput = document.getElementById('ccmd');
 	const maintext = document.getElementById('maintext');
+	const cmdline = document.getElementById('cmdline');
 	const userline = document.getElementById('user');
-	const user = 'user'+ String(Date.now()) + '@turpelurpeluren.online:~$ ';
-	userline.innerText = user;
-	userline.appendChild(input);
+	const user = 'user'+ String(Date.now()-1701444160000);
+	cmdline.innerHTML = '<p class="user" id="user">'+user+'</p>'+'@turpelurpeluren.terminal:~$ ';
+	cmdline.appendChild(input);
 
 	input.focus();
 
@@ -137,7 +140,7 @@
 			input.remove();
 			input = freshinput.cloneNode();
 			input.classList.add('input');
-			userline.appendChild(input);
+			cmdline.appendChild(input);
 			setTimeout(function(){ input.focus(); }, 1);
 
 			historyindex = -1;
@@ -162,12 +165,12 @@
     });
 
 	function printCommand(line) {
-		var cmdline = document.createElement('p');
+		var donecmdline = document.createElement('p');
 		var textline = document.createElement('p');
-		cmdline.innerHTML = user;
-		cmdline.classList.add('user');
+		donecmdline.innerHTML = '<p class="user" id="user">'+user+'</p>'+'@turpelurpeluren.terminal:~$ ';
+		donecmdline.classList.add('cmdline');
 		textline.innerText = line + '\n';
-		maintext.appendChild(cmdline);
+		maintext.appendChild(donecmdline);
 		maintext.appendChild(textline);
 	}
 
@@ -239,7 +242,7 @@
 	
 	}
 
-	function printWeb(path, mobile=false) {
+	function printWeb(path, mobile=false, wide=false) {
 		if (isPath(path, siteIndex.pages, true)) {
 			fetch('https://turpelurpeluren.online/' + path) //fetch resource
 			.then(data => {
@@ -254,6 +257,10 @@
 					frame.classList.add('mobileView');
 					wrap.classList.add('mobileView');
 				}
+				if (wide) {
+					frame.classList.add('wideView');
+					wrap.classList.add('wideView');
+				}
 				wrap.appendChild(frame);
 				maintext.appendChild(wrap);
 				frame.srcdoc = data;
@@ -266,15 +273,18 @@
 	function helpListCommands() {
 		printLineText('use help [command] to find out more about given command\n\n'+
 					'about\t\t\t- about me and the page\n'+
-					'cat\t\t\t- prints contents of a file as text\n'+
-					'cathtml\t\t\t- prints contents of a file as a webpage\n'+
+					'cat [file]\t\t- prints contents of a file as text\n'+
+					'cathtml [file]\t\t- prints contents of a file as a webpage\n'+
 					'clear\t\t\t- clears the screen\n'+
 					'goto [subpath]\t\t- follows the URL path (from turpelurpeluren.online/)\n'+
 					'help\t\t\t- displays information about builtin commands\n'+
 					'history\t\t\t- view command history\n'+
 					'index\t\t\t- indexes site pages\n'+
 					'links\t\t\t- lists my external links\n'+
-					'message [name] [cont... - sends me a message\n'
+					//'ls\t\t\t- lists current directory\n'+
+					'message [name] [cont... - sends me a message\n'+
+					//'projects\t\t\t- lists my projects\n'+
+					'welcome\t\t\t- displays the boot message\n'
 					);
 	}
 
@@ -299,7 +309,7 @@
 							break;
 						case 'cathtml':
 							printLineText('Usage: cathtml [file] [OPTIONS]\n\n   Prints contents of a file as a webpage.\n\n   '+
-							'OPTIONS:\t-m\t\tmobile version\n\t\t-d\t\tdesktop version (default)\n\n   '+
+							'OPTIONS:\t-d\t\tdesktop version (default)\n\t\t-m\t\tmobile version\n\t\t-w\t\tfull page width\n\n   '+
 							'eg: cathtml blog_posts/dbild_blogpost.html -m\n');
 							break;
 						case 'clear':
@@ -326,6 +336,9 @@
 							printLineText('Usage: message [name] [contact] [message]\n\n   Sends me a message.\n\n   '+
 							'eg: message Steve steve@email.online whatsup B)\n');
 							break;
+						case 'welcome':
+							printLineText('Usage: welcome\n\n   Displays the boot message.\n');
+							break;
 						case undefined:
 						case '':
 						case ' ':
@@ -342,9 +355,57 @@
 				break;
 
 			case 'about':
-				printLineText('First of all, I am very glad you could make it to my page! My name is Ture Goldkuhl or turpelurpeluren '+
-				'and I am a student of comput(er/ational) science and hobby artist. I like to work in a variety of different fields '+
-				'and disciplines, mostly in the visual realm altough the conceptual entises my brain the most. \n')
+				var portrait = ''+
+'                                 ,                                          \n'+
+'                        ╓╥▄▄█████████████▄▄,                                \n'+
+'                     ╓▒▓█████████████████████▄,,                            \n'+
+'                    Æ▓██████████████████████████▄                           \n'+
+'                  ,╫█████████████████████████████▓M,                        \n'+
+'                  ▓█████████████████▓▓▓▓███████████▒                        \n'+
+'                 ╒█████████████████▓▓╣╣╫▓███████████▌                       \n'+
+'                 ████████████▀▀▀▓▓▒▒║▒▒▒╢████████████                       \n'+
+'                 ███████████████@▒▒▒▒▒███████████████Ç                      \n'+
+'                 ██████▓▓▓████▀██▓╣▓███████▓▓████████▌                      \n'+
+'                 ██████▓╣╢╢▓▓▓▓▓▓╣▒╫▓▓▓▓▓▓▓▓▓▓███████▌                      \n'+
+'                 ]██▓▓█╣╢╢▒╣▒▒╢╫╣╣╣▓▓▓▒╢╣╣╢╢╫▓███████▌                      \n'+
+'                  ▓▓▓▓██╣╢▒▒▒▒▒▓▓╣▒╢▓▓▒▒▒▒▒╢▓▓██████▓[                      \n'+
+'                   ╙╩▓▓█╣╣╣▒▒▒╢╢▓▒▓▓▓╣╣▒╢╢╢╫▓▓▓█████▓                       \n'+
+'                     ╟██╣╢╢╢▒╢╢╢╣▒╢╢╢╢▓▓╣╢╢▓▓█████▓▓                        \n'+
+'                      ██╣╣╣╢╫▒▓█▓▓▓▓▓▓▓╣╣╢▓▓▓████▓▓                         \n'+
+'                    ,███▓▓╣▓╢╢╢╢╢╫▓╣╢╢╣╫▓▓▓▓█▓███╜                          \n'+
+'                     ███▓▓▓▓╣╣╢╢╢╢╢╢╣▓▓▓▓▓▓▓▓╟██▌                           \n'+
+'                    ▄██▓ `▓▓╫▓▓▓▓▓▓▓▓▓▓▓▓╢▓▓▒╙███                           \n'+
+'                    ██░║▒░▓▓▓▓▓╢╢╢▓╢╢╢▓▓▓▓▓▓▌▓▐██                           \n'+
+'                   ██▌░▒▄█▓▓▓▓▓▓▓╣╣▓▓▓▓▓▓▓▓▓M▓▐█▌▒▒                         \n'+
+'                ,░░██▒░]░█▓▓▓╢▓▓▓▓▓▓▓▓▓▓▓▓▓╛]▒██▌░░░▒╖                      \n'+
+'              ¿░░░░█▌░ `╙,"▓╣╣╣▓▓▓▓▓▓▓▓▓╢▓`░░░▐█▌░░░░░░▒,,                  \n'+
+'         ,░░░░░░░░░█░       `▀╣╢▓▓▓▓▓▓╣╢╜   ░,░▐█▒░    ░░░░░¿,              \n'+
+'     ,░░░       ╫███  "´ ~=    "▀█████▀`,=´    ²▀██░         ░░░,           \n'+
+'  ,░░░░          -"               ,█▌                           ░░▒¿        \n'+
+' ░░                                █                               ░░       \n'+
+'¡░                                ╘▓                                 ▒      ';
+				var textline = document.createElement('p');
+				textline.style.fontSize = '16px';
+				textline.style.lineHeight = '1.2em';
+				//textline.style.lineHeight = '0.8em';
+				textline.style.display = 'block';
+				/*var smallerportrait = '';
+				for (var i = 0; i < portrait.length-1; i+=2) {
+					var chars = portrait.substring(i,i+1);
+					console.log(chars)
+					smallerportrait += portrait.substring(i,i+1);
+				}*/
+				textline.innerText = portrait + '\n';
+				maintext.appendChild(textline);
+				printLine(
+				'First of all, I am very glad you could make it to my page! My name is Ture Goldkuhl or turpelurpeluren '+
+				'and I am a student of comput(er/ational) science and a hobby artist. I like to work in a variety of different fields '+
+				'and disciplines, mostly in the visual realm altough the conceptual entises my brain the most.\n'+
+				"   The internet has long been my favourite place. It's like swimming in the primordial soup of human thought. "+
+				"This website index aims to be my contribution to that soup. Much of the concept I took from "+
+				'<a target="_blank" href="https://terminal.satnaing.dev/">Sat Naing</a> who in turn was inspired by '+
+				'<a target="_blank" href="https://term.m4tt72.com/">m4tt72</a> and <a target="_blank" href="https://fkcodes.com/">Forrest</a> '+
+				"\n   Check out my others projects if you'd like. Feel free to click around as much as you can!\n");
 				break;
 
 			case 'cat':
@@ -383,6 +444,10 @@
 						switch (args[2]) {
 							case '-m':
 								printWeb(args[1], true); //print mobile version
+								break;
+
+							case '-w':
+								printWeb(args[1], false, true); //print wide version
 								break;
 
 							case undefined:
@@ -479,18 +544,33 @@
 						/* redbubble / teepublic? */
 				break;
 
+			case 'welcome':
+				boot();
+				break;
+
 			default:
 				printLineText('command not found: ' + val + '\n');
 		}
 	}
 
-	printLineText('\nWelcome to\n'+
-	' _                   _                 _                           _ _         \n'+
-	'| |_ _ _ ___ ___ ___| |_ _ ___ ___ ___| |_ _ ___ ___ ___   ___ ___| |_|___ ___ \n'+
-	'|  _| | |  _| . | -_| | | |  _| . | -_| | | |  _| -_|   |_| . |   | | |   | -_|\n'+
-	'|_| |___|_| |  _|___|_|___|_| |  _|___|_|___|_| |___|_|_|_|___|_|_|_|_|_|_|___|\n'+
-	'            |_|               |_|                                              \n\n'+
-	'Glad you could make it to my domain on the internet!\n'+
-	'Type help for a list of commands.\n');
+	function boot() {
+		printLineText('\nRunning turpelurpeluren.terminal [Version '+version+']:\n(cc0) turpelurpeluren.online 2023');
+		const header = 
+		' _                   _                 _                           _ _         \n'+
+		'| |_ _ _ ___ ___ ___| |_ _ ___ ___ ___| |_ _ ___ ___ ___   ___ ___| |_|___ ___ \n'+
+		'|  _| | |  _| . | -_| | | |  _| . | -_| | | |  _| -_|   |_| . |   | | |   | -_|\n'+
+		'|_| |___|_| |  _|___|_|___|_| |  _|___|_|___|_| |___|_|_|_|___|_|_|_|_|_|_|___|\n'+
+		'            |_|               |_|                                              \n\n';
+		var textline = document.createElement('p');
+		textline.style.fontSize = '16px';
+		textline.style.display = 'block';
+		textline.innerText = header;
+		maintext.appendChild(textline);
+		printLine('Glad you could make it to my domain on the internet!\n\n'+
+		'If you find the terminal interface overwhelming I advise you to go '+
+		'<a href="https://turpelurpeluren.online/home">home</a>. '+
+		'Otherwise, type help for a list of commands.\n');
+	}
+	boot();
 
 })();
