@@ -44,6 +44,65 @@ pre, p {
 	/*width: max-content;*/
 }
 
+:root {
+	--framescale: 0.5;
+	--framescaleMobile: 0.75;
+}
+
+.frameWrap {
+	width: calc(100%);
+	height: calc(9 * 768px / 16);
+
+	overflow: hidden;
+}
+
+.frameWrap.mobileView {
+	height: min(calc(16 * 768px / 12), 95vh);
+}
+
+iframe {
+	/*border: calc(2px / var(--framescale)) solid black;*/
+
+	-ms-zoom: var(--framescale);
+	-moz-transform: scale(var(--framescale));
+	-moz-transform-origin: 0 0;
+	-o-transform: scale(var(--framescale));
+	-o-transform-origin: 0 0;
+	-webkit-transform: scale(var(--framescale));
+	-webkit-transform-origin: 0 0;
+
+	width: calc(100% / var(--framescale));
+	height: calc(9 * 768px / 16 / var(--framescale));
+
+}
+
+iframe.mobileView {
+	width: calc(100% / var(--framescaleMobile));
+	height: min(calc(16 * 768px / 12 / var(--framescaleMobile)), 95vh / var(--framescaleMobile));
+
+	/*border: calc(2px / var(--framescale)) solid black;*/
+
+	-ms-zoom: var(--framescaleMobile);
+	-moz-transform: scale(var(--framescale)Mobile);
+	-moz-transform-origin: 0 0;
+	-o-transform: scale(var(--framescaleMobile));
+	-o-transform-origin: 0 0;
+	-webkit-transform: scale(var(--framescaleMobile));
+	-webkit-transform-origin: 0 0;
+}
+
+/*#wrap { width: 600px; height: 390px; padding: 0; overflow: hidden; }
+/*#frame { width: 800px; height: 520px; border: 1px solid black; }
+/*#frame {
+	-ms-zoom: 0.75;
+	-moz-transform: scale(0.75);
+	-moz-transform-origin: 0 0;
+	-o-transform: scale(0.75);
+	-o-transform-origin: 0 0;
+	-webkit-transform: scale(0.75);
+	-webkit-transform-origin: 0 0;
+}*/
+
 @media only screen and (max-width: 1200px) {
 	* {
 		font-size: 32px;

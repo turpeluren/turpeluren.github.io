@@ -55,12 +55,6 @@
 				]
 				}
 			]
-			},
-			{"name": "a/", "href": 0, "subpages": [
-				{"name": "b", "href": "a/b"},
-				{"name": "c", "href": "a/c.html"},
-				{"name": "d", "href": "d"}
-			]
 			}
 		]
 		/*printLine('Index of turpelurpeluren.online:\n\n'+
@@ -177,16 +171,16 @@
 		maintext.appendChild(textline);
 	}
 
-	function printLineText(line) {
+	function printLineText(line, parentElement=maintext) {
 		var textline = document.createElement('p');
 		textline.innerText = line + '\n';
-		maintext.appendChild(textline);
+		parentElement.appendChild(textline);
 	}
 
-	function printLine(line) {
+	function printLine(line, parentElement=maintext) {
 		var textline = document.createElement('p');
 		textline.innerHTML = line + '\n';
-		maintext.appendChild(textline);
+		parentElement.appendChild(textline);
 	}
 
 	function printIndex(ntabs, start) {
@@ -205,7 +199,7 @@
 		}
 	}
 
-	function isPath(tryPath, start) {
+	function isPath(tryPath, start, strict=false) {
 	// loops through siteIndex json object and checks if a given path is there
 		for(var i = 0; i < start.length; i++) {
 			if (start[i].href == 0) 
@@ -213,7 +207,10 @@
 				if(isPath(/*start[i].name + */tryPath, start[i].subpages)) return true;
 			} else
 			{
-				if (tryPath === start[i].href || tryPath === (start[i].href).split('.')[0]) {
+				if (tryPath === start[i].href) {
+					return true;
+				}
+				if (!strict && tryPath === (start[i].href).split('.')[0]) {
 					return true;
 				}
 			}
@@ -229,20 +226,56 @@
 		// the below variables combine a label (text) + the textarea value + a newline (\n)
 		// add up to 2,000 characters (Discord's character limit)
 	
-		// you have to combine both into one single variable before you can pass it to discord
-		var date = new Date();
-		var f_date = date.toLocaleDateString('sv-SE');
-		var username = name + " " + f_date;
+		//var date = new Date();
+		//var f_date = date.toLocaleDateString('sv-SE');
+		var username = name; // + " " + f_date;
 		var msg = "\n\nCONTACT: " + info + "\n\n-----START-OF-MESSAGE-----\n\n" + message + "\n\n------END-OF-MESSAGE------\n";
-		// play with it a bit until you get a feel for how you want the incoming messages to look!
 	
 		var params = {
-		// you can set the username to anything you want
 			username: username,
 			content: msg,
 		}
 		request.send(JSON.stringify(params));
 	
+	}
+
+	function printWeb(path, mobile=false) {
+		if (isPath(path, siteIndex.pages, true)) {
+			fetch('https://turpelurpeluren.online/' + path) //fetch resource
+			.then(data => {
+				return data.text() //get data
+			})
+			.then(data => {
+				//print iframe
+				var frame = document.createElement('iframe');
+				var wrap = document.createElement('div');
+				wrap.classList.add('frameWrap');
+				if (mobile) {
+					frame.classList.add('mobileView');
+					wrap.classList.add('mobileView');
+				}
+				wrap.appendChild(frame);
+				maintext.appendChild(wrap);
+				frame.srcdoc = data;
+			})
+		} else {
+			printLineText('cathtml: ' + path + ': No such file.\n');
+		}
+	}
+
+	function helpListCommands() {
+		printLineText('use help [command] to find out more about given command\n\n'+
+					'about\t\t\t- about me and the page\n'+
+					'cat\t\t\t- prints contents of a file as text\n'+
+					'cathtml\t\t\t- prints contents of a file as a webpage\n'+
+					'clear\t\t\t- clears the screen\n'+
+					'goto [subpath]\t\t- follows the URL path (from turpelurpeluren.online/)\n'+
+					'help\t\t\t- displays information about builtin commands\n'+
+					'history\t\t\t- view command history\n'+
+					'index\t\t\t- indexes site pages\n'+
+					'links\t\t\t- lists my external links\n'+
+					'message [name] [cont... - sends me a message\n'
+					);
 	}
 
 	function matchCommand(val) {
@@ -254,12 +287,128 @@
 		switch (args[0]) {
 
 			case 'help':
-				printLineText('goto [subpath]\t\t- follows the URL path (from turpelurpeluren.online/)\n'+
-						'help\t\t\t- displays a list of commands\n'+
-						'index [-all]\t\t- indexes site pages\n'+
-						'links\t\t\t- lists my external links\n'+
-						'message [name] [contact] [message]\n\t\t\t- send me a message\n'
-						); /* ändra username?*/
+				if (args.length === 1) {
+					helpListCommands();
+				} else if (args.length === 2) {
+					switch (args[1]) {
+						case 'about':
+							printLineText('Usage: about\n\n   Prints out info about me and the page.\n');
+							break;
+						case 'cat':
+							printLineText('Usage: cat [file]\n\n   Prints contents of a file as text.\n\n   eg: cat projects/related_projects.txt\n');
+							break;
+						case 'cathtml':
+							printLineText('Usage: cathtml [file] [OPTIONS]\n\n   Prints contents of a file as a webpage.\n\n   '+
+							'OPTIONS:\t-m\t\tmobile version\n\t\t-d\t\tdesktop version (default)\n\n   '+
+							'eg: cathtml blog_posts/dbild_blogpost.html -m\n');
+							break;
+						case 'clear':
+							printLineText('Usage: clear\n\n   Clears the screen.\n');
+							break;
+						case 'goto':
+							printLineText('Usage: goto [subpath]\n\n   Follows the URL path (from turpelurpeluren.online/).\n\n   '+
+							'eg: goto projects/project_table\n');
+							break;
+						case 'help':
+							printLineText('Usage: help\n\n   Displays information about builtin commands.\n\n   '+
+							'OPTIONS: [command]\n\n   eg: help help\n');
+							break;
+						case 'history':
+							printLineText('Usage: history\n\n   View command history.\n');
+							break;
+						case 'index':
+							printLineText('Usage: index\n\n   Indexes site pages.\n\n   OPTIONS: -all\n\n   eg: index -all\n');
+							break;
+						case 'links':
+							printLineText('Usage: links\n\n   Lists my external links.\n');
+							break;
+						case 'message':
+							printLineText('Usage: message [name] [contact] [message]\n\n   Sends me a message.\n\n   '+
+							'eg: message Steve steve@email.online whatsup B)\n');
+							break;
+						case undefined:
+						case '':
+						case ' ':
+							helpListCommands();
+							//printLineText('Usage: help\n   OPTIONS: [command]\n   eg: help help\n');
+							break;
+						default:
+							printLineText('help: no command matches: ' + args[1] + '\n');
+							break;
+					}
+				} else {
+					printLineText('Usage: help\n   OPTIONS: [command]\n   eg: help help\n')
+				}
+				break;
+
+			case 'about':
+				printLineText('First of all, I am very glad you could make it to my page! My name is Ture Goldkuhl or turpelurpeluren '+
+				'and I am a student of comput(er/ational) science and hobby artist. I like to work in a variety of different fields '+
+				'and disciplines, mostly in the visual realm altough the conceptual entises my brain the most. \n')
+				break;
+
+			case 'cat':
+				switch (args[1]) {
+					case undefined:
+					case '':
+					case ' ':
+						printLineText('Usage: cat [file]\n   eg: cat projects/related_projects.txt\n');
+						break;
+
+					default:
+						if (isPath(args[1], siteIndex.pages, true)) {
+							fetch('https://turpelurpeluren.online/' + args[1]) //fetch resource
+							.then(data => {
+								return data.text() //get data
+							})
+							.then(data => {
+								printLineText(data); //paste in element
+							})
+						} else {
+							printLineText('cat: ' + args[1] + ': No such file.\n');
+						}
+				}
+				break;
+			
+			case 'cathtml':
+				switch (args[1]) {
+					case undefined:
+					case '':
+					case ' ':
+						printLineText('Usage: cathtml [file] [OPTIONS]\n   '+
+						'eg: cathtml blog_posts/dbild_blogpost.html -m\n');
+						break;
+
+					default:
+						switch (args[2]) {
+							case '-m':
+								printWeb(args[1], true); //print mobile version
+								break;
+
+							case undefined:
+							case ' ':
+							case '':
+							case '-d':
+								printWeb(args[1]); //print desktop version
+								break;
+
+							default:
+								printLineText('Unknown flag: ' + args[2] + '\nUsage: cathtml [file] [OPTIONS]\n   '+
+								'eg: cathtml blog_posts/dbild_blogpost.html -m\n');
+						}
+				}
+				break;
+			
+			case 'clear':
+				maintext.innerHTML = "";
+				printLineText('');
+				break;
+
+			case 'history':
+				for (var i = 0; i < history.length; i++) {
+					printLineText(history[i]);
+				}
+				printLineText('');
 				break;
 
 			case 'message':
@@ -272,7 +421,7 @@
 					printLineText("Message: '" + msg + "' was sent from " + args[1] +
 					" who can be reached on " + args[2] + ".\n");
 				} else {
-					printLineText('Usage: message [name] [contact] [message]\neg: message Steve steve@email.online whatsup B)\n');
+					printLineText('Usage: message [name] [contact] [message]\n   eg: message Steve steve@email.online whatsup B)\n');
 				}
 				break;
 
@@ -281,7 +430,7 @@
 					case undefined:
 					case '':
 					case ' ':
-						printLineText('Usage: goto [subpath]\neg: goto projects/project_table\n');
+						printLineText('Usage: goto [subpath]\n   eg: goto projects/project_table\n');
 						break;
 					default:	
 						var tryPath = 'https://turpelurpeluren.online/' + args[1];
@@ -314,21 +463,20 @@
 						break;
 
 					default:
-						printLineText('Usage: index [-all]\n');
+						printLineText('Usage: index\n   OPTIONS: -all\n   eg: index -all\n');
 				}
 				break;
 
 			case 'links':
 				printLine("Turpelurpeluren's links:\n\n"+
-						'* <a href="https://www.instagram.com/turpelurpeluren/">instagram</a>\n'+
-						'* <a href="https://ko-fi.com/turpelurpeluren">ko-fi</a>\n'+
-						/*'* <a href="https://gamejolt.com/@turpeluren/games">gamejolt</a>\n'+*/
-						'* <a href="https://feraldreamssanctuary.bigcartel.com/">shop</a>\n'+
-						'* <a href="https://randomantagning.se/">randomantagning.se</a>\n'+
-						'* <a href="https://twitter.com/turpeluren">twitter</a>\n'+
-						'* <a href="https://www.youtube.com/channel/UCp84o6z4oaivyHp9REwZT6g">youtube</a>\n');
+						'* <a target="_blank" href="https://www.instagram.com/turpelurpeluren/">instagram</a>\n'+
+						'* <a target="_blank" href="https://ko-fi.com/turpelurpeluren">ko-fi</a>\n'+
+						/*'* <a target="_blank" href="https://gamejolt.com/@turpeluren/games">gamejolt</a>\n'+*/
+						'* <a target="_blank" href="https://feraldreamssanctuary.bigcartel.com/">shop</a>\n'+
+						'* <a target="_blank" href="https://randomantagning.se/">randomantagning.se</a>\n'+
+						'* <a target="_blank" href="https://twitter.com/turpeluren">twitter</a>\n'+
+						'* <a target="_blank" href="https://www.youtube.com/channel/UCp84o6z4oaivyHp9REwZT6g">youtube</a>\n');
 						/* redbubble / teepublic? */
-						/* gamejolt */
 				break;
 
 			default:
