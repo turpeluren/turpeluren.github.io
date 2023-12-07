@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-	const version = '1.0.5'
+	const version = '1.0.6'
 
 	const siteIndex = {
 		"pages": [
@@ -186,18 +186,22 @@
 		parentElement.appendChild(textline);
 	}
 
-	function printIndex(ntabs, start) {
+	function printIndex(ntabs, start, vline=false) {
 	// loops through siteIndex json object and prints it all
-		const tabs = '\t'.repeat(ntabs);
+		//const tabs = '\t'.repeat(ntabs);
+		const tabs = '─'.repeat(ntabs*3);
+		var structure = '│'.repeat(Math.min(ntabs,vline))+'\t'.repeat(ntabs)+'├';
 		for(var i = 0; i < start.length; i++) {
+			if (i == start.length-1) structure = structure.replace('├', '└');
 			if (start[i].href == 0) 
 			{
-				printLineText(tabs+start[i].name);
-				printIndex(ntabs+1, start[i].subpages);
+				printLineText(structure+tabs+' '+start[i].name);
+				printIndex(ntabs+1, start[i].subpages, i!=start.length-1);
 				
 			} else
 			{
-				printLine(tabs+'* <a href=' + start[i].href + '>' + start[i].name + '</a>');
+				printLine(structure+tabs+' <a href=' + start[i].href + '>' + start[i].name + '</a>');
+				if (i == start.length-1 && ntabs > 0) printLine('│'.repeat(Math.min(ntabs,vline)));
 			}
 		}
 	}
@@ -405,7 +409,8 @@
 				"This website index aims to be my contribution to that soup. Much of the concept I took from "+
 				'<a target="_blank" href="https://terminal.satnaing.dev/">Sat Naing</a> who in turn was inspired by '+
 				'<a target="_blank" href="https://term.m4tt72.com/">m4tt72</a> and <a target="_blank" href="https://fkcodes.com/">Forrest</a> '+
-				"\n   Check out my others projects if you'd like. Feel free to click around as much as you can!\n");
+				"\n   Check out my others projects if you'd like. My projects have a tendency of sprawling all over, "+
+				"so feel free to click around as much as you can!\n");
 				break;
 
 			case 'cat':
@@ -512,9 +517,8 @@
 			case 'index':
 				switch (args[1]) {
 					case '-all':
-						printLineText('Index of turpelurpeluren.online:\n');
+						printLineText('Index of turpelurpeluren.online:\n\n/');
 						printIndex(0, siteIndex.pages);
-						printLineText('');
 						break;
 
 					case undefined:
