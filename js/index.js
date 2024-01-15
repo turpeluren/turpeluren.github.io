@@ -24,6 +24,7 @@
 			{"name": "videos.html", "href": "videos.html"},
 			{"name": "works.html", "href": "works.html"},
 			{"name": "blog_posts/", "href": 0, "subpages": [
+				{"name": "blogelogeluren.html", "href": "blog_posts/blogelogeluren.html"},
 				{"name": "dbild_blogpost.html", "href": "blog_posts/dbild_blogpost.html"},
 				{"name": "example_post.html", "href": "blog_posts/example_post.html"},
 				{"name": "microdosing.html", "href": "blog_posts/microdosing.html"}
