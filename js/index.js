@@ -18,6 +18,7 @@
 			{"name": "miscellaneous.html", "href": "miscellaneous.html"},
 			{"name": "package.json", "href": "package.json"},
 			{"name": "paitings.html", "href": "paitings.html"},
+			{"name": "qr.html", "href": "qr.html"},
 			{"name": "randomantagning.html", "href": "randomantagning.html"},
 			{"name": "robots.txt", "href": "robots.txt"},
 			{"name": "sculpture.html", "href": "sculpture.html"},
