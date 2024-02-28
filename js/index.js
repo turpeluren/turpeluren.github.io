@@ -104,6 +104,9 @@
 								'\t\t* <a href="resources/related/related_vessel.html">related_vessel.html</a>\n'+
 								'');*/
 	}
+    const webringMembers = [
+
+    ];
 	var history = [];
 	var present = "";
 	var historyindex = -1;
@@ -275,6 +278,11 @@
 			printLineText('cathtml: ' + path + ': No such file.\n');
 		}
 	}
+
+    function webrings() {
+        printLine("<div id='lainring'>... Loading, please wait ...</div>"+
+            "<script src='js/lainring.js'></script>");
+    }
 
 	function helpListCommands() {
 		printLineText('use help [command] to find out more about given command\n\n'+
@@ -550,6 +558,10 @@
 						'* <a target="_blank" href="https://www.youtube.com/channel/UCp84o6z4oaivyHp9REwZT6g">youtube</a>\n');
 						/* redbubble / teepublic? */
 				break;
+
+            case 'webring':
+                webrings();
+                break;
 
 			case 'welcome':
 				boot();
