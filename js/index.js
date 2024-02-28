@@ -31,6 +31,21 @@
 				{"name": "microdosing.html", "href": "blog_posts/microdosing.html"}
 			]
 			},
+            {"name": "js/", "href": 0, "subpages": [
+				{"name": "dbild.js", "href": "js/dbild.js"},
+				{"name": "dbild.json", "href": "js/dbild.json"},
+				{"name": "imgurAlbum.js", "href": "js/imgurAlbum.js"},
+				{"name": "index.js", "href": "js/index.js"},
+				{"name": "lainring.json", "href": "js/lainring.json"},
+				{"name": "load.js", "href": "js/load.js"},
+				{"name": "main.js", "href": "js/main.js"},
+				{"name": "qr.js", "href": "js/qr.js"},
+				{"name": "randomantagning.js", "href": "js/randomantagning.js"},
+				{"name": "sidebar.js", "href": "js/sidebar.js"},
+				{"name": "submitForm.js", "href": "js/submitForm.js"},
+				{"name": "works.js", "href": "js/works.js"},
+			]
+			},
 			{"name": "projects/", "href": 0, "subpages": [
 				{"name": "project_boundless.html", "href": "projects/project_boundless.html"},
 				{"name": "project_eirik.html", "href": "projects/project_eirik.html"},
@@ -104,9 +119,6 @@
 								'\t\t* <a href="resources/related/related_vessel.html">related_vessel.html</a>\n'+
 								'');*/
 	}
-    const webringMembers = [
-
-    ];
 	var history = [];
 	var present = "";
 	var historyindex = -1;
@@ -280,9 +292,56 @@
 	}
 
     function webrings() {
-        printLine("<div id='lainring'>... Loading, please wait ...</div>"+
-            "<script src='js/lainring.js'></script>");
+        printLine("The <a href='https://lainchan.org/%CE%A9/res/73638.html' >Lainchan webring</a>: "+
+        "A decentralized <a href='https://indieweb.org/webring' >webring</a> from the Lainchan image board.\n\n"+
+        "The member list was fetched 2024-02-28 from <a href='https://sizeof.cat/post/lainring/'>sizeof.cat</a>. "+
+        "\n\n"+
+        "Clearnet sites:\n");
+        printLine("<div id='lain-clearnet'>... Loading, please wait ...</div>");
+        printLineText("\nOnion sites (accessible via the Tor browser):\n");
+        printLine("<div id='lain-tor'>... Loading, please wait ...</div>");
+        printLineText("\nI2p sites (accessible over the I2p protocol):\n");
+        printLine("<div id='lain-i2p'>... Loading, please wait ...</div>");
+        printLineText("\nOffline:\n");
+        printLine("<div id='lain-offline'>... Loading, please wait ...</div>");
+        loadLainring();
     }
+
+    function loadLainring() {
+        'use strict';
+        //document.addEventListener("DOMContentLoaded", function(event) {
+            /* Try to retrieve the json file */
+            fetch('https://turpelurpeluren.online/js/lainring.json').then(res => res.json()).then((data) => {
+                let clearnet = '';
+                let tor = '';
+                let i2p = '';
+                let offline = '';
+                /* For each element in the JSON, build an anchor-image DOM structure */
+                data.items.forEach(element => {
+                    /* This string is split in multiple lines for readability */
+                    let outstart = '<a title="' + element.title + '" href="';
+                    let outend = '"><img style="height:60px; width:240px; margin:1px;" src="img/lainring_banners/' +
+                        element.img + '" alt="' + element.title + '" /></a>';
+                    if (element.offline) {
+                        offline += outstart + element.url + outend;
+                    } else {
+                        if (element.url) clearnet += outstart + element.url + outend;
+                        if (element.tor) tor += outstart + element.tor + outend;
+                        if (element.i2p) i2p += outstart + element.i2p + outend;
+                    }
+                    
+                });
+                /* Inject the DOM structure into the element with the id 'lainring' */
+                document.getElementById('lain-clearnet').innerHTML = clearnet;
+                document.getElementById('lain-tor').innerHTML = tor;
+                document.getElementById('lain-i2p').innerHTML = i2p;
+                document.getElementById('lain-offline').innerHTML = offline;
+            }).catch(err => {
+                /* throw an error */
+                throw err
+            });
+        //});
+    };
 
 	function helpListCommands() {
 		printLineText('use help [command] to find out more about given command\n\n'+
@@ -298,6 +357,7 @@
 					//'ls\t\t\t- lists current directory\n'+
 					'message [name] [cont... - sends me a message\n'+
 					//'projects\t\t\t- lists my projects\n'+
+					'webring\t\t\t- displays all members of the Lainchan webring\n'+
 					'welcome\t\t\t- displays the boot message\n'
 					);
 	}
@@ -349,6 +409,9 @@
 						case 'message':
 							printLineText('Usage: message [name] [contact] [message]\n\n   Sends me a message.\n\n   '+
 							'eg: message Steve steve@email.online whatsup B)\n');
+							break;
+                        case 'webring':
+							printLineText('Usage: webring\n\n   Displays members of the Lainchain webring.\n');
 							break;
 						case 'welcome':
 							printLineText('Usage: welcome\n\n   Displays the boot message.\n');
@@ -412,15 +475,18 @@
 				textline.innerText = portrait + '\n';
 				maintext.appendChild(textline);
 				printLine(
-				'First of all, I am very glad you could make it to my page! My name is Ture Goldkuhl or turpelurpeluren '+
+				'First of all, I am very glad you could make it to my page! My name is turpelurpeluren '+
 				'and I am a student of comput(er/ational) science and a hobby artist. I like to work in a variety of different fields '+
-				'and disciplines, mostly in the visual realm altough the conceptual entises my brain the most.\n'+
-				"   The internet has long been my favourite place. It's like swimming in the primordial soup of human thought. "+
+				'and disciplines, mostly in the visual realm altough the conceptual entises my brain the most.'+
+				"\n\nThe internet has long been my favourite place. It's like swimming in the primordial soup of human thought. "+
 				"This website index aims to be my contribution to that soup. Much of the concept I took from "+
 				'<a target="_blank" href="https://terminal.satnaing.dev/">Sat Naing</a> who in turn was inspired by '+
 				'<a target="_blank" href="https://term.m4tt72.com/">m4tt72</a> and <a target="_blank" href="https://fkcodes.com/">Forrest</a> '+
-				"\n   Check out my others projects if you'd like. My projects have a tendency of sprawling all over, "+
-				"so feel free to click around as much as you can!\n");
+				"\n\nI run a blog/digital garden which is currently separate from this site and always under construction. It is obviously called "+
+                "<a target='_blank' href='https://blogelogeluren.netlify.app'>blogelogeluren</a>. "+
+                "If you'd like to check out my other projects, it is one possible entry point, although my projects have a tendency of sprawling all over. "+
+				"The 'links' command can also be somewhat useful for investigating me further. "+
+                "Feel perfectly free to click around as much as you can!\n");
 				break;
 
 			case 'cat':
@@ -548,9 +614,10 @@
 
 			case 'links':
 				printLine("Turpelurpeluren's links:\n\n"+
-						'* <a target="_blank" href="https://blogelogeluren.netlify.app">blog</a>\n'+
+						'* <a target="_blank" href="https://blogelogeluren.netlify.app">blogelogeluren</a>\n'+
 						'* <a target="_blank" href="https://www.instagram.com/turpelurpeluren/">instagram</a>\n'+
 						'* <a target="_blank" href="https://ko-fi.com/turpelurpeluren">ko-fi</a>\n'+
+						'* <a target="_blank" href="https://mas.to/@turpelurpeluren">mastodon</a>\n'+
 						/*'* <a target="_blank" href="https://gamejolt.com/@turpeluren/games">gamejolt</a>\n'+*/
 						'* <a target="_blank" href="https://feraldreamssanctuary.bigcartel.com/">shop</a>\n'+
 						'* <a target="_blank" href="https://randomantagning.se/">randomantagning.se</a>\n'+
@@ -587,7 +654,8 @@
 		maintext.appendChild(textline);
 		printLine('Glad you could make it to my domain on the internet!\n\n'+
 		'If you find the terminal interface overwhelming I advise you to go '+
-		'<a href="https://turpelurpeluren.online/home">home</a>. '+
+		'<a href="https://turpelurpeluren.online/home">home</a> or to the '+
+        '<a href="https://blogelogeluren.netlify.app">blog</a>.'+
 		'Otherwise, type help for a list of commands.\n');
 	}
 	boot();
