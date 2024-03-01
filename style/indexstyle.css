@@ -12,7 +12,9 @@
 pre, p {
 	margin: 0;
 	word-break: break-all;
-	display: inline;
+    word-break: break-word;
+	/*display: inline;*/
+    text-align: justify;
 }
 
 .type {
@@ -27,6 +29,9 @@ pre, p {
 .cmdline {
 	color: green;
 }
+.cmdline p {
+	display: inline;
+}
 
 .type input, .type .input {
 	padding: 0;
@@ -36,6 +41,7 @@ pre, p {
 	height: 1.5em;
 
 	word-break: break-all;
+    word-break: break-word;
 }
 
 :root {

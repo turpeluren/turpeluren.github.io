@@ -316,11 +316,15 @@
                 let tor = '';
                 let i2p = '';
                 let offline = '';
+                let w = Math.min(768, document.body.clientWidth);
+                let nrbannersperrow = Math.floor(w / 240);
+                let margin = (w - nrbannersperrow * 240) / (nrbannersperrow) - 1;
+
                 /* For each element in the JSON, build an anchor-image DOM structure */
                 data.items.forEach(element => {
                     /* This string is split in multiple lines for readability */
                     let outstart = '<a title="' + element.title + '" href="';
-                    let outend = '"><img style="height:60px; width:240px; margin:1px;" src="img/lainring_banners/' +
+                    let outend = '"><img style="height:60px; width:240px; margin-right: '+ margin +'px;" src="img/lainring_banners/' +
                         element.img + '" alt="' + element.title + '" /></a>';
                     if (element.offline) {
                         offline += outstart + element.url + outend;
@@ -655,7 +659,7 @@
 		printLine('Glad you could make it to my domain on the internet!\n\n'+
 		'If you find the terminal interface overwhelming I advise you to go '+
 		'<a href="https://turpelurpeluren.online/home">home</a> or to the '+
-        '<a href="https://blogelogeluren.netlify.app">blog</a>.'+
+        '<a href="https://blogelogeluren.netlify.app">blog</a>. '+
 		'Otherwise, type help for a list of commands.\n');
 	}
 	boot();
