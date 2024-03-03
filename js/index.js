@@ -618,7 +618,7 @@
 
 			case 'links':
 				printLine("Turpelurpeluren's links:\n\n"+
-						'* <a target="_blank" href="https://blogelogeluren.netlify.app">blogelogeluren</a>\n'+
+						'* <a target="_blank" href="https://blogeloge.turpelurpeluren.online">blogelogeluren</a>\n'+
 						'* <a target="_blank" href="https://www.instagram.com/turpelurpeluren/">instagram</a>\n'+
 						'* <a target="_blank" href="https://ko-fi.com/turpelurpeluren">ko-fi</a>\n'+
 						'* <a target="_blank" href="https://mas.to/@turpelurpeluren">mastodon</a>\n'+
