@@ -659,7 +659,7 @@
 		printLine('Glad you could make it to my domain on the internet!\n\n'+
 		'If you find the terminal interface overwhelming I advise you to go '+
 		'<a href="https://turpelurpeluren.online/home">home</a> or to the '+
-        '<a href="https://blogelogeluren.netlify.app">blog</a>. '+
+        '<a href="https://blog.turpelurpeluren.online">blog</a>. '+
 		'Otherwise, type help for a list of commands.\n');
 	}
 	boot();
