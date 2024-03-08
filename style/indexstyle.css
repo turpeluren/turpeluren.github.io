@@ -11,26 +11,26 @@
 
 pre, p {
 	margin: 0;
-	word-break: break-all;
+	/*word-break: break-all;*/
     word-break: break-word;
 	/*display: inline;*/
     text-align: justify;
 }
 
-.type {
-	/*display: flex;
-	flex-wrap: wrap;*/
-}
-
-.user {
-	color: rgb(255, 115, 0);
+.cmdline+p, .cmdline+pre, .cmdline, .cmdline p {
+    display: inline;
 }
 
 .cmdline {
 	color: green;
 }
-.cmdline p {
-	display: inline;
+.user {
+	color: rgb(255, 115, 0);
+}
+
+.type {
+	/*display: flex;
+	flex-wrap: wrap;*/
 }
 
 .type input, .type .input {

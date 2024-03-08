@@ -292,8 +292,9 @@
 	}
 
     function webrings() {
-        printLine("The <a href='https://lainchan.org/%CE%A9/res/73638.html' >Lainchan webring</a>: "+
-        "A decentralized <a href='https://indieweb.org/webring' >webring</a> from the Lainchan image board.\n\n"+
+        printLine("\nThe <a href='https://lainchan.org/%CE%A9/res/73638.html' >Lainchan webring</a>: "+
+        "A decentralized <a href='https://indieweb.org/webring' >webring</a> from the Lainchan image board. "+
+        "You can read my <a href='https://blogelogeluren.netlify.app/posts/lainring/'>blog post</a> about it.\n\n"+
         "The member list was fetched 2024-02-28 from <a href='https://sizeof.cat/post/lainring/'>sizeof.cat</a>. "+
         "\n\n"+
         "Clearnet sites:\n");
@@ -606,7 +607,8 @@
 					case ' ':
 						printLine('Index of turpelurpeluren.online:\n\n'+
 								'* <a href="about">about</a>\n'+
-								'* <a href="blog">blog</a>\n'+
+								'* <a href="https://blog.turpelurpeluren.online">blog</a> '+
+                                '& <a href="blog">(old blog)</a>\n'+
 								'* <a href="home">home</a>\n'+
 								'* <a href="works">works</a>\n');
 						break;
@@ -634,6 +636,7 @@
                 webrings();
                 break;
 
+            case 'boot':
 			case 'welcome':
 				boot();
 				break;
