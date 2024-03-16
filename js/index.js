@@ -620,7 +620,7 @@
 
 			case 'links':
 				printLine("Turpelurpeluren's links:\n\n"+
-						'* <a target="_blank" href="https://blogeloge.turpelurpeluren.online">blogelogeluren</a>\n'+
+						'* <a target="_blank" href="https://blog.turpelurpeluren.online">blogelogeluren</a>\n'+
 						'* <a target="_blank" href="https://www.instagram.com/turpelurpeluren/">instagram</a>\n'+
 						'* <a target="_blank" href="https://ko-fi.com/turpelurpeluren">ko-fi</a>\n'+
 						'* <a target="_blank" href="https://mas.to/@turpelurpeluren">mastodon</a>\n'+
@@ -647,8 +647,9 @@
 	}
 
 	function boot() {
-		printLineText('\nRunning turpelurpeluren.terminal [Version '+version+']:\n(cc0) turpelurpeluren.online 2023');
-		const header = 
+		printLineText('\nRunning turpelurpeluren.terminal [Version '+version+']');
+        printLine('<a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1">CC0 1.0</a> turpelurpeluren.online 2024');
+        const header = 
 		' _                   _                 _                           _ _         \n'+
 		'| |_ _ _ ___ ___ ___| |_ _ ___ ___ ___| |_ _ ___ ___ ___   ___ ___| |_|___ ___ \n'+
 		'|  _| | |  _| . | -_| | | |  _| . | -_| | | |  _| -_|   |_| . |   | | |   | -_|\n'+
