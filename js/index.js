@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-	const version = '1.0.6'
+	const version = '1.0.8'
 
 	const siteIndex = {
 		"pages": [
@@ -157,6 +157,7 @@
 			input.remove();
 			input = freshinput.cloneNode();
 			input.classList.add('input');
+			input.classList.remove('hidden');
 			cmdline.appendChild(input);
 			setTimeout(function(){ input.focus(); }, 1);
 
@@ -260,8 +261,27 @@
 			content: msg,
 		}
 		request.send(JSON.stringify(params));
-	
 	}
+
+    function subscribe(email, unsub=false) {
+        var request = new XMLHttpRequest();
+		request.open("POST", "https://discordapp.com/api/webhooks/1039221226712875170/COYPEqaVrlKTWCnqrjCPjyea9nlrHi-wdBpvLwXW4VyswzOeNogUbkkVoCuSEu2MdMKK");
+		request.setRequestHeader('Content-type', 'application/json');
+		// the below variables combine a label (text) + the textarea value + a newline (\n)
+		// add up to 2,000 characters (Discord's character limit)
+	
+		//var date = new Date();
+		//var f_date = date.toLocaleDateString('sv-SE');
+		var username = "SUBSCRIBE via terminal"; // + " " + f_date;
+        if (unsub) username = "OPT-OUT via terminal"
+		var msg = "email: "+email;
+	
+		var params = {
+			username: username,
+			content: msg,
+		}
+		request.send(JSON.stringify(params));
+    }
 
 	function printWeb(path, mobile=false, wide=false) {
 		if (isPath(path, siteIndex.pages, true)) {
@@ -349,22 +369,23 @@
     };
 
 	function helpListCommands() {
-		printLineText('use help [command] to find out more about given command\n\n'+
-					'about\t\t\t- about me and the page\n'+
-					'cat [file]\t\t- prints contents of a file as text\n'+
-					'cathtml [file]\t\t- prints contents of a file as a webpage\n'+
-					'clear\t\t\t- clears the screen\n'+
-					'goto [subpath]\t\t- follows the URL path (from turpelurpeluren.online/)\n'+
-					'help\t\t\t- displays information about builtin commands\n'+
-					'history\t\t\t- view command history\n'+
-					'index\t\t\t- indexes site pages\n'+
-					'links\t\t\t- lists my external links\n'+
-					//'ls\t\t\t- lists current directory\n'+
-					'message [name] [cont... - sends me a message\n'+
-					//'projects\t\t\t- lists my projects\n'+
-					'webring\t\t\t- displays all members of the Lainchan webring\n'+
-					'welcome\t\t\t- displays the boot message\n'
-					);
+        printLine(  'use <b>help [command]</b> to find out more about given command\n\n'+
+                    '<b>about</b>\t\t\t- about me and the page\n'+
+                    '<b>cat [file]</b>\t\t- prints contents of a file as text\n'+
+                    '<b>cathtml [file]</b>\t\t- prints contents of a file as a webpage\n'+
+                    '<b>clear</b>\t\t\t- clears the screen\n'+
+                    '<b>goto [subpath]</b>\t\t- follows the URL path (from turpelurpeluren.online/)\n'+
+                    '<b>help</b>\t\t\t- displays information about builtin commands\n'+
+                    '<b>history</b>\t\t\t- view command history\n'+
+                    '<b>index</b>\t\t\t- indexes site pages\n'+
+                    '<b>links</b>\t\t\t- lists my external links\n'+
+                    //'ls\t\t\t- lists current directory\n'+
+                    '<b>message [name] [cont...</b> - sends me a message\n'+
+                    //'projects\t\t\t- lists my projects\n'+
+                    '<b>subscribe [email]</b>\t- subscribe to my newletter\n'+
+                    '<b>webring</b>\t\t\t- displays all members of the Lainchan webring\n'+
+                    '<b>welcome</b>\t\t\t- displays the boot message\n'
+                    );
 	}
 
 	function matchCommand(val) {
@@ -387,9 +408,9 @@
 							printLineText('Usage: cat [file]\n\n   Prints contents of a file as text.\n\n   eg: cat projects/related_projects.txt\n');
 							break;
 						case 'cathtml':
-							printLineText('Usage: cathtml [file] [OPTIONS]\n\n   Prints contents of a file as a webpage.\n\n   '+
+							printLineText('Usage: cathtml [OPTIONS] [file]\n\n   Prints contents of a file as a webpage.\n\n   '+
 							'OPTIONS:\t-d\t\tdesktop version (default)\n\t\t-m\t\tmobile version\n\t\t-w\t\tfull page width\n\n   '+
-							'eg: cathtml blog_posts/dbild_blogpost.html -m\n');
+							'eg: cathtml -m blog_posts/dbild_blogpost.html\n');
 							break;
 						case 'clear':
 							printLineText('Usage: clear\n\n   Clears the screen.\n');
@@ -400,13 +421,13 @@
 							break;
 						case 'help':
 							printLineText('Usage: help\n\n   Displays information about builtin commands.\n\n   '+
-							'OPTIONS: [command]\n\n   eg: help help\n');
+							'OPTIONS:\t[command]\tget more info about a command\n\n   eg: help help\n');
 							break;
 						case 'history':
 							printLineText('Usage: history\n\n   View command history.\n');
 							break;
 						case 'index':
-							printLineText('Usage: index\n\n   Indexes site pages.\n\n   OPTIONS: -all\n\n   eg: index -all\n');
+							printLineText('Usage: index [OPTIONS]\n\n   Indexes site pages.\n\n   OPTIONS:\t-all\t\tindexes entire site\n\n   eg: index -all\n');
 							break;
 						case 'links':
 							printLineText('Usage: links\n\n   Lists my external links.\n');
@@ -415,6 +436,10 @@
 							printLineText('Usage: message [name] [contact] [message]\n\n   Sends me a message.\n\n   '+
 							'eg: message Steve steve@email.online whatsup B)\n');
 							break;
+                        case 'subscribe':
+                            printLineText('Usage: subscribe [OPTIONS] [email]\n\n   Subscribes email to the turpelurpeluren newsletter.\n\n   '+
+							'OPTIONS:\t-u\t\tunsubscribe\n\n   eg: subscribe -u h8er@turpelurpe.luren\n');
+                            break;
                         case 'webring':
 							printLineText('Usage: webring\n\n   Displays members of the Lainchain webring.\n');
 							break;
@@ -429,10 +454,9 @@
 							break;
 						default:
 							printLineText('help: no command matches: ' + args[1] + '\n');
-							break;
 					}
 				} else {
-					printLineText('Usage: help\n   OPTIONS: [command]\n   eg: help help\n')
+					printLineText('Usage: help [OPTIONS]\n   eg: help help\n')
 				}
 				break;
 
@@ -490,7 +514,7 @@
 				"\n\nI run a blog/digital garden which is currently separate from this site and always under construction. It is obviously called "+
                 "<a target='_blank' href='https://blogelogeluren.netlify.app'>blogelogeluren</a>. "+
                 "If you'd like to check out my other projects, it is one possible entry point, although my projects have a tendency of sprawling all over. "+
-				"The 'links' command can also be somewhat useful for investigating me further. "+
+				"The <b>links</b> command can also be somewhat useful for investigating me further. "+
                 "Feel perfectly free to click around as much as you can!\n");
 				break;
 
@@ -522,30 +546,36 @@
 					case undefined:
 					case '':
 					case ' ':
-						printLineText('Usage: cathtml [file] [OPTIONS]\n   '+
-						'eg: cathtml blog_posts/dbild_blogpost.html -m\n');
+						printLineText('Usage: cathtml [OPTIONS] [file]\n   '+
+						'eg: cathtml -m blog_posts/dbild_blogpost.html\n');
 						break;
 
 					default:
-						switch (args[2]) {
+						switch (args[1]) {
 							case '-m':
-								printWeb(args[1], true); //print mobile version
+								printWeb(args[2], true); //print mobile version
 								break;
 
 							case '-w':
-								printWeb(args[1], false, true); //print wide version
+								printWeb(args[2], false, true); //print wide version
 								break;
 
 							case undefined:
 							case ' ':
 							case '':
 							case '-d':
-								printWeb(args[1]); //print desktop version
+								printWeb(args[2]); //print desktop version
 								break;
 
 							default:
-								printLineText('Unknown flag: ' + args[2] + '\nUsage: cathtml [file] [OPTIONS]\n   '+
-								'eg: cathtml blog_posts/dbild_blogpost.html -m\n');
+                                if (args[1][0] == "-") {
+                                    // unknown flag
+                                    printLineText('Unknown flag: ' + args[1] + '\nUsage: cathtml [OPTIONS] [file]\n   '+
+								    'eg: cathtml -m blog_posts/dbild_blogpost.html\n');
+                                } else {
+                                    // no flag, just print
+								    printWeb(args[1]);
+                                }
 						}
 				}
 				break;
@@ -614,7 +644,11 @@
 						break;
 
 					default:
-						printLineText('Usage: index\n   OPTIONS: -all\n   eg: index -all\n');
+                        if (args[1][0] == "-") {
+                            printLineText('Unknown flag: '+args[1]+'\nUsage: index [OPTIONS]\n   eg: index -all\n');
+                        } else {
+						    printLineText('Usage: index [OPTIONS]\n   eg: index -all\n');
+                        }
 				}
 				break;
 
@@ -632,6 +666,35 @@
 						/* redbubble / teepublic? */
 				break;
 
+            case 'subscribe':
+                switch (args[1]) {
+                    case undefined:
+                    case '':
+                    case ' ':
+                        printLineText('Usage: subscribe [email]\n   eg: subscribe user@turpelurpeluren.online\n');
+                        break;
+                    case '-u':
+                        switch (args[2]) {
+                            case undefined:
+                            case '':
+                            case ' ':
+                                printLineText('Usage: subscribe [email]\n   eg: subscribe user@turpelurpeluren.online\n');
+                                break;
+                            default:
+                                subscribe(args[2], true);
+                                printLineText("Unsubscribed email: "+args[2]+" from the turpelurpeluren newsletter :'-(\n");
+                        }
+                        break;
+                    default:
+                        if (args[1][0] == "-") {
+                            printLineText('Unknown flag: '+args[1]+'\nUsage: subscribe [email]\n   eg: subscribe user@turpelurpeluren.online\n');
+                        } else {
+                            subscribe(args[1]);
+                            printLineText("Email: "+args[1]+" is now subscribed to the turpelurpeluren newsletter!\n");
+                        }
+                }
+                break;
+
             case 'webring':
                 webrings();
                 break;
@@ -647,7 +710,7 @@
 	}
 
 	function boot() {
-		printLineText('\nRunning turpelurpeluren.terminal [Version '+version+']');
+		printLineText('\nRunning turpelurpeluren.terminal [Version '+version+']:');
         printLine('<a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1">CC0 1.0</a> turpelurpeluren.online 2024');
         const header = 
 		' _                   _                 _                           _ _         \n'+
@@ -660,11 +723,10 @@
 		textline.style.display = 'block';
 		textline.innerText = header;
 		maintext.appendChild(textline);
-		printLine('Glad you could make it to my domain on the internet!\n\n'+
-		'If you find the terminal interface overwhelming I advise you to go '+
-		'<a href="https://turpelurpeluren.online/home">home</a> or to the '+
-        '<a href="https://blog.turpelurpeluren.online">blog</a>. '+
-		'Otherwise, type help for a list of commands.\n');
+		printLine("Welcome! I'm glad you could make it to my domain on the internet!\n\n"+
+		'If you find the terminal interface overwhelming I advise you to go to the '+
+        '<a href="https://blog.turpelurpeluren.online">blog</a>.\n\n'+
+		'Otherwise, type <b>help</b> for a list of commands.\n');
 	}
 	boot();
 
