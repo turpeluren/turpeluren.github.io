@@ -36,7 +36,7 @@ forsätt skrolla
         <i>En härlig sommarbild från en annans födelsedag på asperö.</i>
         <div class="text">
             
-            <p>Ture har hört att du gillar att smaka på vad Göteborg 
+            <p>Din son i norr har hört att du gillar att smaka på vad Göteborg 
                 har att erbjuda och att promenera
                 med din make. Därför får du..........
             </p>
@@ -51,6 +51,12 @@ Forsätt skrolla
         <!--div class="text"-->
             <div class="card">
                 <img src="https://vadhanderisverige.holdbar.com/_next/image?url=https%3A%2F%2Fmedia.holdbar.com%2Fexperience%2F3fa2c3036c7b1b7f644c12613d5ad39a%2Fcover%2FSPW8lADtn0lY&w=1920&q=75">
+                <div style="display: flex; flex-direction: row; gap: 3px;">
+                    <img src="https://b2029880.smushcdn.com/2029880/wp-content/uploads/2024/01/IMG_3712-768x1024.jpeg?lossy=2&strip=1&webp=1">
+                    <img src="https://b2029880.smushcdn.com/2029880/wp-content/uploads/2024/01/IMG_3696-768x1024.jpeg?lossy=2&strip=1&webp=1">
+                    <img src="https://b2029880.smushcdn.com/2029880/wp-content/uploads/2022/04/19DC2F47-4C04-4B45-BE30-4226593E6318-1152x1536.jpeg?lossy=2&strip=1&webp=1">
+                </div>
+                <i>Emulering av du och pappa på matmilen.</i>
             <h2>En matmil!</h2>
             <p>
                 Enligt mina beräkningar mäter den snarare 4,4 km men det 
@@ -72,7 +78,8 @@ datum:
 26 oktober
 16 november
 23 november
- </pre>
+</pre>
+            <p>Kanske nästa helg kan passa?</p>
             </div>
             <div class="text">
             <pre>
@@ -87,14 +94,38 @@ Här kommer lite fina bilder!
         <i>På möte i Köln.</i>
         <img src="img/grattis-mamma/mor4.jpg">
         <i>På besök i hufvudstaden.</i>
+        <div class="card">
+            <p>Din son i söder bjuder även han på middag ....
+                <br></p>
+        <img src="img/grattis-mamma/mor8.jpg">
+        <i>Middag.</i>
+        <br>
+        <p>
+                ...med 
+                medföljande konsert!
+                <br><br>
+                Inte mindre än på Mejeriet i Lund, med
+                en artist vi tror du kommer gilla: Klara
+                Keller!
+            </p>
+            <img src="img/grattis-mamma/ticket.png">
+            <i>Oink!</i>
+        </div>
+        
+        <div class="text">
+            <pre>
+
+Några fler bilder
+👇👇👇👇👇👇👇👇
+
+            </pre>
+        </div>
         <img src="img/grattis-mamma/mor5.jpg">
         <i>Odaterad selfie.</i>
         <img src="img/grattis-mamma/mor6.jpg">
         <i>Östra kullabers naturreservat 2023.</i>
-        <img src="img/grattis-mamma/mor8.jpg">
-        <i>Middag.</i>
         <div class="text">
-            <hr>
+                <hr>
             <pre>
 Okej, det viktigaste kommer här:
 
@@ -102,7 +133,11 @@ Summan av kardemumman är
 att vi älskar dig vår mor! ❤️
 
 Ha en bra födelsedag!</pre>
+                <hr>
         </div>
+        
+        <img src="img/grattis-mamma/fio.jpg">
+        <i>Även Fio hälsar och grattar!</i>
     </div>
 </body>
 </html>
@@ -113,9 +148,13 @@ Ha en bra födelsedag!</pre>
         display: block;
         padding-bottom: 2rem;
     }
+    .card::before {
+        content: "🎁";
+        font-size: 3rem;
+    }
     .card {
         background-color: white;
-        border-top: 24px outset red;
+        border-top: 48px outset red;
         border-radius: 12px;
         padding: 2rem;
         margin: 16px 3rem 16px 3rem;
