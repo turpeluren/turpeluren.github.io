@@ -11,9 +11,9 @@
 </head>
 <body style="background-color: rgb(244, 216, 255);">
     <div id="main" style="margin: 0 auto; text-align: center;">
-        <div id="hero" style="background-color:rgb(121, 121, 121); display: flex; align-items: center; position: relative; padding:0 2rem; margin:0; overflow: hidden; height: 1200px;">
+        <div id="hero" style="background-color:rgb(121, 121, 121); display: flex; align-items: center; position: relative; padding:0 2rem; margin:0; overflow: hidden;">
             <img style="position: absolute; top:0; left:0; padding:0; z-index: 0; mix-blend-mode:overlay;" src="img/grattis-mamma/mor1.jpg">
-            <h1 style="margin-top: 32rem;
+            <h1 style="
             text-shadow: -4px 4px 0px rgb(206, 0, 0),-4px -4px 0px rgb(206, 0, 0),
             4px -4px 0px rgb(206, 0, 0),4px 4px 0px rgb(206, 0, 0);">
             🥳<br>Stort grattis kära moder!! 💖</h1>
@@ -51,11 +51,12 @@ Forsätt skrolla
         <!--div class="text"-->
             <div class="card">
                 <img src="https://vadhanderisverige.holdbar.com/_next/image?url=https%3A%2F%2Fmedia.holdbar.com%2Fexperience%2F3fa2c3036c7b1b7f644c12613d5ad39a%2Fcover%2FSPW8lADtn0lY&w=1920&q=75">
-                <div style="display: flex; flex-direction: row; gap: 3px; max-width: 100%;">
+                <!--div style="display: flex; flex-direction: row; gap: 3px; max-width: 100%;">
                     <img src="https://b2029880.smushcdn.com/2029880/wp-content/uploads/2024/01/IMG_3712-768x1024.jpeg?lossy=2&strip=1&webp=1">
                     <img src="https://b2029880.smushcdn.com/2029880/wp-content/uploads/2024/01/IMG_3696-768x1024.jpeg?lossy=2&strip=1&webp=1">
                     <img src="https://b2029880.smushcdn.com/2029880/wp-content/uploads/2022/04/19DC2F47-4C04-4B45-BE30-4226593E6318-1152x1536.jpeg?lossy=2&strip=1&webp=1">
-                </div>
+                </div-->
+                <img src="img/grattis-mamma/mat.jpg">
                 <i>Emulering av du och pappa på matmilen.</i>
             <h2>En matmil!</h2>
             <p>
@@ -144,10 +145,13 @@ Ha en bra födelsedag!</pre>
 </html>
 
 <style>
+    #hero {
+        height: 800px;
+    }
     i {
-        font-size: 2rem;
+        font-size: 1rem;
         display: block;
-        padding-bottom: 2rem;
+        padding-bottom: 1rem;
     }
     .card::before {
         content: "🎁";
@@ -173,7 +177,7 @@ Ha en bra födelsedag!</pre>
         padding: 4rem 4rem;
     }
     h1 {
-        font-size: 8rem;
+        font-size: 4rem;
         font-weight: 100;
         font-family: Mamma;
         color: white;
@@ -191,7 +195,7 @@ Ha en bra födelsedag!</pre>
     }
     p, a, pre {
         color:rgb(4, 0, 14);
-        font-size: 3rem;
+        font-size: 2rem;
         line-height: 1.5;
     }
 
@@ -203,6 +207,20 @@ Ha en bra födelsedag!</pre>
     @media only screen and (max-width: 1200px) {
         #main {
             max-width: 100%;
+        }
+        h1 {
+            font-size: 8rem;
+            margin-top: 32rem;
+        }
+        #hero {
+            height: 1200px;
+        }
+        p, a, pre {
+            font-size: 3rem;
+        }
+        i {
+            font-size: 2rem;
+            padding-bottom: 2rem;
         }
     }
 </style>
