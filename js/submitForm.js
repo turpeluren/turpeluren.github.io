@@ -3,7 +3,7 @@
 
     document.getElementById('send').onclick = function() {
         var request = new XMLHttpRequest();
-        request.open("POST", import.meta.env.DISCORD_WEBHOOK);
+        request.open("POST", process.env.DISCORD_WEBHOOK);
         request.setRequestHeader('Content-type', 'application/json');
         // the below variables combine a label (text) + the textarea value + a newline (\n)
         // add up to 2,000 characters (Discord's character limit)
