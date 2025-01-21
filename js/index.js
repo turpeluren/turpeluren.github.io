@@ -246,7 +246,7 @@
 	function sendMessage(name, info, message) {
 
 		var request = new XMLHttpRequest();
-		request.open("POST", import.meta.env.DISCORD_WEBHOOK);
+		request.open("POST", "https://discordapp.com/api/webhooks/1331284332702204015/LvYccn2hXRzIRSR6-ehIDpVwtz4vn_tcJyQ6ND9f--kEq06JmH5uA6ShkAeXzYqnO2qE");
 		request.setRequestHeader('Content-type', 'application/json');
 		// the below variables combine a label (text) + the textarea value + a newline (\n)
 		// add up to 2,000 characters (Discord's character limit)
