@@ -246,7 +246,7 @@
 	function sendMessage(name, info, message) {
 
 		var request = new XMLHttpRequest();
-		request.open("POST", "https://discordapp.com/api/webhooks/1039221226712875170/COYPEqaVrlKTWCnqrjCPjyea9nlrHi-wdBpvLwXW4VyswzOeNogUbkkVoCuSEu2MdMKK");
+		request.open("POST", import.meta.env.DISCORD_WEBHOOK);
 		request.setRequestHeader('Content-type', 'application/json');
 		// the below variables combine a label (text) + the textarea value + a newline (\n)
 		// add up to 2,000 characters (Discord's character limit)
@@ -265,7 +265,7 @@
 
     function subscribe(email, unsub=false) {
         var request = new XMLHttpRequest();
-		request.open("POST", "https://discordapp.com/api/webhooks/1039221226712875170/COYPEqaVrlKTWCnqrjCPjyea9nlrHi-wdBpvLwXW4VyswzOeNogUbkkVoCuSEu2MdMKK");
+		request.open("POST", import.meta.env.DISCORD_WEBHOOK);
 		request.setRequestHeader('Content-type', 'application/json');
 		// the below variables combine a label (text) + the textarea value + a newline (\n)
 		// add up to 2,000 characters (Discord's character limit)

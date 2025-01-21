@@ -1934,7 +1934,7 @@ const arraydata = [
     ["12 okt 2023", "6Qevgdk"],
     ["13 okt 2023", "8kykTHq"],
     ["14 okt 2023", "zYyoavE"],
-    ["15 okt 2023", "aZoIry7"],
+    //["15 okt 2023", "aZoIry7"], Redacted av imgur för vi sitter nakna i bastun
     ["16 okt 2023", "zAGCbSr"],
     ["17 okt 2023", "m9lWTJw"],
     ["19 okt 2023", "eGzi6Ut"],
