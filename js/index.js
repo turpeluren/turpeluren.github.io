@@ -712,7 +712,7 @@
 
 	function boot() {
 		printLineText('\nRunning turpelurpeluren.terminal [Version '+version+']:');
-        printLine('<a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1">CC0 1.0</a> turpelurpeluren.online 2024');
+        printLine('<a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1">CC0 1.0</a> turpelurpeluren.online '+new Date().getFullYear());
         const header = 
 		' _                   _                 _                           _ _         \n'+
 		'| |_ _ _ ___ ___ ___| |_ _ ___ ___ ___| |_ _ ___ ___ ___   ___ ___| |_|___ ___ \n'+
